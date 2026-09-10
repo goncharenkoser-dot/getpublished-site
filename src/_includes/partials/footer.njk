@@ -1,22 +1,40 @@
 <footer class="site-footer">
-  <div class="site-footer__contacts">
-    <p>По всем вопросам обращайтесь:</p>
-    <p><a href="mailto:mail@getpublish.org">mail@getpublish.org</a></p>
+  <div class="container site-footer__inner">
+    <div class="site-footer__col">
+      <a class="site-footer__brand" href="/">GetPublish<span>ED</span></a>
+      <p class="site-footer__tagline">Онлайн-школа писательского мастерства</p>
+      <p><a href="mailto:mail@getpublish.org">mail@getpublish.org</a></p>
+      <p><a href="tel:+79163044883">+7 (916) 304-48-83</a></p>
+    </div>
+
+    <nav class="site-footer__col">
+      <p class="eyebrow">Навигация</p>
+      <a href="/">Главная</a>
+      <a href="/program/">Программы</a>
+      <a href="/cases/">Кейсы</a>
+      <a href="/articles/">Статьи</a>
+      <a href="/reviews/">Отзывы</a>
+    </nav>
+
+    <nav class="site-footer__col">
+      <p class="eyebrow">Документы</p>
+      <a href="/legal/offer/">Договор публичной оферты</a>
+      <a href="/legal/privacy/">Политика конфиденциальности</a>
+      <a href="/legal/personal-data/">Согласие на обработку персональных данных</a>
+    </nav>
+
+    <div class="site-footer__col">
+      <p class="eyebrow">GetPublishED</p>
+      <p class="site-footer__legal-entity">
+        ИП Гончаренко Сергей Владимирович,<br>
+        ИНН: 771000780300<br>
+        123056, Россия, г. Москва, ул. Васильевская, д. 7, кв. 16
+      </p>
+    </div>
   </div>
 
-  <nav class="site-footer__nav">
-    <a href="/">Главная</a>
-    <a href="/program/">Программы</a>
-    <a href="/cases/">Кейсы</a>
-    <a href="/articles/">Статьи</a>
-    <a href="/reviews/">Отзывы</a>
-  </nav>
-
-  <div class="site-footer__legal">
-    <a href="/legal/offer/">Договор публичной оферты</a>
-    <a href="/legal/privacy/">Политика конфиденциальности</a>
-    <a href="/legal/personal-data/">Согласие на обработку персональных данных</a>
+  <div class="container site-footer__bottom">
+    <p>© {{ buildYear }} GetPublishED. Все права защищены.</p>
+    <p>Копирование материалов — только с согласия правообладателей.</p>
   </div>
-
-  <p class="site-footer__copyright">© {{ buildYear }} GetPublishED | Все права защищены.</p>
 </footer>
