@@ -5,10 +5,9 @@
     </a>
 
     <nav class="site-header__nav">
-      <a href="/program/">Программы</a>
-      <a href="/cases/">Кейсы</a>
-      <a href="/articles/">Статьи</a>
-      <a href="/reviews/">Отзывы</a>
+      {% for item in nav %}
+      <a href="{{ item.url }}">{{ item.title }}</a>
+      {% endfor %}
     </nav>
 
     <a class="btn site-header__cta" href="tel:+79163044883">заказать звонок</a>

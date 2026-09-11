@@ -1,0 +1,58 @@
+.covers {
+  overflow: hidden;
+}
+
+.covers__quote {
+  max-width: 22ch;
+  margin-bottom: var(--spacing-48);
+}
+
+.covers__viewport {
+  margin-top: var(--spacing-32);
+  overflow: hidden;
+}
+
+.covers__track {
+  display: flex;
+  gap: var(--spacing-24);
+  width: max-content;
+  animation: covers-scroll 66s linear infinite;
+}
+
+.covers:hover .covers__track {
+  animation-play-state: paused;
+}
+
+.covers__item {
+  margin: 0;
+  flex: 0 0 auto;
+  width: 210px;
+}
+
+.covers__item img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+/* Лента продублирована, поэтому сдвиг ровно на половину трека */
+@keyframes covers-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .covers__track {
+    animation: none;
+  }
+
+  .covers__viewport {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .covers__item {
+    width: 150px;
+  }
+}

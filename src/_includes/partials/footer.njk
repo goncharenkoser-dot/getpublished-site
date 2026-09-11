@@ -10,10 +10,9 @@
     <nav class="site-footer__col">
       <p class="label">Навигация</p>
       <a href="/">Главная</a>
-      <a href="/program/">Программы</a>
-      <a href="/cases/">Кейсы</a>
-      <a href="/articles/">Статьи</a>
-      <a href="/reviews/">Отзывы</a>
+      {% for item in nav %}
+      <a href="{{ item.url }}">{{ item.title }}</a>
+      {% endfor %}
     </nav>
 
     <nav class="site-footer__col">

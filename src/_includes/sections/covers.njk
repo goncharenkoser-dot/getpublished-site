@@ -1,0 +1,20 @@
+<section class="section section--cream covers">
+  <div class="container">
+    <h2 class="covers__quote">здесь не ставят оценок за то, как вы пишете</h2>
+    <p class="label">книги выпускников школы</p>
+  </div>
+
+  <div class="covers__viewport">
+    <div class="covers__track">
+      {# лента дублируется, чтобы прокрутка шла без стыка #}
+      {% for pass in [1, 2] %}
+        {% for book in covers %}
+        <figure class="covers__item">
+          <img src="/assets/img/covers/{{ book.file }}" alt="{{ book.alt }}"
+               width="340" height="536" loading="lazy">
+        </figure>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

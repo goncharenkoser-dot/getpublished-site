@@ -24,10 +24,11 @@
   height: 26px;
 }
 
+/* Восемь пунктов: шрифт и промежутки плотнее, иначе не помещаются */
 .site-header__nav {
   display: flex;
-  gap: var(--spacing-24);
-  font-size: var(--text-sm);
+  gap: var(--spacing-16);
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -59,7 +60,7 @@
   border-radius: 2px;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1180px) {
   .site-header__nav,
   .site-header__cta {
     display: none;

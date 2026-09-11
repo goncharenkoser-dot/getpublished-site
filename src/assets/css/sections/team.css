@@ -1,0 +1,58 @@
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-24);
+  margin-top: var(--spacing-48);
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 248, 236, 0.2);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.team-card__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--color-ink-soft);
+}
+
+.team-card__body {
+  padding: var(--spacing-24);
+}
+
+.team-card h3 {
+  margin-bottom: var(--spacing-4);
+}
+
+.team-card__role {
+  font-size: var(--text-sm);
+  color: var(--color-amber);
+  margin-bottom: var(--spacing-16);
+}
+
+.team-card__facts {
+  margin: 0;
+  padding-left: var(--spacing-16);
+  font-size: var(--text-sm);
+  color: var(--color-taupe-light);
+}
+
+.team-card__facts li {
+  margin-bottom: var(--spacing-8);
+}
+
+.team-card__quote {
+  margin: var(--spacing-16) 0 0;
+  padding-top: var(--spacing-16);
+  border-top: 1px solid rgba(255, 248, 236, 0.2);
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
+.team-card__quote::before { content: "«"; }
+.team-card__quote::after { content: "»"; }

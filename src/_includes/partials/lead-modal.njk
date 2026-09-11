@@ -1,0 +1,30 @@
+<dialog class="lead-modal" id="lead-modal" aria-labelledby="lead-modal-title">
+  <form class="lead-modal__form" method="dialog">
+    <button class="lead-modal__close" type="submit" value="cancel" aria-label="Закрыть">&times;</button>
+
+    <p class="label">Бесплатно</p>
+    <h2 id="lead-modal-title">дорожная карта начинающего автора</h2>
+    <p class="lead-modal__text">
+      7 простых шагов, которые приведут вас к собственной книге.
+      Пришлём pdf на почту.
+    </p>
+
+    <label class="lead-modal__field">
+      <span>Как вас зовут</span>
+      <input type="text" name="name" required autocomplete="name" placeholder="Имя">
+    </label>
+
+    <label class="lead-modal__field">
+      <span>E-mail</span>
+      <input type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+    </label>
+
+    <button class="btn lead-modal__submit" type="button" data-lead-submit>получить pdf</button>
+
+    <p class="lead-modal__consent">
+      Нажимая кнопку, вы соглашаетесь с
+      <a href="/legal/personal-data/">обработкой персональных данных</a>
+      и получением информации на e-mail.
+    </p>
+  </form>
+</dialog>

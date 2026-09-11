@@ -1,0 +1,103 @@
+.lead-modal {
+  width: min(440px, calc(100vw - 32px));
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-card);
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+.lead-modal::backdrop {
+  background: rgba(21, 11, 1, 0.6);
+}
+
+.lead-modal__form {
+  position: relative;
+  padding: var(--spacing-32);
+}
+
+.lead-modal__close {
+  position: absolute;
+  top: var(--spacing-12);
+  right: var(--spacing-16);
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-taupe);
+  cursor: pointer;
+}
+
+.lead-modal h2 {
+  font-size: var(--text-subheading);
+  margin-bottom: var(--spacing-12);
+}
+
+.lead-modal__text {
+  font-size: var(--text-sm);
+  color: var(--color-taupe);
+  margin-bottom: var(--spacing-24);
+}
+
+.lead-modal__field {
+  display: block;
+  margin-bottom: var(--spacing-16);
+}
+
+.lead-modal__field span {
+  display: block;
+  font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-taupe);
+  margin-bottom: var(--spacing-8);
+}
+
+.lead-modal__field input {
+  width: 100%;
+  padding: var(--spacing-12) var(--spacing-16);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--color-ink);
+}
+
+.lead-modal__field input:focus {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 1px;
+}
+
+.lead-modal__field input:user-invalid {
+  border-color: var(--color-orange-deep);
+}
+
+.lead-modal__submit {
+  width: 100%;
+  margin-top: var(--spacing-8);
+}
+
+.lead-modal__consent {
+  margin: var(--spacing-16) 0 0;
+  font-size: var(--text-caption);
+  line-height: 1.45;
+  color: var(--color-taupe);
+}
+
+.lead-modal__consent a {
+  text-decoration: underline;
+}
+
+.lead-modal__done {
+  padding: var(--spacing-32);
+  text-align: center;
+}
+
+.lead-modal__done h2 {
+  margin-bottom: var(--spacing-12);
+}
