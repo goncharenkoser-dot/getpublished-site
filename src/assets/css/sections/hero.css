@@ -1,27 +1,24 @@
+/* Заголовок выходит за пределы контейнера к краю вьюпорта — правило системы */
 .hero {
-  padding: var(--space-xl) 0 var(--space-2xl);
-  background:
-    radial-gradient(90% 110% at 85% 10%, var(--color-green-soft) 0%, transparent 70%),
-    linear-gradient(180deg, rgba(233, 237, 226, 0.6) 0%, transparent 45%),
-    var(--color-bg);
+  padding: var(--spacing-76) 0 var(--spacing-96);
 }
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: var(--space-xl);
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: var(--spacing-32);
   align-items: center;
 }
 
 .hero__text h1 {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--spacing-24);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin: var(--space-lg) 0;
+  gap: var(--spacing-16);
+  margin: var(--spacing-32) 0;
 }
 
 .hero__lead-magnet {
@@ -29,40 +26,39 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  background: var(--color-off-black);
+  border: 1px solid var(--color-surface-25);
+  border-radius: var(--radius-card);
 }
 
 .hero__lead-magnet strong {
   display: block;
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
+  font-weight: 600;
+  font-size: var(--text-body-sm);
 }
 
 .hero__lead-magnet span {
-  color: var(--color-ink-muted);
-  font-size: 0.9rem;
+  color: var(--color-surface-50);
+  font-size: var(--text-caption);
+  line-height: 1.4;
 }
 
 .hero__mascot {
   margin: 0;
-  text-align: center;
 }
 
 .hero__mascot img {
   width: 100%;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-card);
 }
 
 .hero__mascot figcaption {
-  margin-top: var(--space-sm);
-  font-size: 0.875rem;
-  color: var(--color-ink-muted);
-  font-style: italic;
+  margin-top: var(--spacing-12);
+  font-size: var(--text-caption);
+  line-height: 1.4;
+  color: var(--color-surface-50);
 }
 
 @media (max-width: 900px) {

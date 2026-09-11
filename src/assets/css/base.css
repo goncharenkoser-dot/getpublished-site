@@ -1,40 +1,54 @@
-/* ===== Дизайн-токены ===== */
+/* ===== Дизайн-система GSAP =====
+   Почти чёрный холст, тёплый кремовый, контурные пилюли.
+   Цвет работает как таксономия разделов, а не как украшение.
+   Источник: styles.refero.design/style/00537a20-e99e-4ef2-b119-c6f532c44cc9 */
 :root {
-  /* цвет: тёплая бумага + живая зелень + терракота */
-  --color-bg: #FAF7F1;
-  --color-surface: #FFFFFF;
-  --color-ink: #23291F;
-  --color-ink-muted: #5F6555;
+  /* поверхности */
+  --color-just-black: #0e100f;
+  --color-off-black: #191919;
+  --color-surface-25: #42433d;
+  --color-surface-50: #7c7c6f;
+  --color-surface-cream: #fffce1;
 
-  --color-green: #3E5641;
-  --color-green-dark: #2B3626;
-  --color-green-light: #7A8F6B;
-  --color-green-soft: #E9EDE2;
+  /* бренд */
+  --color-light-green: #abff84;
+  --color-core-green: #dfffd1;
+  --gradient-green: linear-gradient(114.41deg, #0ae448 20.74%, #abff84 65.5%);
 
-  --color-accent: #C4703A;
-  --color-accent-dark: #A65A2A;
-  --color-accent-soft: #F5E3D4;
-
-  --color-line: #E3DED2;
+  /* таксономия разделов */
+  --color-orangey: #ff8709;
+  --color-pink: #fec5fb;
+  --color-lilac: #9d95ff;
+  --color-blue: #00bae2;
 
   /* типографика */
-  --font-display: "Lora", Georgia, "Times New Roman", serif;
-  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mori: "Inter Tight", "Söhne", "DM Sans", system-ui, sans-serif;
 
-  /* отступы */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2.5rem;
-  --space-xl: 4rem;
-  --space-2xl: 6rem;
+  --text-caption: 14px;
+  --text-body-sm: 16px;
+  --text-body: 19px;
+  --text-body-lg: 23px;
+  --text-subheading: 34px;
+  --text-heading-sm: 44px;
+  --text-heading: 66px;
+  --text-heading-lg: 101px;
 
-  /* прочее */
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 32px;
-  --shadow-card: 0 8px 24px rgba(30, 27, 22, 0.08);
-  --container-width: 1120px;
+  /* отступы: базовый юнит 4px */
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-76: 76px;
+  --spacing-96: 96px;
+  --spacing-108: 108px;
+
+  /* форма */
+  --radius-card: 8px;
+  --radius-button: 100px;
+  --max-width: 1280px;
+  --section-gap: 80px;
 }
 
 /* ===== Сброс ===== */
@@ -48,11 +62,12 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-ink);
-  background: var(--color-bg);
+  font-family: var(--font-mori);
+  font-size: var(--text-body);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-surface-cream);
+  background: var(--color-just-black);
 }
 
 img {
@@ -66,116 +81,138 @@ a {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-mori);
   font-weight: 600;
-  line-height: 1.15;
-  margin: 0 0 var(--space-sm);
+  margin: 0 0 var(--spacing-16);
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
-h1 { font-size: clamp(2.25rem, 4vw, 3.5rem); }
-h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
-h3 { font-size: 1.375rem; }
+h1 {
+  font-size: clamp(var(--text-heading-sm), 8vw, var(--text-heading-lg));
+  line-height: 1;
+  letter-spacing: -0.011em;
+}
+
+h2 {
+  font-size: clamp(var(--text-subheading), 5vw, var(--text-heading));
+  line-height: 1.2;
+  letter-spacing: -0.011em;
+}
+
+h3 {
+  font-size: var(--text-subheading);
+  line-height: 1.2;
+  letter-spacing: -0.011em;
+}
 
 p {
-  margin: 0 0 var(--space-sm);
+  margin: 0 0 var(--spacing-16);
 }
 
 /* ===== Утилиты ===== */
 .container {
   width: 100%;
-  max-width: var(--container-width);
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 var(--spacing-24);
 }
 
 .section {
-  padding: var(--space-2xl) 0;
+  padding: var(--section-gap) 0;
 }
 
-.section--muted {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-line);
-  border-bottom: 1px solid var(--color-line);
+/* Тёмный холст не разрывается: секции отделяются волосяной линией,
+   а не сменой фона */
+.section + .section {
+  border-top: 1px solid var(--color-surface-25);
 }
 
-.section--green {
-  background: var(--color-green-soft);
+/* Фирменная подпись системы: аннотация в фигурных скобках */
+.bracket {
+  display: block;
+  font-size: var(--text-body-sm);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-surface-50);
+  margin-bottom: var(--spacing-16);
 }
 
-.section--dark {
-  background: var(--color-green-dark);
-  color: #EFEDE4;
+.bracket::before {
+  content: "{ ";
 }
 
-.eyebrow {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-green);
-  margin-bottom: var(--space-xs);
+.bracket::after {
+  content: " }";
 }
+
+.bracket--green { color: var(--color-light-green); }
+.bracket--orange { color: var(--color-orangey); }
+.bracket--pink { color: var(--color-pink); }
+.bracket--lilac { color: var(--color-lilac); }
+.bracket--blue { color: var(--color-blue); }
 
 .lede {
-  font-size: 1.125rem;
-  color: var(--color-ink-muted);
+  font-size: var(--text-body-lg);
+  line-height: 1.38;
+  letter-spacing: -0.23px;
+  color: var(--color-surface-50);
   max-width: 46rem;
 }
 
-/* ===== Кнопки ===== */
+.hairline {
+  height: 1px;
+  background: var(--color-surface-25);
+  border: none;
+  margin: 0;
+}
+
+/* ===== Кнопки: только контурные пилюли, без заливки ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.75rem;
-  border-radius: 999px;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.95rem;
-  border: 2px solid transparent;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12) var(--spacing-24);
+  border: 1px solid var(--color-surface-cream);
+  border-radius: var(--radius-button);
+  background: transparent;
+  color: var(--color-surface-cream);
+  font-family: var(--font-mori);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.15;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  opacity: 0.7;
 }
 
+/* Максимальная цветовая эскалация системы: градиентная обводка 1.5px */
 .btn--primary {
-  background: var(--color-accent);
-  color: #fff;
+  position: relative;
+  border-color: transparent;
+  background:
+    linear-gradient(var(--color-just-black), var(--color-just-black)) padding-box,
+    var(--gradient-green) border-box;
+  border: 1.5px solid transparent;
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-dark);
+  opacity: 0.85;
 }
 
-.btn--ghost {
-  background: transparent;
-  border-color: var(--color-green);
-  color: var(--color-green);
-}
-
-.btn--ghost:hover {
-  background: var(--color-green);
-  color: #fff;
-}
-
-/* ===== Карточки ===== */
+/* ===== Карточки: без теней, глубина только сменой поверхности ===== */
 .card {
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  box-shadow: var(--shadow-card);
+  background: var(--color-off-black);
+  border: 1px solid var(--color-surface-25);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-24);
 }
 
 .card-grid {
   display: grid;
-  gap: var(--space-md);
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-16);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }

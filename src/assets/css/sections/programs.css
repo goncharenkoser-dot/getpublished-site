@@ -1,57 +1,59 @@
 .programs__head {
-  max-width: 46rem;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-32);
 }
 
 .program-card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
+  gap: var(--spacing-12);
+  background: var(--color-off-black);
+  border: 1px solid var(--color-surface-25);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-24);
 }
 
 .program-card__duration {
   align-self: flex-start;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  background: var(--color-green-soft);
-  color: var(--color-green);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  padding: 4px var(--spacing-12);
+  border: 1px solid var(--color-orangey);
+  border-radius: var(--radius-card);
+  color: var(--color-orangey);
+  font-size: var(--text-caption);
+  line-height: 1.4;
 }
 
 .program-card__title {
-  font-size: 1.375rem;
+  font-size: var(--text-body-lg);
+  line-height: 1.38;
+  letter-spacing: -0.23px;
   margin: 0;
 }
 
 .program-card__description {
-  color: var(--color-ink-muted);
+  color: var(--color-surface-50);
+  font-size: var(--text-body-sm);
+  line-height: 1.4;
   margin: 0;
 }
 
 .program-card__price {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
+  gap: var(--spacing-12);
   margin: auto 0 0;
-  padding-top: var(--space-sm);
+  padding-top: var(--spacing-16);
 }
 
 .program-card__price s {
-  color: var(--color-ink-muted);
-  font-size: 0.95rem;
+  color: var(--color-surface-50);
+  font-size: var(--text-body-sm);
 }
 
 .program-card__price strong {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--color-accent-dark);
+  font-size: var(--text-subheading);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.34px;
 }
 
 .program-card .btn {

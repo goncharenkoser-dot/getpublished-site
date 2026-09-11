@@ -1,48 +1,50 @@
 .reviews-grid {
   columns: 2;
-  column-gap: var(--space-md);
+  column-gap: var(--spacing-16);
 }
 
 .review {
   break-inside: avoid;
-  margin: 0 0 var(--space-md);
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
+  margin: 0 0 var(--spacing-16);
+  background: var(--color-off-black);
+  border: 1px solid var(--color-surface-25);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-24);
 }
 
 .review blockquote {
-  margin: 0 0 var(--space-sm);
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  line-height: 1.6;
+  margin: 0 0 var(--spacing-16);
+  font-size: var(--text-body-sm);
+  line-height: 1.4;
 }
 
 .review blockquote::before {
   content: "«";
-  color: var(--color-green-light);
+  color: var(--color-pink);
 }
 
 .review blockquote::after {
   content: "»";
-  color: var(--color-green-light);
+  color: var(--color-pink);
 }
 
 .review figcaption {
   display: flex;
   flex-direction: column;
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--color-line);
+  gap: 2px;
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-surface-25);
 }
 
 .review__name {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: var(--text-body-sm);
 }
 
 .review__role {
-  font-size: 0.875rem;
-  color: var(--color-ink-muted);
+  font-size: var(--text-caption);
+  line-height: 1.4;
+  color: var(--color-surface-50);
 }
 
 @media (max-width: 760px) {
