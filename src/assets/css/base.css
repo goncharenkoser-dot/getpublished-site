@@ -1,50 +1,57 @@
-/* ===== Дизайн-система Air =====
-   Тёмный атмосферный холст, светлые карточки поверх него.
-   Изображения несут эмоцию, интерфейс остаётся тихим.
-   Источник: styles.refero.design/style/d3289fe7-a85e-42d8-96b7-eb7faa62a104 */
+/* ===== Фирменная система GetPublishED =====
+   Три поверхности: тёплый градиент, кремовая бумага, тёмно-коричневый.
+   Дисплейный шрифт тяжёлый и строчный, подписи — капслоком вразрядку.
+   Источник: getpublish-pb.ru */
 :root {
-  --color-whiteout: #ffffff;
-  --color-haze: #f5f5f5;
-  --color-ink: #1b1b1b;
-  --color-black-void: #000000;
-  --color-twilight-blue: #426188;
-  --color-signal-blue: #2b7fff;
+  /* чернила */
+  --color-ink: #150B01;
+  --color-ink-soft: #1E1510;
+  --color-taupe: #6A5C48;
+  --color-taupe-light: #B9A896;
 
-  /* Холст: в оригинале его роль играет полнокадровая фотография,
-     из неутральных системы самый тёмный — Ink */
-  --color-canvas: #1b1b1b;
+  /* бумага */
+  --color-cream: #FFF8EC;
+  --color-cream-alt: #F5EFE3;
+  --color-line: #DED3C0;
+
+  /* тепло */
+  --color-yellow: #FFD84A;
+  --color-amber: #FFAE1B;
+  --color-orange: #F4700E;
+  --color-orange-deep: #DE4A08;
+  --color-peach: #F2B98B;
+  --gradient-warm: linear-gradient(135deg, #FFD84A 0%, #FFAE1B 45%, #F4700E 100%);
+
+  /* знак логотипа */
+  --color-mark: #E31E24;
 
   /* типографика */
-  --font-control: "Inter", system-ui, sans-serif;
-  --font-compressed: "Oswald", "Anton", sans-serif;
-  --font-cursive: "Caveat", cursive;
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
 
   --text-caption: 13px;
-  --text-sm: 14px;
-  --text-body: 16px;
-  --text-subheading: 20px;
-  --text-heading: 32px;
-  --text-heading-lg: 56px;
+  --text-sm: 15px;
+  --text-body: 17px;
+  --text-lead: 21px;
+  --text-subheading: 28px;
+  --text-heading: 44px;
+  --text-display: 76px;
 
-  /* отступы: базовый юнит 4px */
+  /* отступы */
   --spacing-4: 4px;
   --spacing-8: 8px;
   --spacing-12: 12px;
   --spacing-16: 16px;
-  --spacing-20: 20px;
   --spacing-24: 24px;
   --spacing-32: 32px;
   --spacing-48: 48px;
   --spacing-64: 64px;
+  --spacing-96: 96px;
 
-  /* форма: новые радиусы не вводим */
-  --radius-input: 4px;
-  --radius-button: 8px;
-  --radius-image: 11px;
-  --radius-card: 12px;
-
-  --max-width: 1150px;
-  --section-gap: 48px;
+  --radius-sm: 8px;
+  --radius-card: 14px;
+  --max-width: 1200px;
+  --section-gap: 96px;
 }
 
 /* ===== Сброс ===== */
@@ -58,12 +65,11 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-control);
+  font-family: var(--font-body);
   font-size: var(--text-body);
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--color-whiteout);
-  background: var(--color-canvas);
+  line-height: 1.55;
+  color: var(--color-ink);
+  background: var(--color-cream);
 }
 
 img {
@@ -76,48 +82,36 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-control);
-  margin: 0 0 var(--spacing-16);
-  overflow-wrap: break-word;
+/* Дисплейные заголовки: тяжёлые, строчные, с плотным трекингом */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  margin: 0 0 var(--spacing-24);
 }
 
-/* Заголовки на тёмном — единственный хроматический цвет текста системы */
 h1 {
-  font-size: clamp(var(--text-heading), 5vw, var(--text-heading-lg));
-  font-weight: 400;
-  line-height: 1.1;
-  color: var(--color-twilight-blue);
+  font-size: clamp(40px, 6.5vw, var(--text-display));
 }
 
 h2 {
-  font-size: clamp(24px, 3vw, var(--text-heading));
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--color-twilight-blue);
+  font-size: clamp(30px, 4.5vw, var(--text-heading));
 }
 
 h3 {
-  font-size: var(--text-subheading);
-  font-weight: 500;
-  line-height: 1.4;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-lead);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin-bottom: var(--spacing-12);
 }
 
 p {
   margin: 0 0 var(--spacing-16);
-}
-
-/* Фирменный приём: одно слово в заголовке — курсивом ручного шрифта */
-.script {
-  font-family: var(--font-cursive);
-  font-weight: 400;
-  font-style: italic;
-  color: var(--color-whiteout);
-  /* рукописный шрифт визуально мельче и сидит ниже в кегельной
-     площадке — компенсируем размером и подъёмом базовой линии */
-  font-size: 1.25em;
-  line-height: 1;
-  vertical-align: 0.12em;
 }
 
 /* ===== Утилиты ===== */
@@ -132,66 +126,127 @@ p {
   padding: var(--section-gap) 0;
 }
 
+.section--warm {
+  background: var(--gradient-warm);
+}
+
+.section--cream {
+  background: var(--color-cream-alt);
+}
+
+.section--dark {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+/* Микроподпись над заголовком — капслоком вразрядку */
 .label {
   display: block;
+  font-family: var(--font-body);
   font-size: var(--text-caption);
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-whiteout);
-  opacity: 0.6;
-  margin-bottom: var(--spacing-12);
+  color: var(--color-taupe);
+  margin-bottom: var(--spacing-16);
+}
+
+.section--dark .label {
+  color: var(--color-taupe-light);
+}
+
+.section--warm .label {
+  color: var(--color-ink);
+  opacity: 0.65;
+}
+
+/* Подпись-плашка на градиенте */
+.chip {
+  display: inline-block;
+  padding: var(--spacing-8) var(--spacing-16);
+  background: var(--color-cream);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-16);
 }
 
 .lede {
-  font-size: var(--text-subheading);
-  font-weight: 400;
+  font-size: var(--text-lead);
   line-height: 1.4;
-  color: var(--color-whiteout);
-  opacity: 0.8;
-  max-width: 46rem;
+  max-width: 44rem;
 }
 
-/* ===== Кнопки: только призрачные или haze-заливка, без цветных ===== */
+.muted {
+  color: var(--color-taupe);
+}
+
+.section--dark .muted {
+  color: var(--color-taupe-light);
+}
+
+/* ===== Кнопки: чёрная заливка либо контур ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-8);
-  padding: var(--spacing-12) var(--spacing-20);
-  border: 1px solid var(--color-whiteout);
-  border-radius: var(--radius-button);
-  background: transparent;
-  color: var(--color-whiteout);
-  font-family: var(--font-control);
-  font-weight: 500;
-  font-size: var(--text-body);
-  line-height: 1.5;
+  padding: var(--spacing-16) var(--spacing-32);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  line-height: 1.2;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover {
-  opacity: 0.8;
+  background: var(--color-orange-deep);
+  border-color: var(--color-orange-deep);
+  color: var(--color-cream);
 }
 
-.btn--primary {
-  background: var(--color-haze);
-  border-color: var(--color-haze);
+.btn--ghost {
+  background: transparent;
   color: var(--color-ink);
 }
 
-/* ===== Карточки: светлый слой над тёмным холстом, без теней ===== */
+.btn--ghost:hover {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.section--dark .btn {
+  background: var(--color-cream);
+  border-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+.section--dark .btn:hover {
+  background: var(--color-amber);
+  border-color: var(--color-amber);
+}
+
+/* ===== Карточки ===== */
 .card {
-  background: var(--color-haze);
+  background: var(--color-cream);
   border-radius: var(--radius-card);
-  padding: var(--spacing-20);
-  color: var(--color-ink);
+  padding: var(--spacing-32);
+}
+
+.section--dark .card {
+  background: transparent;
+  border: 1px solid rgba(255, 248, 236, 0.2);
 }
 
 .card-grid {
   display: grid;
   gap: var(--spacing-16);
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }

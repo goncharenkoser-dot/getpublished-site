@@ -1,48 +1,68 @@
 .article {
-  padding: var(--spacing-48) 0;
+  padding: var(--spacing-64) 0;
 }
 
+/* Ширина совпадает с .article__body — иначе при центрировании
+   левый край заголовка и текста расходится */
 .article__head {
-  max-width: 42rem;
-  margin-bottom: var(--spacing-32);
+  max-width: 40rem;
+  margin-bottom: var(--spacing-48);
 }
 
 .breadcrumbs {
   display: flex;
   gap: var(--spacing-8);
   font-size: var(--text-caption);
-  opacity: 0.6;
-  margin-bottom: var(--spacing-16);
+  color: var(--color-taupe);
+  margin-bottom: var(--spacing-24);
 }
 
-/* Длинный текст — вес 400, как предписано для long-form body */
+.breadcrumbs a:hover {
+  color: var(--color-orange-deep);
+}
+
+/* Заголовок материала — не дисплейная ступень: длинный русский
+   заголовок тяжёлым Unbounded занимает весь экран */
+.article__head h1 {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, var(--text-heading));
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
 .article__body {
-  max-width: 42rem;
+  max-width: 40rem;
   font-size: var(--text-body);
-  font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .article__body h2 {
-  font-size: var(--text-heading);
-  margin-top: var(--spacing-32);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: var(--text-subheading);
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  margin-top: var(--spacing-48);
 }
 
 .article__body h3 {
-  font-size: var(--text-subheading);
-  margin-top: var(--spacing-24);
+  margin-top: var(--spacing-32);
 }
 
 .article__body blockquote {
-  margin: var(--spacing-24) 0;
-  padding-left: var(--spacing-20);
-  border-left: 1px solid var(--color-twilight-blue);
-  color: var(--color-twilight-blue);
+  margin: var(--spacing-32) 0;
+  padding: var(--spacing-24);
+  background: var(--color-cream-alt);
+  border-left: 4px solid var(--color-orange);
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
 }
 
 .article__body ul,
 .article__body ol {
-  padding-left: var(--spacing-20);
+  padding-left: var(--spacing-24);
 }
 
 .article__body li {
@@ -50,19 +70,20 @@
 }
 
 .article__body em {
-  opacity: 0.7;
+  color: var(--color-taupe);
 }
 
 .article__body a {
-  color: var(--color-signal-blue);
+  color: var(--color-orange-deep);
+  text-decoration: underline;
 }
 
 .article__foot {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-8);
-  max-width: 42rem;
-  margin-top: var(--spacing-32);
-  padding-top: var(--spacing-24);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  gap: var(--spacing-12);
+  max-width: 40rem;
+  margin-top: var(--spacing-48);
+  padding-top: var(--spacing-32);
+  border-top: 1px solid var(--color-line);
 }

@@ -1,64 +1,66 @@
 .programs__head {
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-48);
 }
 
 .program-card {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-8);
-  background: var(--color-haze);
+  gap: var(--spacing-12);
+  background: var(--color-cream);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius-card);
-  padding: var(--spacing-20);
-  color: var(--color-ink);
+  padding: var(--spacing-32);
 }
 
-/* Пилюли разрешены только фильтрам и переключателям — здесь обычный радиус */
 .program-card__duration {
   align-self: flex-start;
   padding: var(--spacing-4) var(--spacing-12);
-  border: 1px solid var(--color-ink);
-  border-radius: var(--radius-input);
+  background: var(--color-amber);
+  border-radius: var(--radius-sm);
   font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .program-card__title {
-  font-size: var(--text-subheading);
-  font-weight: 500;
-  line-height: 1.4;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-lead);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-transform: none;
   margin: 0;
 }
 
 .program-card__description {
   font-size: var(--text-sm);
-  font-weight: 400;
-  line-height: 1.5;
-  opacity: 0.7;
+  color: var(--color-taupe);
   margin: 0;
 }
 
 .program-card__price {
   display: flex;
   align-items: baseline;
-  gap: var(--spacing-8);
+  gap: var(--spacing-12);
   margin: auto 0 0;
-  padding-top: var(--spacing-16);
+  padding-top: var(--spacing-24);
 }
 
 .program-card__price s {
   font-size: var(--text-sm);
-  opacity: 0.5;
+  color: var(--color-taupe);
 }
 
 .program-card__price strong {
-  font-size: var(--text-heading);
-  font-weight: 500;
-  line-height: 1.1;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-subheading);
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .program-card .btn {
   align-self: flex-start;
-  margin-top: var(--spacing-8);
-  background: var(--color-ink);
-  border-color: var(--color-ink);
-  color: var(--color-whiteout);
+  margin-top: var(--spacing-16);
 }

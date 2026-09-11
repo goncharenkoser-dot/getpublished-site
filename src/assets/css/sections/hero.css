@@ -1,69 +1,69 @@
 .hero {
-  padding: var(--spacing-64) 0;
+  padding: var(--spacing-64) 0 var(--spacing-96);
 }
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: var(--spacing-48);
   align-items: center;
 }
 
+/* В фирменном макете дисплейная ступень несёт два коротких слова;
+   наш заголовок длиннее, поэтому ступенью ниже */
 .hero__text h1 {
-  margin-bottom: var(--spacing-20);
+  font-size: clamp(34px, 4.6vw, 58px);
+  margin-bottom: var(--spacing-24);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-8);
+  gap: var(--spacing-12);
   margin: var(--spacing-32) 0;
 }
 
+/* Кремовая карточка поверх градиента — как в фирменном макете */
 .hero__lead-magnet {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--spacing-16);
-  padding: var(--spacing-20);
-  background: var(--color-haze);
+  padding: var(--spacing-24);
+  background: var(--color-cream);
   border-radius: var(--radius-card);
-  color: var(--color-ink);
 }
 
 .hero__lead-magnet strong {
   display: block;
-  font-weight: 500;
+  font-weight: 800;
   font-size: var(--text-body);
 }
 
 .hero__lead-magnet span {
   font-size: var(--text-sm);
-  font-weight: 400;
-  opacity: 0.7;
+  color: var(--color-taupe);
 }
 
-.hero__lead-magnet .btn {
-  background: var(--color-ink);
-  border-color: var(--color-ink);
-  color: var(--color-whiteout);
-}
-
-/* Изображение несёт эмоцию — ему отдан самый большой радиус системы */
+/* Золотой фон портрета совпадает с градиентом — отделяем кремовой рамкой */
 .hero__mascot {
   margin: 0;
+  padding: var(--spacing-12);
+  background: var(--color-cream);
+  border-radius: var(--radius-card);
 }
 
 .hero__mascot img {
   width: 100%;
-  border-radius: var(--radius-image);
+  border-radius: var(--radius-sm);
 }
 
 .hero__mascot figcaption {
-  margin-top: var(--spacing-8);
+  margin-top: var(--spacing-12);
   font-size: var(--text-caption);
-  opacity: 0.6;
+  color: var(--color-taupe);
+  text-align: center;
 }
 
 @media (max-width: 900px) {

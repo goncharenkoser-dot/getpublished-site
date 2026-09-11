@@ -6,17 +6,16 @@
 .review {
   break-inside: avoid;
   margin: 0 0 var(--spacing-16);
-  background: var(--color-haze);
+  background: var(--color-cream);
   border-radius: var(--radius-card);
-  padding: var(--spacing-20);
+  padding: var(--spacing-32);
   color: var(--color-ink);
 }
 
 .review blockquote {
   margin: 0 0 var(--spacing-16);
   font-size: var(--text-sm);
-  font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .review blockquote::before { content: "«"; }
@@ -25,18 +24,18 @@
 .review figcaption {
   display: flex;
   flex-direction: column;
-  padding-top: var(--spacing-12);
-  border-top: 1px solid rgba(27, 27, 27, 0.15);
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-line);
 }
 
 .review__name {
-  font-weight: 500;
+  font-weight: 700;
   font-size: var(--text-sm);
 }
 
 .review__role {
   font-size: var(--text-caption);
-  opacity: 0.6;
+  color: var(--color-taupe);
 }
 
 @media (max-width: 760px) {

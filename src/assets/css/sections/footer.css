@@ -1,19 +1,19 @@
 .site-footer {
-  background: var(--color-canvas);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: var(--spacing-48);
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding-top: var(--spacing-64);
   font-size: var(--text-sm);
 }
 
 .site-footer a:hover {
-  opacity: 0.7;
+  color: var(--color-amber);
 }
 
 .site-footer__inner {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1.2fr 1.4fr;
   gap: var(--spacing-32);
-  padding-bottom: var(--spacing-32);
+  padding-bottom: var(--spacing-48);
 }
 
 .site-footer__col {
@@ -22,43 +22,53 @@
   gap: var(--spacing-8);
 }
 
+/* Логотип у бренда чёрный, на тёмном он не читается —
+   в подвале ставим текстовое начертание дисплейным шрифтом */
 .site-footer__brand {
-  font-weight: 500;
-  font-size: var(--text-body);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-lead);
+  letter-spacing: -0.02em;
 }
 
 .site-footer__brand span {
-  opacity: 0.6;
+  color: var(--color-amber);
 }
 
 .site-footer__tagline {
-  opacity: 0.6;
+  color: var(--color-taupe-light);
   margin-bottom: var(--spacing-8);
 }
 
+.site-footer .label {
+  color: var(--color-taupe-light);
+  margin-bottom: var(--spacing-12);
+}
+
 .site-footer__legal-entity {
-  opacity: 0.6;
+  color: var(--color-taupe-light);
   font-size: var(--text-caption);
+  line-height: 1.5;
 }
 
 .site-footer__bottom {
   display: flex;
   justify-content: space-between;
   gap: var(--spacing-16);
-  padding: var(--spacing-16) 0 var(--spacing-32);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: var(--spacing-16) 0 var(--spacing-48);
+  border-top: 1px solid rgba(255, 248, 236, 0.15);
   font-size: var(--text-caption);
-  opacity: 0.6;
+  color: var(--color-taupe-light);
   flex-wrap: wrap;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .site-footer__inner {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .site-footer__inner {
     grid-template-columns: 1fr;
   }

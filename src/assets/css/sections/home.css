@@ -3,7 +3,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--spacing-24);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-48);
   flex-wrap: wrap;
 }
 
@@ -13,47 +13,54 @@
 
 .section-head__link {
   font-size: var(--text-sm);
-  color: var(--color-signal-blue);
+  font-weight: 700;
   white-space: nowrap;
+  border-bottom: 2px solid var(--color-orange);
+  padding-bottom: 2px;
+}
+
+.section-head__link:hover {
+  color: var(--color-orange-deep);
 }
 
 /* Что даёт книга */
 .values__head {
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-48);
 }
 
 .values__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--spacing-8);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--spacing-12);
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .values__list li {
-  padding: var(--spacing-16) var(--spacing-20);
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius-button);
+  padding: var(--spacing-24);
+  background: var(--color-cream);
+  border-radius: var(--radius-card);
+  font-weight: 500;
   font-size: var(--text-sm);
 }
 
 /* Этапы */
 .stages__head {
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-32);
 }
 
 .stages__mascot {
   display: block;
   width: 100%;
   max-width: 620px;
-  margin: 0 auto var(--spacing-32);
-  border-radius: var(--radius-image);
+  margin: 0 auto var(--spacing-48);
+  border-radius: var(--radius-card);
 }
 
 .stages__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: var(--spacing-16);
   list-style: none;
   padding: 0;
@@ -61,34 +68,29 @@
 }
 
 .stage {
-  background: var(--color-haze);
+  padding: var(--spacing-32);
+  border: 1px solid rgba(255, 248, 236, 0.2);
   border-radius: var(--radius-card);
-  padding: var(--spacing-20);
-  color: var(--color-ink);
 }
 
+/* Крупные номера этапов — тёплый акцент системы */
 .stage__number {
   display: block;
-  margin-bottom: var(--spacing-12);
-  font-family: var(--font-compressed);
-  font-weight: 700;
-  font-size: var(--text-heading);
+  margin-bottom: var(--spacing-16);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-subheading);
   line-height: 1;
-  color: var(--color-twilight-blue);
+  color: var(--color-amber);
 }
 
 .stage h3 {
-  font-size: var(--text-body);
-  line-height: 1.4;
   margin-bottom: var(--spacing-8);
-  color: var(--color-ink);
 }
 
 .stage p {
   font-size: var(--text-sm);
-  font-weight: 400;
-  line-height: 1.5;
-  opacity: 0.7;
+  color: var(--color-taupe-light);
   margin: 0;
 }
 
@@ -100,23 +102,25 @@
   align-items: center;
 }
 
+/* Как и в герое: золотое фото на оранжевом нужно отделить */
 .about__image {
   margin: 0;
+  padding: var(--spacing-12);
+  background: var(--color-cream);
+  border-radius: var(--radius-card);
 }
 
 .about__image img {
   width: 100%;
-  border-radius: var(--radius-image);
+  border-radius: var(--radius-sm);
 }
 
 .about__text p {
   font-size: var(--text-body);
-  font-weight: 400;
-  opacity: 0.8;
 }
 
 .about__text .btn {
-  margin-top: var(--spacing-8);
+  margin-top: var(--spacing-16);
 }
 
 @media (max-width: 900px) {
