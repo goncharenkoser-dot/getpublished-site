@@ -1,37 +1,47 @@
 .listing {
-  padding: var(--spacing-76) 0 var(--spacing-96);
+  padding: var(--spacing-48) 0;
 }
 
 .listing__head {
   margin-bottom: var(--spacing-32);
 }
 
+/* Светлая карточка над тёмным холстом — без теней, глубина контрастом */
 .entry-card {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
-  background: var(--color-off-black);
-  border: 1px solid var(--color-surface-25);
+  background: var(--color-haze);
   border-radius: var(--radius-card);
-  padding: var(--spacing-24);
-  transition: border-color 0.15s ease;
+  padding: var(--spacing-20);
+  color: var(--color-ink);
+  transition: opacity 0.15s ease;
 }
 
 .entry-card:hover {
-  border-color: var(--color-surface-cream);
+  opacity: 0.85;
+}
+
+.entry-card .label {
+  color: var(--color-ink);
+  opacity: 0.5;
+  margin-bottom: var(--spacing-4);
 }
 
 .entry-card__title {
-  font-size: var(--text-body-lg);
-  line-height: 1.38;
-  letter-spacing: -0.23px;
+  font-size: var(--text-subheading);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-ink);
   margin: 0;
 }
 
 .entry-card__excerpt {
-  color: var(--color-surface-50);
-  font-size: var(--text-body-sm);
-  line-height: 1.4;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-ink);
+  opacity: 0.7;
   margin: 0;
 }
 
@@ -39,9 +49,5 @@
   margin-top: auto;
   padding-top: var(--spacing-16);
   font-size: var(--text-caption);
-  color: var(--color-surface-50);
-}
-
-.entry-card:hover .entry-card__more {
-  color: var(--color-surface-cream);
+  color: var(--color-signal-blue);
 }

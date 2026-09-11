@@ -1,5 +1,5 @@
 .article {
-  padding: var(--spacing-76) 0 var(--spacing-96);
+  padding: var(--spacing-48) 0;
 }
 
 .article__head {
@@ -7,51 +7,37 @@
   margin-bottom: var(--spacing-32);
 }
 
-/* Дисплейная ступень (101px) остаётся за героем главной; заголовок
-   материала берёт heading — иначе длинный русский заголовок занимает экран */
-.article__head h1 {
-  font-size: clamp(var(--text-subheading), 5vw, var(--text-heading));
-  line-height: 1.2;
-  letter-spacing: -0.66px;
-}
-
 .breadcrumbs {
   display: flex;
   gap: var(--spacing-8);
   font-size: var(--text-caption);
-  line-height: 1.4;
-  color: var(--color-surface-50);
-  margin-bottom: var(--spacing-24);
+  opacity: 0.6;
+  margin-bottom: var(--spacing-16);
 }
 
-.breadcrumbs a:hover {
-  color: var(--color-surface-cream);
-}
-
-/* Длинные интервью: берём шаг body-lg (23/1.38) — самый просторный
-   в системе, иначе кремовый по чёрному на 2000 слов не читается */
+/* Длинный текст — вес 400, как предписано для long-form body */
 .article__body {
   max-width: 42rem;
-  font-size: var(--text-body-lg);
-  line-height: 1.38;
-  letter-spacing: -0.23px;
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .article__body h2 {
-  font-size: var(--text-subheading);
+  font-size: var(--text-heading);
   margin-top: var(--spacing-32);
 }
 
 .article__body h3 {
-  font-size: var(--text-body-lg);
+  font-size: var(--text-subheading);
   margin-top: var(--spacing-24);
 }
 
 .article__body blockquote {
   margin: var(--spacing-24) 0;
   padding-left: var(--spacing-20);
-  border-left: 1px solid var(--color-light-green);
-  color: var(--color-light-green);
+  border-left: 1px solid var(--color-twilight-blue);
+  color: var(--color-twilight-blue);
 }
 
 .article__body ul,
@@ -64,19 +50,19 @@
 }
 
 .article__body em {
-  color: var(--color-surface-50);
+  opacity: 0.7;
 }
 
 .article__body a {
-  color: var(--color-light-green);
+  color: var(--color-signal-blue);
 }
 
 .article__foot {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-16);
+  gap: var(--spacing-8);
   max-width: 42rem;
   margin-top: var(--spacing-32);
-  padding-top: var(--spacing-32);
-  border-top: 1px solid var(--color-surface-25);
+  padding-top: var(--spacing-24);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }

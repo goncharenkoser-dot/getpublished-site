@@ -1,12 +1,12 @@
 .site-footer {
-  background: var(--color-just-black);
-  border-top: 1px solid var(--color-surface-25);
-  padding-top: var(--spacing-76);
-  font-size: var(--text-body-sm);
+  background: var(--color-canvas);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: var(--spacing-48);
+  font-size: var(--text-sm);
 }
 
 .site-footer a:hover {
-  color: var(--color-light-green);
+  opacity: 0.7;
 }
 
 .site-footer__inner {
@@ -23,24 +23,22 @@
 }
 
 .site-footer__brand {
-  font-weight: 600;
-  font-size: 21px;
-  letter-spacing: -0.011em;
+  font-weight: 500;
+  font-size: var(--text-body);
 }
 
 .site-footer__brand span {
-  color: var(--color-light-green);
+  opacity: 0.6;
 }
 
 .site-footer__tagline {
-  color: var(--color-surface-50);
+  opacity: 0.6;
   margin-bottom: var(--spacing-8);
 }
 
 .site-footer__legal-entity {
-  color: var(--color-surface-50);
+  opacity: 0.6;
   font-size: var(--text-caption);
-  line-height: 1.4;
 }
 
 .site-footer__bottom {
@@ -48,10 +46,9 @@
   justify-content: space-between;
   gap: var(--spacing-16);
   padding: var(--spacing-16) 0 var(--spacing-32);
-  border-top: 1px solid var(--color-surface-25);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: var(--text-caption);
-  line-height: 1.4;
-  color: var(--color-surface-50);
+  opacity: 0.6;
   flex-wrap: wrap;
 }
 

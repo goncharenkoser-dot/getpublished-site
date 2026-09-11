@@ -3,7 +3,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--spacing-24);
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--spacing-24);
   flex-wrap: wrap;
 }
 
@@ -12,39 +12,35 @@
 }
 
 .section-head__link {
-  font-size: var(--text-body-sm);
-  color: var(--color-surface-50);
+  font-size: var(--text-sm);
+  color: var(--color-signal-blue);
   white-space: nowrap;
-}
-
-.section-head__link:hover {
-  color: var(--color-surface-cream);
 }
 
 /* Что даёт книга */
 .values__head {
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--spacing-24);
 }
 
 .values__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-8);
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid var(--color-surface-25);
 }
 
 .values__list li {
-  padding: var(--spacing-20) 0;
-  border-bottom: 1px solid var(--color-surface-25);
-  font-size: var(--text-body-sm);
+  padding: var(--spacing-16) var(--spacing-20);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-button);
+  font-size: var(--text-sm);
 }
 
 /* Этапы */
 .stages__head {
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--spacing-24);
 }
 
 .stages__mascot {
@@ -52,12 +48,12 @@
   width: 100%;
   max-width: 620px;
   margin: 0 auto var(--spacing-32);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-image);
 }
 
 .stages__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--spacing-16);
   list-style: none;
   padding: 0;
@@ -65,31 +61,34 @@
 }
 
 .stage {
-  background: var(--color-off-black);
-  border: 1px solid var(--color-surface-25);
+  background: var(--color-haze);
   border-radius: var(--radius-card);
-  padding: var(--spacing-24);
+  padding: var(--spacing-20);
+  color: var(--color-ink);
 }
 
 .stage__number {
   display: block;
-  margin-bottom: var(--spacing-16);
-  font-size: var(--text-subheading);
-  font-weight: 600;
+  margin-bottom: var(--spacing-12);
+  font-family: var(--font-compressed);
+  font-weight: 700;
+  font-size: var(--text-heading);
   line-height: 1;
-  letter-spacing: -0.34px;
-  color: var(--color-lilac);
+  color: var(--color-twilight-blue);
 }
 
 .stage h3 {
-  font-size: var(--text-body-lg);
-  line-height: 1.38;
+  font-size: var(--text-body);
+  line-height: 1.4;
   margin-bottom: var(--spacing-8);
+  color: var(--color-ink);
 }
 
 .stage p {
-  color: var(--color-surface-50);
-  font-size: var(--text-body-sm);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.7;
   margin: 0;
 }
 
@@ -97,7 +96,7 @@
 .about__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-32);
+  gap: var(--spacing-48);
   align-items: center;
 }
 
@@ -107,17 +106,17 @@
 
 .about__image img {
   width: 100%;
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-image);
 }
 
 .about__text p {
-  font-size: var(--text-body-sm);
-  line-height: 1.4;
-  color: var(--color-surface-50);
+  font-size: var(--text-body);
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 .about__text .btn {
-  margin-top: var(--spacing-16);
+  margin-top: var(--spacing-8);
 }
 
 @media (max-width: 900px) {

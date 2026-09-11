@@ -6,45 +6,37 @@
 .review {
   break-inside: avoid;
   margin: 0 0 var(--spacing-16);
-  background: var(--color-off-black);
-  border: 1px solid var(--color-surface-25);
+  background: var(--color-haze);
   border-radius: var(--radius-card);
-  padding: var(--spacing-24);
+  padding: var(--spacing-20);
+  color: var(--color-ink);
 }
 
 .review blockquote {
   margin: 0 0 var(--spacing-16);
-  font-size: var(--text-body-sm);
-  line-height: 1.4;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.5;
 }
 
-.review blockquote::before {
-  content: "«";
-  color: var(--color-pink);
-}
-
-.review blockquote::after {
-  content: "»";
-  color: var(--color-pink);
-}
+.review blockquote::before { content: "«"; }
+.review blockquote::after { content: "»"; }
 
 .review figcaption {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding-top: var(--spacing-16);
-  border-top: 1px solid var(--color-surface-25);
+  padding-top: var(--spacing-12);
+  border-top: 1px solid rgba(27, 27, 27, 0.15);
 }
 
 .review__name {
-  font-weight: 600;
-  font-size: var(--text-body-sm);
+  font-weight: 500;
+  font-size: var(--text-sm);
 }
 
 .review__role {
   font-size: var(--text-caption);
-  line-height: 1.4;
-  color: var(--color-surface-50);
+  opacity: 0.6;
 }
 
 @media (max-width: 760px) {

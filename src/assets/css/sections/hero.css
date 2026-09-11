@@ -1,23 +1,22 @@
-/* Заголовок выходит за пределы контейнера к краю вьюпорта — правило системы */
 .hero {
-  padding: var(--spacing-76) 0 var(--spacing-96);
+  padding: var(--spacing-64) 0;
 }
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: var(--spacing-32);
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--spacing-48);
   align-items: center;
 }
 
 .hero__text h1 {
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-20);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-16);
+  gap: var(--spacing-8);
   margin: var(--spacing-32) 0;
 }
 
@@ -27,38 +26,44 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--spacing-16);
-  padding: var(--spacing-24);
-  background: var(--color-off-black);
-  border: 1px solid var(--color-surface-25);
+  padding: var(--spacing-20);
+  background: var(--color-haze);
   border-radius: var(--radius-card);
+  color: var(--color-ink);
 }
 
 .hero__lead-magnet strong {
   display: block;
-  font-weight: 600;
-  font-size: var(--text-body-sm);
+  font-weight: 500;
+  font-size: var(--text-body);
 }
 
 .hero__lead-magnet span {
-  color: var(--color-surface-50);
-  font-size: var(--text-caption);
-  line-height: 1.4;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  opacity: 0.7;
 }
 
+.hero__lead-magnet .btn {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-whiteout);
+}
+
+/* Изображение несёт эмоцию — ему отдан самый большой радиус системы */
 .hero__mascot {
   margin: 0;
 }
 
 .hero__mascot img {
   width: 100%;
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-image);
 }
 
 .hero__mascot figcaption {
-  margin-top: var(--spacing-12);
+  margin-top: var(--spacing-8);
   font-size: var(--text-caption);
-  line-height: 1.4;
-  color: var(--color-surface-50);
+  opacity: 0.6;
 }
 
 @media (max-width: 900px) {

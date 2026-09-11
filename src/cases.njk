@@ -8,8 +8,8 @@ sectionStyles:
 <section class="listing">
   <div class="container">
     <div class="listing__head">
-      <p class="bracket bracket--green">Кейсы</p>
-      <h1>Авторы, у которых получилось</h1>
+      <p class="label">Кейсы</p>
+      <h1>Авторы, у которых <span class="script">получилось</span></h1>
       <p class="lede">
         Реальные истории выпускников школы: от первой идеи и неудачного синопсиса
         до контракта с издательством.
@@ -19,7 +19,7 @@ sectionStyles:
     <div class="card-grid">
       {% for item in collections.cases %}
       <a class="entry-card" href="{{ item.url }}">
-        <p class="bracket bracket--green">Кейс</p>
+        <p class="label">Кейс</p>
         <h2 class="entry-card__title">{{ item.data.title }}</h2>
         <p class="entry-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
         <span class="entry-card__more">Читать историю</span>
