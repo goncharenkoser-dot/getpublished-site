@@ -1,0 +1,72 @@
+.article {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.article__head {
+  max-width: 42rem;
+  margin-bottom: var(--space-lg);
+}
+
+.breadcrumbs {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-md);
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-green);
+}
+
+.article__body {
+  max-width: 42rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.article__body h2 {
+  font-size: 1.75rem;
+  margin-top: var(--space-lg);
+}
+
+.article__body h3 {
+  margin-top: var(--space-md);
+}
+
+.article__body blockquote {
+  margin: var(--space-md) 0;
+  padding: var(--space-sm) var(--space-md);
+  border-left: 3px solid var(--color-green-light);
+  background: var(--color-green-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
+
+.article__body ul,
+.article__body ol {
+  padding-left: 1.25rem;
+}
+
+.article__body li {
+  margin-bottom: 0.5rem;
+}
+
+.article__body strong {
+  font-weight: 700;
+}
+
+.article__body em {
+  color: var(--color-ink-muted);
+}
+
+.article__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  max-width: 42rem;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-line);
+}

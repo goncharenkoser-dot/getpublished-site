@@ -1,0 +1,18 @@
+---
+layout: base.njk
+sectionStyles:
+  - /assets/css/sections/article.css
+---
+<article class="article">
+  <div class="container article__head">
+    <nav class="breadcrumbs">
+      <a href="/">Главная</a> <span>/</span>
+      <span>Документы</span>
+    </nav>
+    <h1>{{ title }}</h1>
+  </div>
+
+  <div class="container article__body">
+    {{ content | safe }}
+  </div>
+</article>

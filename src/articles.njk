@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: Статьи
+permalink: /articles/
+sectionStyles:
+  - /assets/css/sections/listing.css
+---
+<section class="listing">
+  <div class="container">
+    <div class="listing__head">
+      <p class="eyebrow">База знаний</p>
+      <h1>Статьи о том, как написать и издать книгу</h1>
+      <p class="lede">
+        Практические материалы от издателей и редакторов: как подступиться к тексту,
+        договориться с издательством и довести книгу до читателя.
+      </p>
+    </div>
+
+    <div class="card-grid">
+      {% for item in collections.articles %}
+      <a class="entry-card" href="{{ item.url }}">
+        <p class="eyebrow">Статья</p>
+        <h2 class="entry-card__title">{{ item.data.title }}</h2>
+        <p class="entry-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
+        <span class="entry-card__more">Читать</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

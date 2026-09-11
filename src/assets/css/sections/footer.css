@@ -1,6 +1,6 @@
 .site-footer {
-  background: var(--color-ink);
-  color: #EFE9DE;
+  background: var(--color-green-dark);
+  color: #EFEDE4;
   padding-top: var(--space-xl);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .site-footer__brand span {
-  color: var(--color-accent);
+  color: var(--color-green-light);
 }
 
 .site-footer__tagline {
@@ -42,7 +42,7 @@
 }
 
 .site-footer .eyebrow {
-  color: var(--color-accent);
+  color: var(--color-green-light);
   opacity: 1;
 }
 
@@ -57,7 +57,7 @@
   justify-content: space-between;
   gap: var(--space-sm);
   padding: var(--space-sm) 0 var(--space-lg);
-  border-top: 1px solid rgba(239, 233, 222, 0.15);
+  border-top: 1px solid rgba(239, 237, 228, 0.15);
   font-size: 0.85rem;
   opacity: 0.7;
   flex-wrap: wrap;

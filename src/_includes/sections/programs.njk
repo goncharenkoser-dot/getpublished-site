@@ -1,0 +1,27 @@
+<section class="programs section">
+  <div class="container">
+    <div class="programs__head">
+      <p class="eyebrow">Наши программы</p>
+      <h2>{{ programsHeading or "Выберите свой формат" }}</h2>
+      <p class="lede">
+        От большого курса с наставником до коротких марафонов в записи —
+        все программы ведут издатели и редакторы с многолетним стажем.
+      </p>
+    </div>
+
+    <div class="card-grid">
+      {% for program in programs %}
+      <div class="program-card">
+        <span class="program-card__duration">{{ program.duration }}</span>
+        <h3 class="program-card__title">{{ program.title }}</h3>
+        <p class="program-card__description">{{ program.description }}</p>
+        <p class="program-card__price">
+          <s>{{ program.priceOld }}</s>
+          <strong>{{ program.price }}</strong>
+        </p>
+        <a class="btn btn--primary" href="{{ program.url }}">Подробнее</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

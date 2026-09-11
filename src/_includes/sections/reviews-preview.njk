@@ -1,0 +1,23 @@
+<section class="section section--green reviews-preview">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Отзывы</p>
+        <h2>87% выпускников рекомендуют школу знакомым</h2>
+      </div>
+      <a class="section-head__link" href="/reviews/">Все отзывы</a>
+    </div>
+
+    <div class="card-grid">
+      {% for review in reviews.slice(0, 3) %}
+      <figure class="review">
+        <blockquote>{{ review.text }}</blockquote>
+        <figcaption>
+          <span class="review__name">{{ review.name }}</span>
+          <span class="review__role">{{ review.role }}</span>
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>

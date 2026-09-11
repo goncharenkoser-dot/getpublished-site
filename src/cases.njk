@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: Кейсы
+permalink: /cases/
+sectionStyles:
+  - /assets/css/sections/listing.css
+---
+<section class="listing">
+  <div class="container">
+    <div class="listing__head">
+      <p class="eyebrow">Кейсы</p>
+      <h1>Авторы, у которых получилось</h1>
+      <p class="lede">
+        Реальные истории выпускников школы: от первой идеи и неудачного синопсиса
+        до контракта с издательством.
+      </p>
+    </div>
+
+    <div class="card-grid">
+      {% for item in collections.cases %}
+      <a class="entry-card" href="{{ item.url }}">
+        <p class="eyebrow">Кейс</p>
+        <h2 class="entry-card__title">{{ item.data.title }}</h2>
+        <p class="entry-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
+        <span class="entry-card__more">Читать историю</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

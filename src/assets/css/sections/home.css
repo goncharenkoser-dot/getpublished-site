@@ -1,0 +1,140 @@
+/* общий заголовок секции со ссылкой справа */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.section-head h2 {
+  margin: 0;
+}
+
+.section-head__link {
+  font-weight: 700;
+  color: var(--color-green);
+  white-space: nowrap;
+}
+
+.section-head__link:hover {
+  color: var(--color-accent-dark);
+}
+
+/* Что даёт книга */
+.values__head {
+  max-width: 46rem;
+  margin-bottom: var(--space-lg);
+}
+
+.values__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.values__list li {
+  position: relative;
+  padding: var(--space-sm) var(--space-sm) var(--space-sm) 2.25rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.values__list li::before {
+  content: "";
+  position: absolute;
+  left: var(--space-sm);
+  top: 1.35rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-green-light);
+}
+
+/* Этапы */
+.stages__head {
+  max-width: 46rem;
+  margin-bottom: var(--space-md);
+}
+
+.stages__mascot {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.stages__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: stage;
+}
+
+.stage {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.stage__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: var(--space-sm);
+  border-radius: 50%;
+  background: var(--color-green);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
+
+.stage h3 {
+  font-size: 1.125rem;
+}
+
+.stage p {
+  color: var(--color-ink-muted);
+  margin: 0;
+}
+
+/* О школе */
+.about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about__image {
+  margin: 0;
+}
+
+.about__image img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.about__text .btn {
+  margin-top: var(--space-sm);
+}
+
+@media (max-width: 900px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+}

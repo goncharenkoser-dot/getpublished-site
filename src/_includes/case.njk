@@ -1,0 +1,26 @@
+---
+layout: base.njk
+sectionStyles:
+  - /assets/css/sections/article.css
+---
+<article class="article">
+  <div class="container article__head">
+    <nav class="breadcrumbs">
+      <a href="/">Главная</a> <span>/</span>
+      <a href="/cases/">Кейсы</a>
+    </nav>
+
+    <p class="eyebrow">История выпускника</p>
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<p class="lede">{{ subtitle }}</p>{% endif %}
+  </div>
+
+  <div class="container article__body">
+    {{ content | safe }}
+  </div>
+
+  <div class="container article__foot">
+    <a class="btn btn--ghost" href="/cases/">Все кейсы</a>
+    <a class="btn btn--primary" href="/program/">Выбрать программу</a>
+  </div>
+</article>

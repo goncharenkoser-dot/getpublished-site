@@ -23,11 +23,12 @@
 }
 
 .site-header__mascot {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  background: var(--color-accent-soft);
+  object-position: center top;
+  background: var(--color-green-soft);
 }
 
 .site-header__logo {
@@ -38,7 +39,7 @@
 }
 
 .site-header__logo-accent {
-  color: var(--color-accent);
+  color: var(--color-green);
 }
 
 .site-header__nav {
@@ -49,7 +50,7 @@
 }
 
 .site-header__nav a:hover {
-  color: var(--color-accent-dark);
+  color: var(--color-green);
 }
 
 .site-header__burger {
@@ -80,5 +81,27 @@
 
   .site-header__burger {
     display: flex;
+  }
+
+  .site-header__nav--open {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .site-header__nav--open a {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .site-header__nav--open a:last-child {
+    border-bottom: none;
   }
 }

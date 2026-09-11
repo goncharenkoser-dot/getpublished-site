@@ -1,8 +1,19 @@
 ---
 layout: base.njk
 title: Главная
+programsHeading: Выберите свой формат
+sectionStyles:
+  - /assets/css/sections/hero.css
+  - /assets/css/sections/home.css
+  - /assets/css/sections/listing.css
+  - /assets/css/sections/programs.css
+  - /assets/css/sections/reviews.css
 ---
-<section class="hero">
-  <h1>Станьте автором нон-фикшн-бестселлера в течение года</h1>
-  <p>Заглушка главной страницы — контент и секции добавим на следующем шаге.</p>
-</section>
+{% include "sections/hero.njk" %}
+{% include "sections/values.njk" %}
+{% include "sections/cases-preview.njk" %}
+{% include "sections/stages.njk" %}
+{% include "sections/about.njk" %}
+{% include "sections/programs.njk" %}
+{% include "sections/articles-preview.njk" %}
+{% include "sections/reviews-preview.njk" %}

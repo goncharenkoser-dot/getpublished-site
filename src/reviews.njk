@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Отзывы
+permalink: /reviews/
+sectionStyles:
+  - /assets/css/sections/listing.css
+  - /assets/css/sections/reviews.css
+---
+<section class="listing">
+  <div class="container listing__head">
+    <p class="eyebrow">Отзывы</p>
+    <h1>Что говорят выпускники</h1>
+    <p class="lede">
+      87% наших выпускников выполняют все задания курса и рекомендуют школу знакомым.
+      Здесь — их слова без правок.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="reviews-grid">
+      {% for review in reviews %}
+      <figure class="review">
+        <blockquote>{{ review.text }}</blockquote>
+        <figcaption>
+          <span class="review__name">{{ review.name }}</span>
+          <span class="review__role">{{ review.role }}</span>
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
