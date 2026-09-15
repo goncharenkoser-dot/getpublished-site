@@ -179,12 +179,22 @@
   line-height: 1.38;
   font-weight: 600;
   letter-spacing: -.01em;
-  margin: 20px auto 0;
+  margin: 36px auto 0;
   max-width: 31rem;
   color: var(--on-chalk-soft);
 }
 
-.bp-uni__actions { margin-top: 28px; }
+/* Вопрос-подводка к кнопке */
+.bp-uni__ask {
+  margin: 34px auto 0;
+  max-width: 30rem;
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.3;
+  font-weight: 800;
+  color: var(--on-chalk);
+}
+
+.bp-uni__actions { margin-top: 18px; }
 
 /* Пульс только у главной кнопки первого экрана */
 .bp-uni__actions .bp-btn { animation: heroPulse 6.5s var(--ease) infinite; }
@@ -196,13 +206,6 @@
   100% { box-shadow: 0 0 0 0 rgba(26, 14, 2, 0); }
 }
 
-.bp-uni__note {
-  margin: 14px auto 0;
-  max-width: 28rem;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--on-chalk-soft);
-}
 
 /* Бегущие строки для мобильных: вторую половину дорожки клонирует скрипт */
 .bp-uni__row {

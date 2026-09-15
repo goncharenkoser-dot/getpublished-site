@@ -37,18 +37,6 @@ module.exports = [
     facts: ["автор романа «#DAVID&FOXY. Сказка о возвращении души»"],
   },
   {
-    name: "Мария Ла Скала",
-    photo: "/assets/img/team/maria-la-scala.jpg",
-    role: "выпускница школы",
-    facts: ["автор книги «Не папина дочка»"],
-  },
-  {
-    name: "Надежда Салтанова",
-    photo: "/assets/img/team/nadezhda-saltanova.jpg",
-    role: "выпускница школы (Карасева)",
-    facts: ["автор серии исторических детективов", "среди них «Яд империи»"],
-  },
-  {
     name: "Владимир Стадник",
     photo: "/assets/img/team/vladimir-stadnik.jpg",
     role: "ведущий эксперт школы, куратор детской и подростковой литературы",
