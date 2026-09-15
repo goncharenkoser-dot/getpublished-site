@@ -1,0 +1,90 @@
+/* Общие токены и кнопки блоков, перенесённых с getpublish-pb.ru (классы bp-*).
+   Подключается везде, где есть .bp-uni, .bp-sec или .bp-modal. */
+.bp-uni, .bp-sec, .bp-modal {
+  --amber-core: #FFD84A;
+  --amber: #FFAE1B;
+  --ember: #F4700E;
+  --ember-deep: #DE4A08;
+  --sun: #FFA51F;
+  --glow: #F2B98B;
+  --chalk: #F5EFE3;
+  --chalk-line: #DED3C0;
+  --card-line: rgba(26, 18, 8, .12);
+  --night: #120C08;
+  --night-lift: #1E1510;
+  --on-amber: #1A0E02;
+  --on-amber-soft: rgba(26, 14, 2, .76);
+  --on-chalk: #1A1208;
+  --on-chalk-soft: #6A5C48;
+  --cloud: #FFF8EC;
+  --cloud-soft: #B9A896;
+  --line-night: rgba(242, 185, 139, .20);
+  --r-btn: 12px;
+  --r-tile: 12px;
+  --maxw: 1240px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  font-family: var(--font-body);
+}
+
+.bp-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.bp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.bp-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  color: var(--on-chalk-soft);
+}
+
+.bp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: var(--r-btn);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 32px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+}
+
+.bp-btn--ink { background: var(--on-amber); color: var(--amber-core); }
+.bp-btn--ink:hover { transform: translateY(-2px); box-shadow: 0 10px 0 -4px rgba(26, 14, 2, .28); }
+
+.bp-btn--sun { background: var(--sun); color: #150B01; }
+.bp-btn--sun:hover { transform: translateY(-2px); box-shadow: 0 0 44px rgba(255, 165, 31, .45); }
+
+.bp-btn--paper { background: #fff; color: var(--on-amber); box-shadow: inset 0 0 0 1px rgba(26, 14, 2, .30); }
+.bp-btn--paper:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px var(--on-amber), 0 10px 0 -4px rgba(26, 14, 2, .14); }
+
+.bp-btn:focus-visible { outline: 3px solid var(--ember-deep); outline-offset: 3px; }
+
+@media (max-width: 430px) {
+  .bp-btn { white-space: normal; text-align: center; line-height: 1.25; }
+}

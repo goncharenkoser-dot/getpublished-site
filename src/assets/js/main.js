@@ -87,3 +87,88 @@ if (universe) {
     });
   });
 }
+
+// Ценовые блоки с dod2026_sales: галочка спеццены, модалки GetCourse
+// и счётчик записавшихся на разбор
+document.querySelectorAll("[data-spec]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const box = btn.closest("[data-price]");
+    if (!box) return;
+    const on = box.classList.toggle("bp-is-spec");
+    btn.setAttribute("aria-pressed", String(on));
+    btn.querySelector("span").textContent = on
+      ? "спеццена дней открытых дверей"
+      : "открыть спеццену дней открытых дверей";
+  });
+});
+
+let openModal = null;
+
+const showModal = (id) => {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  // виджет грузится при первом открытии, loc — текущая страница
+  const frame = modal.querySelector("iframe[data-src]");
+  if (frame) {
+    frame.src = frame.dataset.src + encodeURIComponent(location.href);
+    delete frame.dataset.src;
+  }
+  modal.classList.remove("bp-is-closed");
+  document.documentElement.style.overflow = "hidden";
+  openModal = modal;
+};
+
+const hideModal = () => {
+  if (!openModal) return;
+  openModal.classList.add("bp-is-closed");
+  document.documentElement.style.overflow = "";
+  openModal = null;
+};
+
+document.addEventListener("click", (event) => {
+  const opener = event.target.closest("[data-open]");
+  if (opener) {
+    event.preventDefault();
+    showModal(opener.dataset.open === "talk" ? "m-talk" : "m-book");
+    return;
+  }
+  if (event.target.closest("[data-close]")) {
+    event.preventDefault();
+    hideModal();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") hideModal();
+});
+
+// Как в источнике: число считается от даты и часа, чтобы не прыгать
+// при каждой перезагрузке; за день не превышает 11
+const today = document.querySelector("[data-today]");
+
+if (today) {
+  const rnd = (n) => {
+    const x = Math.sin(n) * 10000;
+    return x - Math.floor(x);
+  };
+  const now = new Date();
+  const day = Math.floor((now - now.getTimezoneOffset() * 60000) / 86400000);
+  const cap = Math.min(11, 6 + Math.floor(rnd(day) * 6));
+  let n = 1;
+  for (let h = 9; h <= Math.min(now.getHours(), 22); h++) {
+    if (rnd(day * 24 + h) > 0.42) n++;
+  }
+  n = Math.min(n, cap);
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  let word = "будущих авторов";
+  let verb = "записалось";
+  if (mod10 === 1 && mod100 !== 11) {
+    word = "будущий автор";
+    verb = "записался";
+  } else if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) {
+    word = "будущих автора";
+  }
+  today.querySelector("span").textContent = `Сегодня ${verb} ${n} ${word}`;
+  today.hidden = false;
+}

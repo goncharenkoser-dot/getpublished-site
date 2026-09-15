@@ -1,0 +1,25 @@
+{# «Курс подойдёт вам, независимо от того, на каком вы этапе» — с getpublish-pb.ru/online-kurs-nf.
+   Состав и композиция как в источнике, оформление — в фирменной системе. #}
+<section class="section section--cream personas">
+  <div class="container">
+    <h2 class="personas__title">Курс подойдёт вам, независимо от того, на каком вы этапе</h2>
+
+    <ul class="personas__grid">
+      {% set people = [
+        { img: "persona-1", title: "Новичок", text: "Есть опыт, но нет идеи книги. Нужно понять, «о чём книга и для кого»." },
+        { img: "persona-2", title: "Начинающий автор", text: "Есть черновой план или наброски глав. Нет цельной структуры, страдает логика." },
+        { img: "persona-3", title: "Далеко продвинулись", text: "Написана значительная часть текста. Нужно переработать под читателя, добавить кейсы, примеры, убрать воду." },
+        { img: "persona-4", title: "Опытный автор", text: "Есть одна или несколько книг. Уже издавались, но хотите выйти на новый уровень и написать более успешную книгу." }
+      ] %}
+      {% for p in people %}
+      <li class="persona">
+        <span class="persona__figure" aria-hidden="true">
+          <img src="/assets/img/personas/{{ p.img }}.png" alt="" width="320" height="362" loading="lazy">
+        </span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.text }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

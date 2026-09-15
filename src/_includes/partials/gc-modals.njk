@@ -1,0 +1,21 @@
+{# Виджеты GetCourse с getpublish-pb.ru: бронь места и заявка на разбор.
+   iframe грузится только при первом открытии — src подставляет скрипт. #}
+<div class="bp-modal bp-is-closed" id="m-book">
+  <div class="bp-modal__backdrop" data-close></div>
+  <div class="bp-modal__panel" role="dialog" aria-modal="true" aria-label="бронь места">
+    <button class="bp-modal__x" type="button" data-close aria-label="закрыть">&times;</button>
+    <div class="bp-gc-slot">
+      <iframe data-src="https://getpublish.getcourse.ru/pl/lite/widget/widget?&id=1655457&ref=&loc=" title="Бронь места" height="663" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="bp-modal bp-is-closed" id="m-talk">
+  <div class="bp-modal__backdrop" data-close></div>
+  <div class="bp-modal__panel" role="dialog" aria-modal="true" aria-label="заявка на персональный разбор">
+    <button class="bp-modal__x" type="button" data-close aria-label="закрыть">&times;</button>
+    <div class="bp-gc-slot">
+      <iframe data-src="https://getpublish.getcourse.ru/pl/lite/widget/widget?&id=1655459&ref=&loc=" title="Заявка на персональный разбор" height="635" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

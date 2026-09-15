@@ -1,0 +1,35 @@
+{# «Что даст собственная книга вам» — с getpublish-pb.ru/best_sales.
+   Книга в облаках по центру, выгоды с иконками по сторонам. #}
+<section class="section section--cream benefits">
+  <div class="container">
+    <h2 class="benefits__title">Что даст собственная книга вам</h2>
+
+    <div class="benefits__layout">
+      <ul class="benefits__col benefits__col--left">
+        {% for b in [
+          { icon: "growth",   text: "Мгновенный рост экспертности" },
+          { icon: "fame",     text: "Славу и гордость близких" },
+          { icon: "people",   text: "Новые знакомства и точки роста" },
+          { icon: "gold-key", text: "Доступ туда, куда двери раньше были закрыты" }
+        ] %}
+        <li><span>{{ b.text }}</span><img src="/assets/img/benefits/{{ b.icon }}.svg" alt="" width="56" height="56" loading="lazy"></li>
+        {% endfor %}
+      </ul>
+
+      <figure class="benefits__book">
+        <img src="/assets/img/benefits/book.png" alt="Книга «Ваш первый бестселлер» на облаке" width="500" height="512" loading="lazy">
+      </figure>
+
+      <ul class="benefits__col benefits__col--right">
+        {% for b in [
+          { icon: "idea",        text: "Воплощение мечты и радость созидания" },
+          { icon: "development", text: "Ощущение «Я способен на все!»" },
+          { icon: "profits",     text: "Дополнительный источник дохода" },
+          { icon: "dove",        text: "Возможность влиять на судьбы людей и делать мир лучше" }
+        ] %}
+        <li><img src="/assets/img/benefits/{{ b.icon }}.svg" alt="" width="56" height="56" loading="lazy"><span>{{ b.text }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
