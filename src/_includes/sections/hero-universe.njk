@@ -1,0 +1,58 @@
+{# Первый экран «Вселенная авторов»: три вращающиеся орбиты обложек вокруг
+   текста. Ниже 900px орбиты скрыты, вместо них две бегущие строки.
+   Классы bp-* сохранены как в исходном блоке Тильды — переносится как есть. #}
+<section class="bp-uni" data-universe>
+  <p class="bp-sr-only">На фоне — обложки книг, которые написали авторы школы и выпустили издательства</p>
+  <div class="bp-uni__scrim" aria-hidden="true"></div>
+
+  <div class="bp-uni__field" aria-hidden="true">
+    {% for orb in universe.orbs %}
+    <div class="bp-orb bp-orb--{{ loop.index }}">
+      {% for s in orb.slots %}
+      <div class="bp-orb__slot" style="--a:{{ s.a }}deg;--r:var(--r{{ s.r }})">
+        <div class="bp-orb__anti"><div class="bp-orb__fix">
+          <span class="bp-orb__tile{% if s.flat %} bp-orb__tile--flat{% endif %}" style="--tz:{{ s.tz }}deg">
+            <img src="/assets/img/universe/{{ s.file }}" alt="" width="150" height="200"
+                 loading="{{ 'eager' if loop.index <= 4 else 'lazy' }}">
+          </span>
+        </div></div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="bp-uni__stack">
+    <div class="bp-uni__row bp-uni__row--top" aria-hidden="true">
+      <div class="bp-uni__track" data-loop>
+        {% for f in universe.rows.top %}
+        <span class="bp-uni__ci"><img src="/assets/img/universe/{{ f }}" alt="" width="150" height="200" loading="lazy"></span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="bp-uni__core">
+      <h1 class="bp-uni__h1">Вселенная авторов GetPublishED</h1>
+      <p class="bp-uni__lead">
+        Вместо нескольких лет — 2–3 месяца на книгу. По методике, которую прошли
+        больше тысячи авторов. Их книги опубликованы и нашли своего читателя.
+      </p>
+      <div class="bp-uni__actions">
+        <a class="bp-btn bp-btn--ink" href="#lead" data-lead-open>скачать pdf</a>
+      </div>
+      <p class="bp-uni__note">
+        «Дорожная карта начинающего автора» — 7 простых шагов, которые приведут вас к собственной книге
+      </p>
+    </div>
+
+    <div class="bp-uni__row bp-uni__row--bot" aria-hidden="true">
+      <div class="bp-uni__track" data-loop>
+        {% for f in universe.rows.bot %}
+        <span class="bp-uni__ci"><img src="/assets/img/universe/{{ f }}" alt="" width="150" height="200" loading="lazy"></span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="bp-uni__fade" aria-hidden="true"></div>
+</section>

@@ -1,0 +1,329 @@
+/* Первый экран «Вселенная авторов». Перенесён из блока T123 на
+   getpublish-pb.ru/dod2026_sales: геометрия орбит, скорости и кнопка —
+   как в источнике, обёртки Тильды убраны. */
+.bp-uni {
+  --bg: #FFFFFF;
+  --bg-0: rgba(255, 255, 255, 0);
+  --on-chalk: #1A1208;
+  --on-chalk-soft: #6A5C48;
+  --on-amber: #1A0E02;
+  --amber-core: #FFD84A;
+  --chalk-line: #DED3C0;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --r-btn: 12px;
+  --r-tile: 12px;
+  --zoom: 1.09;
+  --tile: 88px;
+  --core: 580px;
+  --sq: .74;
+  --r1: 555px;
+  --r2: 680px;
+  --r3: 850px;
+
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: grid;
+  /* minmax(0, …): иначе ячейка растёт под max-content бегущей строки
+     и текст с кнопкой уезжают за экран */
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: 118px 0;
+  background: var(--bg);
+  color: var(--on-chalk);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.bp-uni p { margin: 0; text-wrap: pretty; }
+.bp-uni img { display: block; }
+
+.bp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Размытие краёв: сверху под шапку, снизу к следующей секции */
+.bp-uni__scrim {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 132px;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(var(--bg) 40%, var(--bg-0) 100%);
+}
+
+.bp-uni__fade {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 26%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(var(--bg-0), var(--bg) 78%);
+}
+
+/* Поле орбит. --out выставляет скрипт при скролле: поле разлетается и гаснет */
+.bp-uni__field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transform: scale(calc(1 + var(--out, 0) * .42));
+  opacity: calc(1 - var(--out, 0));
+  will-change: transform, opacity;
+}
+
+.bp-uni.bp-is-out .bp-uni__field { will-change: auto; }
+.bp-uni.bp-is-out .bp-orb,
+.bp-uni.bp-is-out .bp-orb__anti { animation-play-state: paused; }
+
+.bp-orb {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  animation: orbSpin var(--sp) linear infinite;
+  animation-direction: var(--dir, normal);
+}
+
+.bp-orb--1 { --sp: 104s; }
+.bp-orb--2 { --sp: 146s; --dir: reverse; }
+.bp-orb--3 { --sp: 190s; }
+
+/* Орбита — сплюснутый круг; anti и fix возвращают плитку в вертикаль */
+@keyframes orbSpin {
+  from { transform: scaleY(var(--sq)) rotate(0deg); }
+  to   { transform: scaleY(var(--sq)) rotate(360deg); }
+}
+
+.bp-orb__slot {
+  position: absolute;
+  transform: rotate(var(--a)) translateX(var(--r));
+}
+
+.bp-orb__anti {
+  position: absolute;
+  animation: orbAnti var(--sp) linear infinite;
+  animation-direction: var(--dir, normal);
+}
+
+@keyframes orbAnti {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.bp-orb__fix {
+  position: absolute;
+  transform: rotate(calc(-1 * var(--a))) scaleY(calc(1 / var(--sq)));
+}
+
+.bp-orb__tile {
+  position: absolute;
+  display: block;
+  width: var(--tile);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--r-tile);
+  background: var(--chalk-line);
+  transform: translate(-50%, -50%) rotate(var(--tz));
+  box-shadow: 0 0 0 1px rgba(26, 18, 8, .10), 0 10px 26px rgba(26, 18, 8, .14);
+  pointer-events: auto;
+  transition: transform .5s var(--ease);
+}
+
+.bp-orb__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--zoom));
+}
+
+.bp-orb__tile--flat img { transform: none; }
+
+.bp-orb__tile:hover {
+  transform: translate(-50%, -50%) rotate(var(--tz)) scale(1.16);
+}
+
+/* Текст */
+.bp-uni__stack {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: calc(1 - var(--out, 0) * var(--out, 0));
+}
+
+.bp-uni__core {
+  position: relative;
+  z-index: 3;
+  width: min(var(--core), 100%);
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Светлое пятно за текстом, чтобы обложки не мешали читать */
+.bp-uni__core::before {
+  content: "";
+  position: absolute;
+  inset: -14% -14%;
+  z-index: -1;
+  background: radial-gradient(58% 56% at 50% 50%, var(--bg) 54%, var(--bg-0) 100%);
+}
+
+.bp-uni__h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 62px);
+  line-height: .94;
+  letter-spacing: -.035em;
+  text-transform: none;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.bp-uni__lead {
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.38;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  margin: 20px auto 0;
+  max-width: 31rem;
+  color: var(--on-chalk-soft);
+}
+
+.bp-uni__actions { margin-top: 28px; }
+
+.bp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: var(--r-btn);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 32px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+}
+
+.bp-btn--ink {
+  background: var(--on-amber);
+  color: var(--amber-core);
+  animation: heroPulse 6.5s var(--ease) infinite;
+}
+
+.bp-btn--ink:hover {
+  animation: none;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0 -4px rgba(26, 14, 2, .28);
+}
+
+.bp-btn:focus-visible {
+  outline: 3px solid var(--color-orange-deep);
+  outline-offset: 3px;
+}
+
+@keyframes heroPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(26, 14, 2, .38); }
+  8%   { box-shadow: 0 0 0 16px rgba(26, 14, 2, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(26, 14, 2, 0); }
+}
+
+.bp-uni__note {
+  margin: 14px auto 0;
+  max-width: 28rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-chalk-soft);
+}
+
+/* Бегущие строки для мобильных: вторую половину дорожки клонирует скрипт */
+.bp-uni__row {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 17%, #000 83%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 17%, #000 83%, transparent);
+}
+
+.bp-uni__track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: bpSlide var(--sp, 74s) linear infinite;
+}
+
+.bp-uni__row--bot .bp-uni__track {
+  animation-direction: reverse;
+  --sp: 88s;
+}
+
+.bp-uni__ci {
+  flex: 0 0 auto;
+  width: clamp(70px, 21vw, 96px);
+  margin: 0 15px 0 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--r-tile);
+  background: var(--chalk-line);
+  box-shadow: 0 0 0 1px rgba(26, 18, 8, .10), 0 6px 16px rgba(26, 18, 8, .12);
+}
+
+.bp-uni__ci img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--zoom));
+}
+
+@keyframes bpSlide {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 1279px) {
+  .bp-uni { --core: 520px; --r1: 505px; --r2: 625px; --r3: 775px; --sq: .78; --tile: 78px; }
+}
+
+@media (max-width: 1023px) {
+  .bp-uni { --core: 460px; --r1: 455px; --r2: 560px; --r3: 690px; --sq: .84; --tile: 70px; }
+}
+
+@media (max-width: 900px) {
+  .bp-uni { --core: 100%; padding: 104px 0 64px; min-height: auto; }
+  .bp-uni__field, .bp-uni__fade { display: none; }
+  .bp-uni__row { display: block; }
+  .bp-uni__row--top { margin-bottom: clamp(30px, 8vw, 56px); }
+  .bp-uni__row--bot { margin-top: clamp(30px, 8vw, 56px); }
+  .bp-uni__core::before { inset: -10% -6%; }
+  .bp-uni__stack { opacity: 1; }
+}
+
+@media (max-width: 430px) {
+  .bp-btn { white-space: normal; text-align: center; line-height: 1.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bp-orb, .bp-orb__anti, .bp-uni__track, .bp-btn--ink { animation: none; }
+  .bp-orb__tile { transition: none; }
+}

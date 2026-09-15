@@ -52,3 +52,38 @@ if (modal) {
     form.replaceChildren(done);
   });
 }
+
+// Первый экран «Вселенная»: при скролле поле орбит разлетается и гаснет,
+// а бегущие строки достраивают вторую половину дорожки для бесшовной петли
+const universe = document.querySelector("[data-universe]");
+
+if (universe) {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduced) {
+    let ticking = false;
+    const frame = () => {
+      ticking = false;
+      const h = universe.offsetHeight || 1;
+      const out = Math.min(1, Math.max(0, -universe.getBoundingClientRect().top / (h * 0.72)));
+      universe.style.setProperty("--out", out.toFixed(3));
+      universe.classList.toggle("bp-is-out", out > 0.98);
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(frame);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    frame();
+  }
+
+  universe.querySelectorAll("[data-loop]").forEach((track) => {
+    Array.from(track.children).forEach((child) => {
+      const clone = child.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+  });
+}
