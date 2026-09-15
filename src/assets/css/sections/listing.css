@@ -1,56 +1,62 @@
+/* Внутренние страницы: списки кейсов, статей, программ, мероприятий */
 .listing {
-  padding: var(--spacing-64) 0;
+  padding: var(--section) 0;
 }
 
 .listing__head {
-  margin-bottom: var(--spacing-48);
+  max-width: 44rem;
+  margin-bottom: var(--sp-12);
+}
+
+.label {
+  margin-bottom: var(--sp-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-taupe);
 }
 
 .entry-card {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-8);
-  background: var(--color-cream);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-card);
-  padding: var(--spacing-32);
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  gap: var(--sp-2);
+  padding: var(--sp-6) 0 0;
+  border-top: 1px solid var(--color-ink);
+  transition: color .2s var(--ease);
 }
 
-.entry-card:hover {
-  border-color: var(--color-orange);
-  transform: translateY(-2px);
-}
-
-.entry-card .label {
-  margin-bottom: var(--spacing-4);
-}
+.entry-card .label { margin-bottom: 0; }
 
 .entry-card__title {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: var(--text-lead);
+  font-size: var(--text-h3);
   line-height: 1.25;
-  letter-spacing: -0.01em;
+  letter-spacing: -.01em;
   text-transform: none;
-  margin: 0;
+  transition: color .2s var(--ease);
 }
 
 .entry-card__excerpt {
   font-size: var(--text-sm);
   color: var(--color-taupe);
-  margin: 0;
 }
 
 .entry-card__more {
   margin-top: auto;
-  padding-top: var(--spacing-24);
+  padding-top: var(--sp-4);
   font-size: var(--text-sm);
   font-weight: 700;
   color: var(--color-orange-deep);
 }
 
-.section--cream .entry-card,
-.section--warm .entry-card {
-  border-color: transparent;
+.entry-card__more::after { content: " →"; }
+
+@media (hover: hover) {
+  .entry-card:hover .entry-card__title { color: var(--color-orange-deep); }
+}
+
+.card-grid {
+  display: grid;
+  gap: var(--sp-8) var(--sp-6);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }

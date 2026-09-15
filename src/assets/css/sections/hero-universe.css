@@ -2,8 +2,8 @@
    getpublish-pb.ru/dod2026_sales: геометрия орбит, скорости и кнопка —
    как в источнике, обёртки Тильды убраны. Токены и кнопки — в bp-shared.css. */
 .bp-uni {
-  --bg: #FFFFFF;
-  --bg-0: rgba(255, 255, 255, 0);
+  --bg: var(--color-cream);
+  --bg-0: rgba(255, 248, 236, 0);
   --zoom: 1.09;
   --tile: 88px;
   --core: 580px;
@@ -20,7 +20,7 @@
      и текст с кнопкой уезжают за экран */
   grid-template-columns: minmax(0, 1fr);
   place-items: center;
-  padding: 118px 0;
+  padding: 56px 0 72px;
   background: var(--bg);
   color: var(--on-chalk);
   font-size: 17px;
@@ -196,15 +196,6 @@
 
 .bp-uni__actions { margin-top: 18px; }
 
-/* Пульс только у главной кнопки первого экрана */
-.bp-uni__actions .bp-btn { animation: heroPulse 6.5s var(--ease) infinite; }
-.bp-uni__actions .bp-btn:hover { animation: none; }
-
-@keyframes heroPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(26, 14, 2, .38); }
-  8%   { box-shadow: 0 0 0 16px rgba(26, 14, 2, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(26, 14, 2, 0); }
-}
 
 
 /* Бегущие строки для мобильных: вторую половину дорожки клонирует скрипт */
@@ -260,7 +251,7 @@
 }
 
 @media (max-width: 900px) {
-  .bp-uni { --core: 100%; padding: 104px 0 64px; min-height: auto; }
+  .bp-uni { --core: 100%; padding: 40px 0 56px; min-height: auto; }
   .bp-uni__field, .bp-uni__fade { display: none; }
   .bp-uni__row { display: block; }
   .bp-uni__row--top { margin-bottom: clamp(30px, 8vw, 56px); }
@@ -270,6 +261,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bp-orb, .bp-orb__anti, .bp-uni__track, .bp-uni__actions .bp-btn { animation: none; }
+  .bp-orb, .bp-orb__anti, .bp-uni__track { animation: none; }
   .bp-orb__tile { transition: none; }
 }

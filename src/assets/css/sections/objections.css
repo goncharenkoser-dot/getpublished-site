@@ -1,38 +1,36 @@
 .objections__title {
-  text-align: center;
-  margin: 0 auto var(--spacing-48);
+  max-width: 20ch;
+  margin-bottom: var(--sp-12);
 }
 
 .objections__title span {
   color: var(--color-orange-deep);
 }
 
-.objections__panel {
+/* Три колонки на широком, две на планшете, одна на телефоне */
+.objections__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-32) var(--spacing-48);
+  gap: var(--sp-6) var(--sp-12);
   list-style: none;
   margin: 0;
-  padding: var(--spacing-48);
-  background: var(--color-cream);
-  border-radius: var(--radius-card);
+  padding: 0;
 }
 
-.objections__panel li {
+.objections__list li {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-16);
+  gap: var(--sp-4);
+  padding: var(--sp-5) 0;
+  border-top: 1px solid var(--color-line);
   font-size: var(--text-body);
+  font-weight: 600;
   line-height: 1.4;
 }
 
-.objections__panel svg {
+.objections__list svg {
   flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  color: var(--color-taupe-light);
-}
-
-@media (max-width: 560px) {
-  .objections__panel { padding: var(--spacing-24); }
+  width: 40px;
+  height: 40px;
+  color: var(--color-orange-deep);
 }

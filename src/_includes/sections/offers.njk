@@ -1,16 +1,15 @@
-{# Курсы и «Автор ПРО» — с getpublish-pb.ru/dod2026_sales, классы bp-* как в источнике.
-   Кнопки брони открывают виджет GetCourse (partials/gc-modals.njk),
-   «сначала на разбор» ведёт к секции #razbor. #}
-<section class="bp-sec bp-sec--chalk" id="kursy">
-  <div class="bp-wrap">
-    <p class="bp-label">два курса</p>
-    <h2 class="bp-sec-title">какую книгу вы пишете</h2>
-    <p class="bp-sec-lead">
+{# Курсы и «Автор ПРО» — с getpublish-pb.ru/dod2026_sales. Кнопки брони
+   открывают виджет GetCourse (partials/gc-modals.njk), «сначала на разбор»
+   ведёт к секции #razbor. #}
+<section class="section" id="kursy">
+  <div class="container">
+    <h2>какую книгу вы пишете</h2>
+    <p class="lede">
       Программы идут отдельно, автор обеих — Ирина Гусинская. Мест у редакторов
       ограниченное число, поэтому место держится бронью.
     </p>
 
-    <div class="bp-fork">
+    <div class="courses">
       {% set courses = [
         {
           title: "Нон-фикшн 3.0",
@@ -30,32 +29,31 @@
         }
       ] %}
       {% for c in courses %}
-      <article class="bp-course">
-        <div class="bp-banner">
+      <article class="course">
+        <div class="course__banner">
           <svg viewBox="0 0 48 40" fill="none" aria-hidden="true"><path d="M4 5.5C9.5 2 17 2.5 22.5 6v29C17 31.5 9.5 31 4 34.5V5.5Z" fill="currentColor" opacity=".22"/><path d="M44 5.5C38.5 2 31 2.5 25.5 6v29C31 31.5 38.5 31 44 34.5V5.5Z" fill="currentColor" opacity=".34"/><path d="M4 5.5C9.5 2 17 2.5 22.5 6v29C17 31.5 9.5 31 4 34.5V5.5ZM44 5.5C38.5 2 31 2.5 25.5 6v29C31 31.5 38.5 31 44 34.5V5.5ZM24 6v29" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
-          <b>{{ c.title }}</b>
+          <h3 class="course__title">{{ c.title }}</h3>
           <p>{{ c.lead }}</p>
-          <ul>{% for t in c.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+          <ul class="course__tags">{% for t in c.tags %}<li class="tag">{{ t }}</li>{% endfor %}</ul>
         </div>
-        <h3 class="bp-sr-only">{{ c.title }}</h3>
-        <ul class="bp-course__in">
-          {% for i in c.items %}<li><span>{{ i }}</span></li>{% endfor %}
+        <ul class="course__in">
+          {% for i in c.items %}<li>{{ i }}</li>{% endfor %}
         </ul>
-        <div class="bp-course__foot">
+        <div class="course__foot">
           <div class="bp-price" data-price>
             <button class="bp-price__btn" type="button" data-spec aria-pressed="false">
               <span>открыть спеццену дней открытых дверей</span>
             </button>
-            <p class="bp-course__sum"><span class="bp-price__base">{{ c.base }}</span><span class="bp-price__spec">{{ c.spec }}</span></p>
-            <p class="bp-course__parts bp-price__parts">{{ c.parts }}</p>
+            <p class="course__sum"><span class="bp-price__base">{{ c.base }}</span><span class="bp-price__spec">{{ c.spec }}</span></p>
+            <p class="course__parts bp-price__parts">{{ c.parts }}</p>
             <p class="bp-price__save">{{ c.save }}</p>
           </div>
-          <div class="bp-course__acts">
-            <button class="bp-btn bp-btn--ink" type="button" data-open="book">забронировать место за 5 000 ₽</button>
-            <a class="bp-btn bp-btn--paper" href="#razbor">сначала на разбор</a>
+          <div class="course__acts">
+            <button class="btn" type="button" data-open="book">забронировать место за 5 000 ₽</button>
+            <a class="btn btn--ghost" href="#razbor">сначала на разбор</a>
           </div>
-          <p class="bp-course__hold">Бронь держит место у редактора. Действует 72 часа.</p>
-          <a class="bp-course__more" href="{{ c.more }}" target="_blank" rel="noopener">Программа и видео о курсе<span class="bp-sr-only"> (откроется в новом окне)</span></a>
+          <p class="course__hold">Бронь держит место у редактора. Действует 72 часа.</p>
+          <a class="course__more" href="{{ c.more }}" target="_blank" rel="noopener">Программа и видео о курсе<span class="bp-sr-only"> (откроется в новом окне)</span></a>
         </div>
       </article>
       {% endfor %}
@@ -63,62 +61,62 @@
   </div>
 </section>
 
-<section class="bp-sec bp-sec--amber bp-grain" id="pro">
-  <div class="bp-wrap">
-    <p class="bp-label">доступно 15 пакетов из 20</p>
-    <h2 class="bp-sec-title">Автор ПРО</h2>
-    <p class="bp-pro__slogan">хочу от жизни всё</p>
-    <p class="bp-sec-lead">
+<section class="section section--warm pro" id="pro">
+  <div class="container">
+    <h2 class="pro__title">Автор ПРО</h2>
+    <p class="pro__slogan">хочу от жизни всё</p>
+    <p class="lede">
       В нон-фикшне нужны живые сцены, в прозе нужна структура, а издателю нужны
       права и умение себя показать. Этот тариф закрывает всё сразу.
     </p>
+    <p class="pro__left">доступно 15 пакетов из 20</p>
 
-    <div class="bp-pro">
-      <div>
-        <p class="bp-pro__sum"><s class="bp-pro__old">250 000 ₽</s>179 000 ₽<span class="bp-pro__unit">5 курсов, практикум, 3 мини-курса и разбор ключевого задания</span></p>
-        <p class="bp-pro__share">Выбор 67% выпускников</p>
-        <div class="bp-pro__acts">
-          <button class="bp-btn bp-btn--ink" type="button" data-open="book">забронировать место за 5 000 ₽</button>
-          <a class="bp-btn bp-btn--paper" href="#razbor">сначала на разбор</a>
+    <div class="pro__grid">
+      <div class="pro__offer">
+        <p class="pro__sum"><s class="pro__old">250 000 ₽</s>179 000 ₽<span class="pro__unit">5 курсов, практикум, 3 мини-курса и разбор ключевого задания</span></p>
+        <p class="pro__share">Выбор 67% выпускников</p>
+        <div class="pro__acts">
+          <button class="btn" type="button" data-open="book">забронировать место за 5 000 ₽</button>
+          <a class="btn btn--ghost" href="#razbor">сначала на разбор</a>
         </div>
-        <p class="bp-pro__hint">Бронь держит место у редактора и сохраняет все условия. Действует 72 часа.</p>
+        <p class="pro__hint">Бронь держит место у редактора и сохраняет все условия. Действует 72 часа.</p>
       </div>
 
-      <div class="bp-pro__what">
-        <h4>что входит</h4>
-        <ul class="bp-pro__list">
-          <li><span class="bp-pro__n">Нон-фикшн<em class="bp-pro__note">с проверкой редактора</em></span><em class="bp-pro__dur"><s>3 месяца</s><b>18 месяцев</b></em></li>
-          <li><span class="bp-pro__n">Художественная литература<em class="bp-pro__note">с проверкой редактора</em></span><em class="bp-pro__dur"><s>2 месяца</s><b>18 месяцев</b></em></li>
-          <li><span class="bp-pro__n">Нейросети для чайников</span><em class="bp-pro__dur"><s>2 месяца</s><b>18 месяцев</b></em></li>
-          <li><span class="bp-pro__n">Глава из жизни<em class="bp-pro__note">с проверкой редактора</em></span><em class="bp-pro__dur"><s>1 месяц</s><b>18 месяцев</b></em></li>
-          <li><span class="bp-pro__n">Авторское право<em class="bp-pro__note">можно показать договор и задать вопросы</em></span><em class="bp-pro__dur"><s>1 месяц</s><b>18 месяцев</b></em></li>
+      <div class="pro__what">
+        <h3>что входит</h3>
+        <ul class="pro__list">
+          <li><span class="pro__n">Нон-фикшн<em>с проверкой редактора</em></span><span class="pro__dur"><s>3 месяца</s><b>18 месяцев</b></span></li>
+          <li><span class="pro__n">Художественная литература<em>с проверкой редактора</em></span><span class="pro__dur"><s>2 месяца</s><b>18 месяцев</b></span></li>
+          <li><span class="pro__n">Нейросети для чайников</span><span class="pro__dur"><s>2 месяца</s><b>18 месяцев</b></span></li>
+          <li><span class="pro__n">Глава из жизни<em>с проверкой редактора</em></span><span class="pro__dur"><s>1 месяц</s><b>18 месяцев</b></span></li>
+          <li><span class="pro__n">Авторское право<em>можно показать договор и задать вопросы</em></span><span class="pro__dur"><s>1 месяц</s><b>18 месяцев</b></span></li>
         </ul>
-        <p class="bp-pro__term">Все 18 месяцев открыт доступ на кураторские встречи</p>
-        <p class="bp-pro__mini">И три мини-курса: речь, фотопозирование, нейродизайн.</p>
+        <p class="pro__term">Все 18 месяцев открыт доступ на кураторские встречи</p>
+        <p class="pro__mini">И три мини-курса: речь, фотопозирование, нейродизайн.</p>
       </div>
     </div>
 
-    <div class="bp-alum">
-      <div class="bp-alum__text">
-        <p class="bp-label">для учеников и выпускников</p>
+    <div class="alum">
+      <div class="alum__text">
+        <h3>для учеников и выпускников</h3>
         <p>Засчитаем в «Автор ПРО» до 30 000 ₽ из того, что вы уже оплатили. Перейти можно и посреди обычного курса — точную сумму посчитаем по вашей истории обучения.</p>
       </div>
-      <button class="bp-btn bp-btn--ink" type="button" data-open="book">оставить заявку</button>
+      <button class="btn" type="button" data-open="book">оставить заявку</button>
     </div>
 
-    <div class="bp-pro__only">
-      <p class="bp-label">также вы получаете — только на днях открытых дверей</p>
-      <div class="bp-only">
-        <article class="bp-prac">
-          <h4>практикум по текстам</h4>
-          <p class="bp-prac__who">Ведёт Марина Венделовская — редактор и литературный коуч, 35+ лет в профессии, кандидат философских наук, практикующий психолог</p>
-          <p class="bp-prac__meta"><span>Месяц</span><span>4 встречи</span><span>группа</span><span>ориентировочно ноябрь</span></p>
+    <div class="only">
+      <h3 class="only__title">также вы получаете — только на днях открытых дверей</h3>
+      <div class="only__grid">
+        <article class="prac">
+          <h3>практикум по текстам</h3>
+          <p class="prac__who">Ведёт Марина Венделовская — редактор и литературный коуч, 35+ лет в профессии, кандидат философских наук, практикующий психолог</p>
+          <p class="prac__meta"><span class="tag">Месяц</span><span class="tag">4 встречи</span><span class="tag">группа</span><span class="tag">ориентировочно ноябрь</span></p>
           <p>Разбор ваших текстов на зум-встречах, один текст в неделю до 6 000 знаков, рецензии в чате.</p>
         </article>
-        <article class="bp-prac">
-          <h4>разбор ключевого задания</h4>
-          <p class="bp-prac__who">Личная встреча по вашей книге</p>
-          <p class="bp-prac__meta"><span>60 минут</span><span>один на один</span></p>
+        <article class="prac">
+          <h3>разбор ключевого задания</h3>
+          <p class="prac__who">Личная встреча по вашей книге</p>
+          <p class="prac__meta"><span class="tag">60 минут</span><span class="tag">один на один</span></p>
           <p>Личная консультация с разбором того задания курса, которое важно для вас больше всего: синопсис, отрывок текста или другое.</p>
         </article>
       </div>

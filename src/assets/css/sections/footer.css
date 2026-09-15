@@ -1,34 +1,38 @@
 .site-footer {
   background: var(--color-ink);
   color: var(--color-cream);
-  padding-top: var(--spacing-64);
+  padding-top: var(--sp-16);
   font-size: var(--text-sm);
 }
 
-.site-footer a:hover {
-  color: var(--color-amber);
+.site-footer a {
+  display: inline-block;
+  padding: 4px 0;
+  transition: color .2s var(--ease);
 }
+
+.site-footer a:hover { color: var(--color-amber); }
 
 .site-footer__inner {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1.2fr 1.4fr;
-  gap: var(--spacing-32);
-  padding-bottom: var(--spacing-48);
+  gap: var(--sp-8);
+  padding-bottom: var(--sp-12);
 }
 
 .site-footer__col {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-8);
+  gap: var(--sp-1);
 }
 
-/* Логотип у бренда чёрный, на тёмном он не читается —
-   в подвале ставим текстовое начертание дисплейным шрифтом */
+/* Логотип у бренда чёрный, на тёмном не читается: текстовое начертание */
 .site-footer__brand {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: var(--text-lead);
-  letter-spacing: -0.02em;
+  letter-spacing: -.02em;
+  margin-bottom: var(--sp-2);
 }
 
 .site-footer__brand span {
@@ -37,12 +41,13 @@
 
 .site-footer__tagline {
   color: var(--color-taupe-light);
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--sp-3);
 }
 
 .site-footer .label {
-  color: var(--color-taupe-light);
-  margin-bottom: var(--spacing-12);
+  font-weight: 700;
+  color: var(--color-cream);
+  margin-bottom: var(--sp-2);
 }
 
 .site-footer__legal-entity {
@@ -54,10 +59,11 @@
 .site-footer__bottom {
   display: flex;
   justify-content: space-between;
-  gap: var(--spacing-16);
-  padding: var(--spacing-16) 0 var(--spacing-48);
-  border-top: 1px solid rgba(255, 248, 236, 0.15);
+  gap: var(--sp-4);
+  padding: var(--sp-5) 0 max(var(--sp-10), env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(255, 248, 236, .15);
   font-size: var(--text-caption);
+  line-height: 1.5;
   color: var(--color-taupe-light);
   flex-wrap: wrap;
 }
@@ -71,5 +77,6 @@
 @media (max-width: 520px) {
   .site-footer__inner {
     grid-template-columns: 1fr;
+    gap: var(--sp-6);
   }
 }

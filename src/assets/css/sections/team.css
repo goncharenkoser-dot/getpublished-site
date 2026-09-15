@@ -1,58 +1,64 @@
+/* Фото-плитки без коробок: фото 4:5, подпись под ним */
 .team__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-24);
-  margin-top: var(--spacing-48);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-10) var(--sp-6);
 }
 
-.team-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(255, 248, 236, 0.2);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-}
-
-.team-card__photo {
-  width: 100%;
+.member__photo {
+  margin: 0 0 var(--sp-4);
   aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center top;
   background: var(--color-ink-soft);
 }
 
-.team-card__body {
-  padding: var(--spacing-24);
+.member__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
-.team-card h3 {
-  margin-bottom: var(--spacing-4);
+.member h3 {
+  font-size: 20px;
 }
 
-.team-card__role {
+.member__role {
+  margin-top: var(--sp-1);
   font-size: var(--text-sm);
-  color: var(--color-amber);
-  margin-bottom: var(--spacing-16);
+  font-weight: 700;
+  color: var(--color-orange-deep);
 }
 
-.team-card__facts {
-  margin: 0;
-  padding-left: var(--spacing-16);
+.member__facts {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
   font-size: var(--text-sm);
-  color: var(--color-taupe-light);
+  line-height: 1.5;
+  color: var(--color-taupe);
 }
 
-.team-card__facts li {
-  margin-bottom: var(--spacing-8);
+.member__facts li + li {
+  margin-top: var(--sp-1);
 }
 
-.team-card__quote {
-  margin: var(--spacing-16) 0 0;
-  padding-top: var(--spacing-16);
-  border-top: 1px solid rgba(255, 248, 236, 0.2);
+.member__quote {
+  margin: var(--sp-4) 0 0;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--color-line);
   font-size: var(--text-sm);
   font-style: italic;
+  line-height: 1.5;
 }
 
-.team-card__quote::before { content: "«"; }
-.team-card__quote::after { content: "»"; }
+.member__quote::before { content: "«"; }
+.member__quote::after { content: "»"; }
+
+@media (max-width: 900px) {
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-8) var(--sp-4);
+  }
+
+  .member h3 { font-size: 18px; }
+}

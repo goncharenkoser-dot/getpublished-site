@@ -1,130 +1,158 @@
-.section-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--spacing-24);
-  margin-bottom: var(--spacing-48);
-  flex-wrap: wrap;
-}
+/* Секции главной: кейсы списком, этапы и «О школе» как картинка + текст,
+   статьи газетным индексом. */
 
-.section-head h2 {
+/* Кейсы: строка = заголовок слева, отрывок и ссылка справа */
+.case-list {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
 }
 
-.section-head__link {
+.case-row {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--sp-3) var(--sp-10);
+  padding: var(--sp-6) 0;
+  border-bottom: 1px solid var(--color-line);
+  transition: color .2s var(--ease);
+}
+
+.case-row h3 {
+  font-size: var(--text-h3);
+  transition: color .2s var(--ease);
+}
+
+.case-row p {
+  color: var(--color-taupe);
+}
+
+.case-row__more {
+  grid-column: 2;
   font-size: var(--text-sm);
   font-weight: 700;
-  white-space: nowrap;
-  border-bottom: 2px solid var(--color-orange);
-  padding-bottom: 2px;
-}
-
-.section-head__link:hover {
   color: var(--color-orange-deep);
 }
 
-/* Что даёт книга */
-.values__head {
-  margin-bottom: var(--spacing-48);
+.case-row__more::after { content: " →"; }
+
+@media (hover: hover) {
+  .case-row:hover h3 { color: var(--color-orange-deep); }
 }
 
-.values__list {
+/* Этапы: картинка слева, заголовок и список справа */
+.stages__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: var(--spacing-12);
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  grid-template-columns: minmax(280px, 460px) 1fr;
+  grid-template-areas: "media head" "media list";
+  gap: var(--sp-8) var(--sp-16);
+  align-items: start;
 }
 
-.values__list li {
-  padding: var(--spacing-24);
-  background: var(--color-cream);
-  border-radius: var(--radius-card);
-  font-weight: 500;
-  font-size: var(--text-sm);
-}
-
-/* Этапы */
-.stages__head {
-  margin-bottom: var(--spacing-32);
-}
-
-.stages__mascot {
-  display: block;
-  width: 100%;
-  max-width: 620px;
-  margin: 0 auto var(--spacing-48);
-  border-radius: var(--radius-card);
-}
+.stages__head { grid-area: head; }
+.stages__media { grid-area: media; margin: 0; position: sticky; top: 96px; }
+.stages__list { grid-area: list; }
 
 .stages__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: var(--spacing-16);
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
 }
 
-.stage {
-  padding: var(--spacing-32);
-  border: 1px solid rgba(255, 248, 236, 0.2);
-  border-radius: var(--radius-card);
+.stages__list li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: var(--sp-4);
+  padding: var(--sp-6) 0;
+  border-bottom: 1px solid var(--color-line);
 }
 
-/* Крупные номера этапов — тёплый акцент системы */
-.stage__number {
-  display: block;
-  margin-bottom: var(--spacing-16);
+/* Номер этапа несёт смысл: это и есть порядок пути */
+.stages__n {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: var(--text-subheading);
+  font-size: 32px;
   line-height: 1;
   color: var(--color-amber);
 }
 
-.stage h3 {
-  margin-bottom: var(--spacing-8);
-}
+.stages__list h3 { font-size: 19px; }
+.stages__list p { margin-top: var(--sp-2); font-size: var(--text-sm); color: var(--color-taupe); }
 
-.stage p {
-  font-size: var(--text-sm);
-  color: var(--color-taupe-light);
-  margin: 0;
-}
-
-/* О школе */
-.about__inner {
+/* О школе: текст слева, фото справа */
+.about__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-48);
+  grid-template-columns: 1fr minmax(280px, 480px);
+  gap: var(--sp-16);
   align-items: center;
 }
 
-/* Как и в герое: золотое фото на оранжевом нужно отделить */
-.about__image {
-  margin: 0;
-  padding: var(--spacing-12);
-  background: var(--color-cream);
-  border-radius: var(--radius-card);
+.about__text h2 { margin-bottom: var(--sp-6); }
+.about__text p { max-width: 36rem; }
+.about__cta { margin-top: var(--sp-8); }
+.about__media { margin: 0; }
+
+/* Статьи: индекс в четыре колонки с линией сверху */
+.index {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-8) var(--sp-6);
 }
 
-.about__image img {
-  width: 100%;
-  border-radius: var(--radius-sm);
+.index__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--color-ink);
 }
 
-.about__text p {
-  font-size: var(--text-body);
+.index__item h3 {
+  font-size: 19px;
+  transition: color .2s var(--ease);
 }
 
-.about__text .btn {
-  margin-top: var(--spacing-16);
+.index__item p {
+  font-size: var(--text-sm);
+  color: var(--color-taupe);
+}
+
+.index__more {
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-orange-deep);
+}
+
+.index__more::after { content: " →"; }
+
+@media (hover: hover) {
+  .index__item:hover h3 { color: var(--color-orange-deep); }
+}
+
+@media (max-width: 1000px) {
+  .index { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
-  .about__inner {
+  .case-row { grid-template-columns: 1fr; gap: var(--sp-2); }
+  .case-row__more { grid-column: 1; }
+
+  .stages__grid {
     grid-template-columns: 1fr;
+    grid-template-areas: "head" "media" "list";
+    gap: var(--sp-8);
   }
+  .stages__media { position: static; max-width: 420px; }
+
+  .about__grid { grid-template-columns: 1fr; gap: var(--sp-8); }
+  .about__media { max-width: 420px; }
+}
+
+@media (max-width: 560px) {
+  .index { grid-template-columns: 1fr; gap: var(--sp-5); }
+  .stages__list li { grid-template-columns: 44px 1fr; }
+  .stages__n { font-size: 26px; }
 }

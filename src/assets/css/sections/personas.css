@@ -1,68 +1,79 @@
 .personas__title {
-  max-width: 24ch;
-  margin: 0 auto var(--spacing-96);
-  text-align: center;
+  max-width: 22ch;
+  margin-bottom: var(--sp-16);
 }
 
-.personas__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: var(--spacing-24);
+/* На десктопе четыре колонки без коробок; .rail включается только узко */
+.personas__row {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-/* Персона выступает над верхом карточки — как в источнике */
 .persona {
   position: relative;
-  padding: 180px var(--spacing-24) var(--spacing-32);
-  background: var(--color-cream);
-  border-radius: var(--radius-card);
-  text-align: center;
+  padding-top: 216px;
 }
 
 .persona__figure {
   position: absolute;
-  left: 50%;
-  top: -56px;
+  left: 0;
+  top: 0;
   width: 200px;
-  height: 226px;
-  transform: translateX(-50%);
+  height: 200px;
 }
 
-/* Жёлтый круг под вырезкой */
+/* Жёлтый диск под вырезкой; фигура выходит за верх диска */
 .persona__figure::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 0;
   bottom: 0;
   width: 176px;
   height: 176px;
-  transform: translateX(-50%);
   border-radius: 50%;
   background: var(--color-yellow);
 }
 
 .persona__figure img {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 226px;
   object-fit: contain;
   object-position: bottom;
 }
 
 .persona h3 {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--sp-2);
 }
 
 .persona p {
-  margin: 0;
   font-size: var(--text-sm);
+  line-height: 1.5;
   color: var(--color-taupe);
+  max-width: 28ch;
 }
 
-@media (max-width: 560px) {
-  .personas__grid { gap: 80px var(--spacing-16); }
-  .personas__title { margin-bottom: 80px; }
+@media (min-width: 900px) {
+  .personas__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-8);
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    scroll-snap-type: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .persona {
+    width: min(76vw, 300px);
+  }
+
+  .personas__title {
+    margin-bottom: var(--sp-10);
+  }
 }

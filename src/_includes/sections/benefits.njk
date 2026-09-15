@@ -1,6 +1,6 @@
 {# «Что даст собственная книга вам» — с getpublish-pb.ru/best_sales.
    Книга в облаках по центру, выгоды с иконками по сторонам. #}
-<section class="section section--cream benefits">
+<section class="section benefits">
   <div class="container">
     <h2 class="benefits__title">Что даст собственная книга вам</h2>
 
@@ -12,7 +12,7 @@
           { icon: "people",   text: "Новые знакомства и точки роста" },
           { icon: "gold-key", text: "Доступ туда, куда двери раньше были закрыты" }
         ] %}
-        <li><span>{{ b.text }}</span><img src="/assets/img/benefits/{{ b.icon }}.svg" alt="" width="56" height="56" loading="lazy"></li>
+        <li><span>{{ b.text }}</span><img src="/assets/img/benefits/{{ b.icon }}.svg" alt="" width="48" height="48" loading="lazy"></li>
         {% endfor %}
       </ul>
 
@@ -27,7 +27,7 @@
           { icon: "profits",     text: "Дополнительный источник дохода" },
           { icon: "dove",        text: "Возможность влиять на судьбы людей и делать мир лучше" }
         ] %}
-        <li><img src="/assets/img/benefits/{{ b.icon }}.svg" alt="" width="56" height="56" loading="lazy"><span>{{ b.text }}</span></li>
+        <li><img src="/assets/img/benefits/{{ b.icon }}.svg" alt="" width="48" height="48" loading="lazy"><span>{{ b.text }}</span></li>
         {% endfor %}
       </ul>
     </div>

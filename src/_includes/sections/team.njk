@@ -1,24 +1,25 @@
-<section class="section section--dark team">
+<section class="section section--quiet team">
   <div class="container">
-    <p class="label">кто ведёт</p>
-    <h2>люди, которые доводят книги до полки</h2>
+    <div class="section-head">
+      <h2>люди, которые доводят книги до полки</h2>
+    </div>
 
     <div class="team__grid">
       {% for person in team %}
-      <article class="team-card">
-        <img class="team-card__photo" src="{{ person.photo }}" alt="{{ person.name }}" loading="lazy">
-        <div class="team-card__body">
-          <h3>{{ person.name }}</h3>
-          <p class="team-card__role">{{ person.role }}</p>
-          <ul class="team-card__facts">
-            {% for fact in person.facts %}
-            <li>{{ fact }}</li>
-            {% endfor %}
-          </ul>
-          {% if person.quote %}
-          <blockquote class="team-card__quote">{{ person.quote }}</blockquote>
-          {% endif %}
-        </div>
+      <article class="member">
+        <figure class="member__photo frame">
+          <img src="{{ person.photo }}" alt="{{ person.name }}" loading="lazy">
+        </figure>
+        <h3>{{ person.name }}</h3>
+        <p class="member__role">{{ person.role }}</p>
+        <ul class="member__facts">
+          {% for fact in person.facts %}
+          <li>{{ fact }}</li>
+          {% endfor %}
+        </ul>
+        {% if person.quote %}
+        <blockquote class="member__quote">{{ person.quote }}</blockquote>
+        {% endif %}
       </article>
       {% endfor %}
     </div>

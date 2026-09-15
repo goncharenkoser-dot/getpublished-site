@@ -1,19 +1,16 @@
-<section class="section section--cream articles-preview">
+<section class="section articles-preview">
   <div class="container">
     <div class="section-head">
-      <div>
-        <p class="label">База знаний</p>
-        <h2>Статьи для начинающих авторов</h2>
-      </div>
+      <h2>Статьи для начинающих авторов</h2>
       <a class="section-head__link" href="/articles/">Все статьи</a>
     </div>
 
-    <div class="card-grid">
+    <div class="index">
       {% for item in collections.articles %}
-      <a class="entry-card" href="{{ item.url }}">
-        <h3 class="entry-card__title">{{ item.data.title }}</h3>
-        <p class="entry-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
-        <span class="entry-card__more">Читать</span>
+      <a class="index__item" href="{{ item.url }}">
+        <h3>{{ item.data.title }}</h3>
+        <p>{{ item.data.excerpt or item.data.subtitle }}</p>
+        <span class="index__more">Читать</span>
       </a>
       {% endfor %}
     </div>

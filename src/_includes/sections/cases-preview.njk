@@ -1,21 +1,20 @@
 <section class="section cases-preview">
   <div class="container">
     <div class="section-head">
-      <div>
-        <p class="label">Кейсы</p>
-        <h2>Авторы, у которых получилось</h2>
-      </div>
+      <h2>Авторы, у которых получилось</h2>
       <a class="section-head__link" href="/cases/">Все кейсы</a>
     </div>
 
-    <div class="card-grid">
+    <ul class="case-list">
       {% for item in collections.cases %}
-      <a class="entry-card" href="{{ item.url }}">
-        <h3 class="entry-card__title">{{ item.data.title }}</h3>
-        <p class="entry-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
-        <span class="entry-card__more">Читать историю</span>
-      </a>
+      <li>
+        <a class="case-row" href="{{ item.url }}">
+          <h3>{{ item.data.title }}</h3>
+          <p>{{ item.data.excerpt or item.data.subtitle }}</p>
+          <span class="case-row__more">Читать историю</span>
+        </a>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </section>

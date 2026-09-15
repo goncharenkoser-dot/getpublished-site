@@ -1,7 +1,8 @@
-/* ===== Фирменная система GetPublishED =====
-   Три поверхности: тёплый градиент, кремовая бумага, тёмно-коричневый.
-   Дисплейный шрифт тяжёлый и строчный, подписи — капслоком вразрядку.
-   Источник: getpublish-pb.ru */
+/* ===== Фирменная система GetPublishED, единая для всех секций =====
+   Поверхности: кремовая бумага (страница), тихий крем (группировка),
+   оранжевый градиент (одна кульминация), тёмно-коричневый (одна камера
+   и подвал). Дисплей: Unbounded строчными. Текст: Manrope.
+   Кнопка одна на весь сайт: чёрная с жёлтым капслоком; вторичная контурная. */
 :root {
   /* чернила */
   --color-ink: #150B01;
@@ -12,7 +13,8 @@
   /* бумага */
   --color-cream: #FFF8EC;
   --color-cream-alt: #F5EFE3;
-  --color-line: #DED3C0;
+  --color-paper: #FFFDF8;
+  --color-line: #E3D9C6;
 
   /* тепло */
   --color-yellow: #FFD84A;
@@ -20,7 +22,7 @@
   --color-orange: #F4700E;
   --color-orange-deep: #DE4A08;
   --color-peach: #F2B98B;
-  --gradient-warm: linear-gradient(135deg, #FFD84A 0%, #FFAE1B 45%, #F4700E 100%);
+  --gradient-warm: radial-gradient(120% 88% at 50% 2%, #FFD84A 0%, #FFAE1B 36%, #F4700E 70%, #DE4A08 100%);
 
   /* знак логотипа */
   --color-mark: #E31E24;
@@ -29,38 +31,52 @@
   --font-display: "Unbounded", system-ui, sans-serif;
   --font-body: "Manrope", system-ui, sans-serif;
 
-  --text-caption: 13px;
+  --text-caption: 14px;
   --text-sm: 15px;
   --text-body: 17px;
-  --text-lead: 21px;
-  --text-subheading: 28px;
-  --text-heading: 44px;
-  --text-display: 76px;
+  --text-lead: 20px;
+  --text-h3: 22px;
+  --text-h2: clamp(28px, 4.2vw, 46px);
+  --text-display: clamp(34px, 5vw, 62px);
 
-  /* отступы */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-48: 48px;
-  --spacing-64: 64px;
-  --spacing-96: 96px;
+  /* отступы: база 4px */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --section: clamp(64px, 9vw, 120px);
 
-  --radius-sm: 8px;
-  --radius-card: 14px;
-  --max-width: 1200px;
-  --section-gap: 96px;
+  /* форма: кнопки 12, карточки и картинки 16, теги pill */
+  --r-btn: 12px;
+  --r-card: 16px;
+  --r-pill: 999px;
+
+  --container: 1200px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+
+  /* тень, окрашенная в тон бумаги */
+  --shadow-soft: 0 10px 30px -12px rgba(106, 92, 72, .35);
+  --shadow-btn: 0 10px 20px -12px rgba(21, 11, 1, .55);
+
+  /* слои */
+  --z-header: 50;
+  --z-modal: 100;
 }
 
 /* ===== Сброс ===== */
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -70,6 +86,7 @@ body {
   line-height: 1.55;
   color: var(--color-ink);
   background: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -82,171 +99,206 @@ a {
   text-decoration: none;
 }
 
-/* Дисплейные заголовки: тяжёлые, строчные, с плотным трекингом */
+::selection {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-orange-deep);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ===== Типографика ===== */
 h1, h2, h3 {
+  margin: 0;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+h1, h2 {
   font-family: var(--font-display);
   font-weight: 800;
   line-height: 1.02;
-  letter-spacing: -0.03em;
+  letter-spacing: -.03em;
   text-transform: lowercase;
-  margin: 0 0 var(--spacing-24);
 }
 
-h1 {
-  font-size: clamp(40px, 6.5vw, var(--text-display));
-}
-
-h2 {
-  font-size: clamp(30px, 4.5vw, var(--text-heading));
-}
+h1 { font-size: var(--text-display); }
+h2 { font-size: var(--text-h2); }
 
 h3 {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: var(--text-lead);
+  font-size: var(--text-h3);
   line-height: 1.25;
-  letter-spacing: -0.01em;
-  text-transform: none;
-  margin-bottom: var(--spacing-12);
+  letter-spacing: -.01em;
 }
 
 p {
-  margin: 0 0 var(--spacing-16);
+  margin: 0;
 }
 
-/* ===== Утилиты ===== */
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-24);
+p + p {
+  margin-top: var(--sp-4);
 }
 
-.section {
-  padding: var(--section-gap) 0;
-}
-
-.section--warm {
-  background: var(--gradient-warm);
-}
-
-.section--cream {
-  background: var(--color-cream-alt);
-}
-
-.section--dark {
-  background: var(--color-ink);
-  color: var(--color-cream);
-}
-
-/* Микроподпись над заголовком — капслоком вразрядку */
-.label {
-  display: block;
-  font-family: var(--font-body);
-  font-size: var(--text-caption);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-taupe);
-  margin-bottom: var(--spacing-16);
-}
-
-.section--dark .label {
-  color: var(--color-taupe-light);
-}
-
-.section--warm .label {
-  color: var(--color-ink);
-  opacity: 0.65;
-}
-
-/* Подпись-плашка на градиенте */
-.chip {
-  display: inline-block;
-  padding: var(--spacing-8) var(--spacing-16);
-  background: var(--color-cream);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-caption);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: var(--spacing-16);
-}
-
+/* Подводка под заголовком: одна на секцию, без капслока и кикеров */
 .lede {
+  margin-top: var(--sp-5);
+  max-width: 40rem;
   font-size: var(--text-lead);
   line-height: 1.4;
-  max-width: 44rem;
+  font-weight: 600;
+  color: var(--color-taupe);
+  text-wrap: pretty;
 }
 
 .muted {
   color: var(--color-taupe);
 }
 
-.section--dark .muted {
-  color: var(--color-taupe-light);
+/* ===== Каркас ===== */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
 }
 
-/* ===== Кнопки: чёрная заливка либо контур ===== */
-.btn {
+.section {
+  padding: var(--section) 0;
+}
+
+.section--quiet { background: var(--color-cream-alt); }
+.section--warm  { background: var(--gradient-warm); color: var(--color-ink); }
+.section--night { background: var(--color-ink); color: var(--color-cream); }
+
+.section--night .lede { color: var(--color-taupe-light); }
+.section--warm .lede  { color: rgba(26, 14, 2, .74); }
+
+/* Заголовок секции со ссылкой «все …» справа */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-12);
+}
+
+.section-head__link {
+  flex: 0 0 auto;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--color-orange);
+  transition: color .2s var(--ease);
+}
+
+.section-head__link:hover { color: var(--color-orange-deep); }
+
+/* ===== Кнопки: одна система на весь сайт ===== */
+.btn, .bp-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-8);
-  padding: var(--spacing-16) var(--spacing-32);
-  border: 2px solid var(--color-ink);
-  border-radius: var(--radius-sm);
+  gap: var(--sp-2);
+  min-height: 52px;
+  padding: 14px 28px;
+  border: 0;
+  border-radius: var(--r-btn);
   background: var(--color-ink);
-  color: var(--color-cream);
+  color: var(--color-yellow);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: var(--text-sm);
   line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), color .18s var(--ease);
 }
 
-.btn:hover {
-  background: var(--color-orange-deep);
-  border-color: var(--color-orange-deep);
-  color: var(--color-cream);
+.btn:hover, .bp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn);
 }
 
-.btn--ghost {
+.btn:active, .bp-btn:active {
+  transform: translateY(0) scale(.98);
+  box-shadow: none;
+}
+
+/* вторичная: контур на светлом */
+.btn--ghost, .bp-btn--paper {
   background: transparent;
   color: var(--color-ink);
+  box-shadow: inset 0 0 0 1.5px var(--color-ink);
 }
 
-.btn--ghost:hover {
-  background: var(--color-ink);
-  color: var(--color-cream);
+.btn--ghost:hover, .bp-btn--paper:hover {
+  background: var(--color-paper);
+  box-shadow: inset 0 0 0 1.5px var(--color-ink), var(--shadow-btn);
 }
 
-.section--dark .btn {
-  background: var(--color-cream);
-  border-color: var(--color-cream);
-  color: var(--color-ink);
-}
-
-.section--dark .btn:hover {
+/* акцентная на тёмном */
+.btn--sun, .bp-btn--sun {
   background: var(--color-amber);
-  border-color: var(--color-amber);
+  color: var(--color-ink);
 }
 
-/* ===== Карточки ===== */
-.card {
-  background: var(--color-cream);
-  border-radius: var(--radius-card);
-  padding: var(--spacing-32);
+.section--night .btn--ghost {
+  color: var(--color-cream);
+  box-shadow: inset 0 0 0 1.5px var(--color-cream);
 }
 
-.section--dark .card {
-  background: transparent;
-  border: 1px solid rgba(255, 248, 236, 0.2);
+@media (max-width: 560px) {
+  .btn, .bp-btn { width: 100%; }
 }
 
-.card-grid {
-  display: grid;
-  gap: var(--spacing-16);
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+/* ===== Теги-пилюли ===== */
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ===== Картинка в рамке-карточке ===== */
+.frame {
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--color-paper);
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+}
+
+/* ===== Горизонтальная лента со snap для узких экранов ===== */
+.rail {
+  display: flex;
+  gap: var(--sp-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--sp-6);
+  padding: var(--sp-2) var(--sp-6) var(--sp-4);
+  margin: 0 calc(-1 * var(--sp-6));
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rail > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }

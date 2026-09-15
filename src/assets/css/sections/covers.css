@@ -1,58 +1,29 @@
-.covers {
-  overflow: hidden;
-}
-
 .covers__quote {
-  max-width: 22ch;
-  margin-bottom: var(--spacing-48);
+  max-width: 18ch;
 }
 
-.covers__viewport {
-  margin-top: var(--spacing-32);
-  overflow: hidden;
-}
-
-.covers__track {
-  display: flex;
-  gap: var(--spacing-24);
-  width: max-content;
-  animation: covers-scroll 66s linear infinite;
-}
-
-.covers:hover .covers__track {
-  animation-play-state: paused;
+/* Лента обложек: листается пальцем и колесом, без автопрокрутки */
+.covers__rail {
+  list-style: none;
+  margin-top: var(--sp-10);
 }
 
 .covers__item {
-  margin: 0;
-  flex: 0 0 auto;
-  width: 210px;
+  width: clamp(132px, 22vw, 190px);
+  border-radius: var(--r-btn);
+  overflow: hidden;
+  background: var(--color-line);
+  box-shadow: var(--shadow-soft);
+  transition: transform .3s var(--ease);
 }
 
 .covers__item img {
   width: 100%;
   height: auto;
-  border-radius: var(--radius-sm);
+  aspect-ratio: 340 / 536;
+  object-fit: cover;
 }
 
-/* Лента продублирована, поэтому сдвиг ровно на половину трека */
-@keyframes covers-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .covers__track {
-    animation: none;
-  }
-
-  .covers__viewport {
-    overflow-x: auto;
-  }
-}
-
-@media (max-width: 700px) {
-  .covers__item {
-    width: 150px;
-  }
+@media (hover: hover) {
+  .covers__item:hover { transform: translateY(-6px); }
 }
