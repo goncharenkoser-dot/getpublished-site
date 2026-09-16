@@ -10,10 +10,17 @@ sectionStyles:
       <a href="/articles/">Статьи</a>
     </nav>
 
-    <p class="label">База знаний</p>
     <h1>{{ title }}</h1>
     {% if subtitle %}<p class="lede">{{ subtitle }}</p>{% endif %}
   </div>
+
+  {% if image %}
+  <div class="container article__hero">
+    <figure class="frame">
+      <img src="{{ image }}" alt="{{ imageAlt }}" fetchpriority="high">
+    </figure>
+  </div>
+  {% endif %}
 
   <div class="container article__body">
     {{ content | safe }}
@@ -21,6 +28,6 @@ sectionStyles:
 
   <div class="container article__foot">
     <a class="btn btn--ghost" href="/articles/">Все статьи</a>
-    <a class="btn btn--primary" href="/program/">Выбрать программу</a>
+    <a class="btn" href="/program/">Выбрать программу</a>
   </div>
 </article>

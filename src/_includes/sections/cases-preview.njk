@@ -9,9 +9,14 @@
       {% for item in collections.cases %}
       <li>
         <a class="case-row" href="{{ item.url }}">
-          <h3>{{ item.data.title }}</h3>
-          <p>{{ item.data.excerpt or item.data.subtitle }}</p>
-          <span class="case-row__more">Читать историю</span>
+          <figure class="case-row__thumb frame">
+            <img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" loading="lazy">
+          </figure>
+          <div class="case-row__text">
+            <h3>{{ item.data.title }}</h3>
+            <p>{{ item.data.excerpt or item.data.subtitle }}</p>
+            <span class="case-row__more">Читать историю</span>
+          </div>
         </a>
       </li>
       {% endfor %}

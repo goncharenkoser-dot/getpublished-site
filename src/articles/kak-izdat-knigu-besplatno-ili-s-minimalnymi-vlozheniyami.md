@@ -2,6 +2,8 @@
 title: "Как издать книгу бесплатно или с минимальными вложениями?"
 excerpt: "Реальные способы издать книгу без больших вложений — от краудфандинга до самиздата."
 source: "https://getpublish.org/stati/kak-izdat-knigu-besplatno-ili-s-minimalnymi-vlozheniyami"
+image: "/assets/img/articles/kak-izdat-knigu-besplatno-ili-s-minimalnymi-vlozheniyami/cover.jpg"
+imageAlt: "Стопка книг"
 ---
 
 Все авторы мечтают издать книгу. Самый очевидный путь — пойти в издательство. Но он далеко не единственный.

@@ -2,6 +2,8 @@
 title: "Тест «Смогу ли я написать бестселлер?»"
 excerpt: "Шуточный тест, который поможет развеять сомнения и понять, готовы ли вы начать писать."
 source: "https://getpublish.org/stati/test-smogu-li-ya-napisat-knigu"
+image: "/assets/img/articles/test-smogu-li-ya-napisat-knigu/cover.jpg"
+imageAlt: "Человек пишет в блокноте"
 ---
 
 Многие из тех, у кого возникает идея написать книгу, сами себя ограничивают.

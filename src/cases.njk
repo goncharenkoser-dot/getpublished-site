@@ -8,7 +8,6 @@ sectionStyles:
 <section class="listing">
   <div class="container">
     <div class="listing__head">
-      <p class="label">Кейсы</p>
       <h1>Авторы, у которых получилось</h1>
       <p class="lede">
         Реальные истории выпускников школы: от первой идеи и неудачного синопсиса
@@ -16,15 +15,34 @@ sectionStyles:
       </p>
     </div>
 
-    <div class="card-grid">
+    <ul class="case-cards">
       {% for item in collections.cases %}
-      <a class="entry-card" href="{{ item.url }}">
-        <p class="label">Кейс</p>
-        <h2 class="entry-card__title">{{ item.data.title }}</h2>
-        <p class="entry-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
-        <span class="entry-card__more">Читать историю</span>
-      </a>
+      <li>
+        <a class="case-card" href="{{ item.url }}">
+          <figure class="case-card__media frame">
+            <img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" loading="lazy">
+          </figure>
+          <div class="case-card__body">
+            <h2 class="case-card__title">{{ item.data.title }}</h2>
+            <p class="case-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
+            <span class="case-card__more">Читать историю</span>
+          </div>
+        </a>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--quiet books">
+  <div class="container">
+    <h2>книги выпускников школы</h2>
+    <ul class="books__grid">
+      {% for n in range(1, 26) %}
+      <li class="frame">
+        <img src="/assets/img/books/kniga-{{ n }}.jpg" alt="Книга выпускника школы" width="220" height="294" loading="lazy">
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </section>

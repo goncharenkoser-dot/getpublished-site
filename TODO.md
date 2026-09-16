@@ -11,20 +11,13 @@
 ### 2. Блок «Наш алгоритм проверен на сотнях выпускников»
 Скопировать с https://getpublish.org/webinar9/
 
-### 3. Фотографии в кейсах
-Кейсы сейчас без изображений — карточки только с текстом.
-Нужны фото по каждому кейсу, как на https://getpublish.org/keysys
-Затронет: `src/_includes/sections/cases-preview.njk`, `src/cases.njk`,
-`src/_includes/case.njk`, фронтматтер файлов в `src/cases/`.
-
-### 4. Картинки в блоке «Статьи»
-Как на https://getpublish.org/stati
-Затронет: `src/_includes/sections/articles-preview.njk`, `src/articles.njk`,
-фронтматтер файлов в `src/articles/`.
-
-### 5. Изображения в блоке «Отзывы»
-Как на https://getpublish.org/otzyvy
-Затронет: `src/_data/reviews.js`, `src/assets/css/sections/reviews.css`.
+### 3. Медиа со старого сайта — сделано 2026-09-16
+Фото кейсов (`src/assets/img/cases/`), обложки статей (`img/articles/`),
+галерея книг выпускников (`img/books/`), 17 видеоотзывов Vimeo
+(`src/_data/videoReviews.js`, постеры в `img/reviews/video/`) и фото
+к письмам (`src/_data/reviews.js`). Видео грузятся по клику на постер —
+на Тильде это переносится как HTML-блок или T-видео с обложкой.
+Осталось: у Светланы Богдановой нет постера (на старом сайте его не было).
 
 ## Ждём информацию от заказчика
 

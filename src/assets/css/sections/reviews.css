@@ -1,4 +1,122 @@
-/* Цитаты без рамок: крупный открывающий знак, линия сверху */
+.reviews__h2 {
+  margin: var(--sp-10) 0 var(--sp-8);
+}
+
+/* ---- видеоотзывы: постер с кнопкой, плеер по нажатию ---- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-10) var(--sp-6);
+  list-style: none;
+  margin: 0 0 var(--sp-16);
+  padding: 0;
+}
+
+.video__facade {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--color-ink);
+  cursor: pointer;
+}
+
+.video__facade img,
+.video__blank {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Без постера: первая буква имени на фирменном градиенте */
+.video__blank {
+  display: grid;
+  place-items: end start;
+  padding: var(--sp-4);
+  box-sizing: border-box;
+  background: var(--gradient-warm);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.video__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-yellow);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(21, 11, 1, .35);
+  transition: transform .2s var(--ease), background .2s var(--ease);
+}
+
+.video__play svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--color-ink);
+  margin-left: 3px;
+}
+
+@media (hover: hover) {
+  .video__facade:hover .video__play {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: var(--color-amber);
+  }
+}
+
+.video__facade:active .video__play {
+  transform: translate(-50%, -50%) scale(.96);
+}
+
+.video__facade:focus-visible {
+  outline: 3px solid var(--color-orange-deep);
+  outline-offset: 3px;
+}
+
+/* Плеер занимает место постера, тот же радиус и пропорции */
+.video__player {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--color-ink);
+}
+
+.video__player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video__name {
+  margin-top: var(--sp-4);
+  font-weight: 700;
+}
+
+.video__role {
+  font-size: var(--text-sm);
+  color: var(--color-taupe);
+}
+
+.video__text {
+  margin-top: var(--sp-3);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+/* ---- письма: цитата, снизу фото и имя ---- */
 .reviews-grid {
   columns: 2;
   column-gap: var(--sp-12);
@@ -33,8 +151,23 @@
 
 .review figcaption {
   display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+.review__photo {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-btn);
+  object-fit: cover;
+  background: var(--color-cream-alt);
+}
+
+.review__who {
+  display: flex;
   flex-direction: column;
-  margin-top: var(--sp-4);
 }
 
 .review__name {
@@ -46,8 +179,11 @@
   color: var(--color-taupe);
 }
 
-@media (max-width: 760px) {
-  .reviews-grid {
-    columns: 1;
-  }
+@media (max-width: 900px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-8) var(--sp-4); }
+}
+
+@media (max-width: 560px) {
+  .video-grid { grid-template-columns: 1fr; }
+  .reviews-grid { columns: 1; }
 }

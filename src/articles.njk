@@ -8,7 +8,6 @@ sectionStyles:
 <section class="listing">
   <div class="container">
     <div class="listing__head">
-      <p class="label">База знаний</p>
       <h1>Статьи о том, как написать и издать книгу</h1>
       <p class="lede">
         Практические материалы от издателей и редакторов: как подступиться к тексту,
@@ -16,13 +15,15 @@ sectionStyles:
       </p>
     </div>
 
-    <div class="card-grid">
+    <div class="article-cards">
       {% for item in collections.articles %}
-      <a class="entry-card" href="{{ item.url }}">
-        <p class="label">Статья</p>
-        <h2 class="entry-card__title">{{ item.data.title }}</h2>
-        <p class="entry-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
-        <span class="entry-card__more">Читать</span>
+      <a class="article-card" href="{{ item.url }}">
+        <figure class="article-card__media frame">
+          <img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" loading="lazy">
+        </figure>
+        <h2 class="article-card__title">{{ item.data.title }}</h2>
+        <p class="article-card__excerpt">{{ item.data.excerpt or item.data.subtitle }}</p>
+        <span class="article-card__more">Читать</span>
       </a>
       {% endfor %}
     </div>

@@ -15,13 +15,152 @@
   color: var(--color-taupe);
 }
 
+/* ---- кейсы: фото слева, текст справа ---- */
+.case-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 380px) 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+  padding: var(--sp-8) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.case-card__media {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.case-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s var(--ease);
+}
+
+.case-card__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  text-transform: none;
+  transition: color .2s var(--ease);
+}
+
+.case-card__excerpt {
+  margin-top: var(--sp-3);
+  color: var(--color-taupe);
+}
+
+.case-card__more {
+  display: inline-block;
+  margin-top: var(--sp-5);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-orange-deep);
+}
+
+.case-card__more::after { content: " →"; }
+
+@media (hover: hover) {
+  .case-card:hover .case-card__title { color: var(--color-orange-deep); }
+  .case-card:hover .case-card__media img { transform: scale(1.03); }
+}
+
+/* ---- статьи: карточки с обложкой ---- */
+.article-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-10) var(--sp-8);
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.article-card__media {
+  margin: 0 0 var(--sp-2);
+  aspect-ratio: 16 / 10;
+}
+
+.article-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s var(--ease);
+}
+
+.article-card__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-h3);
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  text-transform: none;
+  transition: color .2s var(--ease);
+}
+
+.article-card__excerpt {
+  font-size: var(--text-sm);
+  color: var(--color-taupe);
+}
+
+.article-card__more {
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-orange-deep);
+}
+
+.article-card__more::after { content: " →"; }
+
+@media (hover: hover) {
+  .article-card:hover .article-card__title { color: var(--color-orange-deep); }
+  .article-card:hover .article-card__media img { transform: scale(1.03); }
+}
+
+/* ---- книги выпускников: плотная сетка обложек ---- */
+.books h2 {
+  margin-bottom: var(--sp-8);
+}
+
+.books__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--sp-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.books__grid li {
+  aspect-ratio: 220 / 294;
+  box-shadow: var(--shadow-soft);
+}
+
+.books__grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- прочие карточки (программы, мероприятия) ---- */
 .entry-card {
   display: flex;
   flex-direction: column;
   gap: var(--sp-2);
   padding: var(--sp-6) 0 0;
   border-top: 1px solid var(--color-ink);
-  transition: color .2s var(--ease);
 }
 
 .entry-card .label { margin-bottom: 0; }
@@ -33,7 +172,6 @@
   line-height: 1.25;
   letter-spacing: -.01em;
   text-transform: none;
-  transition: color .2s var(--ease);
 }
 
 .entry-card__excerpt {
@@ -41,22 +179,26 @@
   color: var(--color-taupe);
 }
 
-.entry-card__more {
-  margin-top: auto;
-  padding-top: var(--sp-4);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--color-orange-deep);
-}
-
-.entry-card__more::after { content: " →"; }
-
-@media (hover: hover) {
-  .entry-card:hover .entry-card__title { color: var(--color-orange-deep); }
-}
-
 .card-grid {
   display: grid;
   gap: var(--sp-8) var(--sp-6);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+@media (max-width: 760px) {
+  .case-card {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+    padding: var(--sp-6) 0;
+  }
+
+  .article-cards {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .books__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+  }
 }

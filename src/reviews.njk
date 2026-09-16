@@ -8,7 +8,6 @@ sectionStyles:
 ---
 <section class="listing">
   <div class="container listing__head">
-    <p class="label">Отзывы</p>
     <h1>Что говорят выпускники</h1>
     <p class="lede">
       87% наших выпускников выполняют все задания курса и рекомендуют школу знакомым.
@@ -17,13 +16,45 @@ sectionStyles:
   </div>
 
   <div class="container">
+    <h2 class="reviews__h2">видеоотзывы</h2>
+    {# Плеер подгружается только по нажатию: на телефоне страница остаётся лёгкой #}
+    <ul class="video-grid">
+      {% for v in videoReviews %}
+      <li class="video">
+        <button class="video__facade" type="button"
+                data-vimeo="{{ v.vimeo }}" data-hash="{{ v.hash }}"
+                aria-label="Смотреть видеоотзыв: {{ v.name }}">
+          {% if v.poster %}
+          <img src="{{ v.poster }}" alt="" width="330" height="200" loading="lazy">
+          {% else %}
+          <span class="video__blank" aria-hidden="true">{{ v.name | truncate(1, true, '') }}</span>
+          {% endif %}
+          <span class="video__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+          </span>
+        </button>
+        <p class="video__name">{{ v.name }}</p>
+        <p class="video__role">{{ v.role }}</p>
+        {% if v.text %}<p class="video__text">{{ v.text }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="container">
+    <h2 class="reviews__h2">письма выпускников</h2>
     <div class="reviews-grid">
       {% for review in reviews %}
       <figure class="review">
         <blockquote>{{ review.text }}</blockquote>
         <figcaption>
-          <span class="review__name">{{ review.name }}</span>
-          <span class="review__role">{{ review.role }}</span>
+          {% if review.photo %}
+          <img class="review__photo" src="{{ review.photo }}" alt="" width="56" height="56" loading="lazy">
+          {% endif %}
+          <span class="review__who">
+            <span class="review__name">{{ review.name }}</span>
+            <span class="review__role">{{ review.role }}</span>
+          </span>
         </figcaption>
       </figure>
       {% endfor %}

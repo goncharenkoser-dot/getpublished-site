@@ -172,3 +172,19 @@ if (today) {
   today.querySelector("span").textContent = `Сегодня ${verb} ${n} ${word}`;
   today.hidden = false;
 }
+
+// Видеоотзывы: плеер Vimeo встаёт на место постера только по нажатию
+document.addEventListener("click", (event) => {
+  const facade = event.target.closest(".video__facade");
+  if (!facade) return;
+  const { vimeo, hash } = facade.dataset;
+  const player = document.createElement("div");
+  player.className = "video__player";
+  const frame = document.createElement("iframe");
+  frame.src = `https://player.vimeo.com/video/${vimeo}?${hash ? `h=${hash}&` : ""}autoplay=1&dnt=1`;
+  frame.allow = "autoplay; fullscreen; picture-in-picture";
+  frame.allowFullscreen = true;
+  frame.title = facade.getAttribute("aria-label");
+  player.appendChild(frame);
+  facade.replaceWith(player);
+});
