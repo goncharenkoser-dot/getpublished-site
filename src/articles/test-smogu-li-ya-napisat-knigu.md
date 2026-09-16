@@ -1,4 +1,6 @@
 ---
+featured: true
+order: 9
 title: "Тест «Смогу ли я написать бестселлер?»"
 excerpt: "Шуточный тест, который поможет развеять сомнения и понять, готовы ли вы начать писать."
 source: "https://getpublish.org/stati/test-smogu-li-ya-napisat-knigu"

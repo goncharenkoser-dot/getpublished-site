@@ -16,7 +16,7 @@ sectionStyles:
     </div>
 
     <div class="article-cards">
-      {% for item in collections.articles %}
+      {% for item in collections.articles | sort(false, false, "data.order") %}
       <a class="article-card" href="{{ item.url }}">
         <figure class="article-card__media frame">
           <img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" loading="lazy">

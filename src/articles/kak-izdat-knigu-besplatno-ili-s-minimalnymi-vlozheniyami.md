@@ -1,4 +1,6 @@
 ---
+featured: true
+order: 1
 title: "Как издать книгу бесплатно или с минимальными вложениями?"
 excerpt: "Реальные способы издать книгу без больших вложений — от краудфандинга до самиздата."
 source: "https://getpublish.org/stati/kak-izdat-knigu-besplatno-ili-s-minimalnymi-vlozheniyami"

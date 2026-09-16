@@ -6,7 +6,7 @@
     </div>
 
     <div class="index">
-      {% for item in collections.articles %}
+      {% for item in collections.articles | sort(false, false, "data.order") %}{% if item.data.featured %}
       <a class="index__item" href="{{ item.url }}">
         <figure class="index__media frame">
           <img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" loading="lazy">
@@ -15,7 +15,7 @@
         <p>{{ item.data.excerpt or item.data.subtitle }}</p>
         <span class="index__more">Читать</span>
       </a>
-      {% endfor %}
+      {% endif %}{% endfor %}
     </div>
   </div>
 </section>

@@ -16,7 +16,7 @@ sectionStyles:
     </div>
 
     <ul class="case-cards">
-      {% for item in collections.cases %}
+      {% for item in collections.cases | sort(false, false, "data.order") %}
       <li>
         <a class="case-card" href="{{ item.url }}">
           <figure class="case-card__media frame">

@@ -1,0 +1,15 @@
+<section class="section graduates">
+  <div class="container">
+    <h2 class="graduates__title">Наш алгоритм проверен на сотнях выпускников</h2>
+    <p class="lede">Ниже малая их часть. Вы следующий!</p>
+
+    <ul class="graduates__cloud">
+      {% for n in range(1, 35) %}
+      <li class="graduates__item">
+        <img src="/assets/img/graduates/g-{{ n if n > 9 else '0' ~ n }}.jpg"
+             alt="Выпускник школы со своей книгой" width="320" height="320" loading="lazy">
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

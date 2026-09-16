@@ -1,4 +1,6 @@
 ---
+featured: true
+order: 19
 title: "От мечты до книги за один проект"
 excerpt: "Путь от идеи до готовой рукописи — взгляд издателя, который отказывает сотням авторов в год."
 source: "https://getpublish.org/stati/ot-mechty-do-knigi-za-odin-proekt"

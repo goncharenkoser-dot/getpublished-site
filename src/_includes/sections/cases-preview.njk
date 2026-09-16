@@ -6,7 +6,7 @@
     </div>
 
     <ul class="case-list">
-      {% for item in collections.cases %}
+      {% for item in collections.cases | sort(false, false, "data.order") %}{% if item.data.featured %}
       <li>
         <a class="case-row" href="{{ item.url }}">
           <figure class="case-row__thumb frame">
@@ -19,7 +19,7 @@
           </div>
         </a>
       </li>
-      {% endfor %}
+      {% endif %}{% endfor %}
     </ul>
   </div>
 </section>
