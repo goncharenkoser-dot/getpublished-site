@@ -400,7 +400,6 @@
 .mform__done h3 {
   font-family: var(--font-display);
   font-weight: 800;
-  text-transform: lowercase;
 }
 
 .mform__done p {

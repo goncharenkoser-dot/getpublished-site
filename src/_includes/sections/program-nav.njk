@@ -1,0 +1,17 @@
+{# Плашка-навигация страницы программ: кнопки ведут к блокам на этой же странице.
+   Прилипает под шапкой, на телефоне листается пальцем. #}
+<nav class="pnav" aria-label="Разделы страницы программ">
+  <div class="container">
+    <ul class="pnav__list rail">
+      {% for item in [
+        { href: "#nonfiction", title: "Нон-фикшн 3.0" },
+        { href: "#fiction", title: "Художественная литература 3.0" },
+        { href: "#pro", title: "Автор ПРО" },
+        { href: "#mentoring", title: "Наставничество" },
+        { href: "#neuro", title: "Нейросети для «чайников»" }
+      ] %}
+      <li><a class="pnav__link" href="{{ item.href }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

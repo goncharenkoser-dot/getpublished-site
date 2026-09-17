@@ -125,7 +125,6 @@ h1, h2 {
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -.03em;
-  text-transform: lowercase;
 }
 
 h1 { font-size: var(--text-display); }

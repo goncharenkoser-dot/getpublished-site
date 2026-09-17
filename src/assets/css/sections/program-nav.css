@@ -1,0 +1,56 @@
+/* Плашка с кнопками-якорями на странице программ: прилипает под шапкой,
+   на узких экранах — горизонтальная лента (общий помощник .rail). */
+.pnav {
+  position: sticky;
+  top: var(--pnav-top, 64px);
+  z-index: calc(var(--z-header) - 1);
+  padding: var(--sp-3) 0;
+  background: color-mix(in srgb, var(--color-cream) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.pnav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: var(--sp-2);
+  scroll-snap-type: none;
+}
+
+.pnav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px var(--sp-5);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--r-pill);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background .18s var(--ease), color .18s var(--ease);
+}
+
+.pnav__link:hover,
+.pnav__link:focus-visible {
+  background: var(--color-ink);
+  color: var(--color-yellow);
+}
+
+/* Якоря должны открываться ниже прилипшей шапки и плашки */
+#nonfiction, #fiction, #pro, #mentoring, #neuro, #razbor {
+  scroll-margin-top: calc(var(--pnav-top, 64px) + 72px);
+}
+
+@media (min-width: 901px) {
+  .pnav__list {
+    justify-content: center;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+}

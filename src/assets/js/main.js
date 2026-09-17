@@ -37,7 +37,7 @@ if (modal) {
     done.className = "lead-modal__done";
 
     const heading = document.createElement("h2");
-    heading.textContent = "готово";
+    heading.textContent = "Готово";
 
     const text = document.createElement("p");
     text.textContent = `Спасибо, ${name}! Проверьте почту — письмо с pdf уже летит.`;
@@ -46,11 +46,23 @@ if (modal) {
     close.className = "btn";
     close.type = "submit";
     close.value = "done";
-    close.textContent = "закрыть";
+    close.textContent = "Закрыть";
 
     done.append(heading, text, close);
     form.replaceChildren(done);
   });
+}
+
+// Плашка-навигация страницы программ прилипает под шапкой: передаём её высоту в CSS.
+const siteHeader = document.querySelector(".site-header");
+const programNav = document.querySelector(".pnav");
+
+if (siteHeader && programNav) {
+  const setNavTop = () => {
+    document.documentElement.style.setProperty("--pnav-top", `${siteHeader.offsetHeight}px`);
+  };
+  setNavTop();
+  window.addEventListener("resize", setNavTop);
 }
 
 // Форма заявки на наставничество (страница программ): валидация и подтверждение.
@@ -70,7 +82,7 @@ if (mentoringForm) {
     done.className = "mform__done";
 
     const heading = document.createElement("h3");
-    heading.textContent = "заявка принята";
+    heading.textContent = "Заявка принята";
 
     const text = document.createElement("p");
     text.textContent = mentor
