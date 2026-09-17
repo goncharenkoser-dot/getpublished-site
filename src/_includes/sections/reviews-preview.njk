@@ -10,8 +10,13 @@
       <figure class="review">
         <blockquote>{{ review.text }}</blockquote>
         <figcaption>
-          <span class="review__name">{{ review.name }}</span>
-          <span class="review__role">{{ review.role }}</span>
+          {% if review.photo %}
+          <img class="review__photo" src="{{ review.photo }}" alt="" width="56" height="56" loading="lazy">
+          {% endif %}
+          <span class="review__who">
+            <span class="review__name">{{ review.name }}</span>
+            <span class="review__role">{{ review.role }}</span>
+          </span>
         </figcaption>
       </figure>
       {% endfor %}

@@ -1,27 +1,38 @@
-/* Выпускники с книгами: облако круглых фото в форме сердца.
-   На широких экранах каждый кружок стоит на своём месте из оригинального
-   блока (координаты в процентах от артборда 1200×898 приходят инлайном:
-   --gr-x, --gr-y, --gr-size). Уже 900px — обычное облако с волной. */
+/* Выпускники с книгами (главная): заголовок и подводка по центру, ровная
+   сетка скруглённых квадратов — 7 в ряд, неполный последний ряд по центру,
+   под сеткой кнопка. По образцу getpublish.org/webinar10. */
 .graduates__title {
-  max-width: 20ch;
+  max-width: 24ch;
   margin-inline: auto;
   text-align: center;
 }
 
 .graduates__lede {
+  max-width: 44rem;
   margin-inline: auto;
   text-align: center;
 }
 
-.graduates__cloud {
+.graduates__lede b {
+  color: var(--color-orange-deep);
+}
+
+.graduates__grid {
+  --gr-cols: 7;
+  --gr-gap: var(--sp-4);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gr-gap);
   list-style: none;
   margin: var(--sp-12) 0 0;
   padding: 0;
 }
 
 .graduates__item {
+  flex: 0 0 calc((100% - (var(--gr-cols) - 1) * var(--gr-gap)) / var(--gr-cols));
   aspect-ratio: 1;
-  border-radius: 50%;
+  border-radius: var(--r-card);
   overflow: hidden;
   background: var(--color-line);
   box-shadow: var(--shadow-soft);
@@ -35,47 +46,39 @@
   display: block;
 }
 
-/* Сердце: позиционированный артборд с пропорциями оригинала */
-@media (min-width: 901px) {
-  .graduates__cloud {
-    position: relative;
-    aspect-ratio: var(--gr-ratio, 1200 / 898);
-    max-width: 1152px;
-    margin-inline: auto;
-  }
-
-  .graduates__item {
-    position: absolute;
-    left: var(--gr-x);
-    top: var(--gr-y);
-    width: var(--gr-size, 11.667%);
-  }
+@media (hover: hover) {
+  .graduates__item:hover { transform: scale(1.05); }
 }
 
-@media (min-width: 901px) and (hover: hover) {
-  .graduates__item:hover { transform: scale(1.1); z-index: 1; }
+/* ---- кнопка «Присоединиться / к успешным авторам» ---- */
+.graduates__acts {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--sp-12);
 }
 
-/* Узкие экраны: обычное облако, нечётные кружки чуть опущены — волна */
+.graduates__btn {
+  flex-direction: column;
+  gap: 2px;
+  min-height: 64px;
+  padding: 12px 40px;
+  line-height: 1.1;
+}
+
+.graduates__btn small {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: .85;
+}
+
 @media (max-width: 900px) {
-  .graduates__cloud {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--sp-5) var(--sp-4);
-    padding-bottom: var(--sp-5);
-  }
-
-  .graduates__item {
-    width: clamp(76px, 11vw, 136px);
-  }
-
-  .graduates__item:nth-child(odd) {
-    transform: translateY(var(--sp-4));
-  }
+  .graduates__grid { --gr-cols: 4; --gr-gap: var(--sp-3); }
 }
 
 @media (max-width: 560px) {
-  .graduates__cloud { gap: var(--sp-3); }
-  .graduates__item { width: calc((100% - 3 * var(--sp-3)) / 4); }
+  .graduates__grid { --gr-cols: 3; --gr-gap: var(--sp-2); }
+  .graduates__item { border-radius: var(--r-btn); }
+  .graduates__btn { width: 100%; }
 }

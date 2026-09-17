@@ -1,21 +1,29 @@
-{# «Наш алгоритм проверен на сотнях выпускников» — с getpublish-pb.ru/online-kurs-nf.
-   34 фото в шахматной сетке-«сердце»: позиции повторяют оригинальный блок
-   (артборд 1200×898, кружки 140px), см. src/_data/graduates.json.
-   На экранах уже 900px кружки собираются в обычное облако. #}
+{# «Наш алгоритм уже проверили на практике сотни выпускников» — по образцу
+   getpublish.org/webinar10: ровная сетка скруглённых квадратов (7 в ряд,
+   последний ряд по центру) и кнопка под ней. Порядок фото — graduates.grid
+   в src/_data/graduates.json, те же 34 снимка, что на странице кейсов. #}
 <section class="section graduates">
   <div class="container">
-    <h2 class="graduates__title">Наш алгоритм проверен на сотнях выпускников</h2>
-    <p class="lede graduates__lede">Ниже малая их часть. Вы следующий!</p>
+    <h2 class="graduates__title">Наш алгоритм уже проверили на практике сотни выпускников</h2>
+    <p class="lede graduates__lede">
+      Все они в один прекрасный день поняли, что хотят <b>написать и издать книгу</b>,
+      и доверились профессионалам. Вы — следующий!
+    </p>
 
-    <ul class="graduates__cloud"
-        style="--gr-ratio: {{ graduates.artboard.width }} / {{ graduates.artboard.height }}; --gr-size: {{ (graduates.artboard.size / graduates.artboard.width * 100) | round(3) }}%">
-      {% for g in graduates.items %}
-      <li class="graduates__item"
-          style="--gr-x: {{ (g.left / graduates.artboard.width * 100) | round(3) }}%; --gr-y: {{ (g.top / graduates.artboard.height * 100) | round(3) }}%">
-        <img src="/assets/img/graduates/{{ g.file }}"
+    <ul class="graduates__grid">
+      {% for file in graduates.grid %}
+      <li class="graduates__item">
+        <img src="/assets/img/graduates/{{ file }}"
              alt="Выпускник школы со своей книгой" width="320" height="320" loading="lazy">
       </li>
       {% endfor %}
     </ul>
+
+    <div class="graduates__acts">
+      <a class="btn graduates__btn" href="/program/">
+        <span>Присоединиться</span>
+        <small>к успешным авторам</small>
+      </a>
+    </div>
   </div>
 </section>
