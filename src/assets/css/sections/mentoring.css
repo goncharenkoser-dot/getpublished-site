@@ -1,0 +1,431 @@
+/* «Наставничество» (страница программ): структура с getpublish-pb.ru/mentoring,
+   стили в общей системе — карточки на бумаге, тихие кремовые вставки. */
+
+/* ---- вступление ---- */
+.mentoring__acts {
+  margin-top: var(--sp-8);
+}
+
+.mentoring__who {
+  margin-top: var(--sp-16);
+}
+
+.mentoring__who h3 {
+  max-width: 28ch;
+}
+
+.mentoring__who > p {
+  max-width: 44rem;
+  margin-top: var(--sp-3);
+  color: var(--color-taupe);
+}
+
+.mentoring__photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  list-style: none;
+  margin: var(--sp-8) 0 0;
+  padding: 0;
+}
+
+.mentoring__photos li {
+  aspect-ratio: 3 / 2;
+}
+
+.mentoring__photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mentoring__caption {
+  margin-top: var(--sp-3);
+  font-size: var(--text-caption);
+  color: var(--color-taupe);
+}
+
+/* ---- общие карточки блока ---- */
+.mcards {
+  display: grid;
+  gap: var(--sp-6);
+  list-style: none;
+  margin: var(--sp-12) 0 0;
+  padding: 0;
+}
+
+.mcards--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.mcard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-card);
+}
+
+.mcard__media {
+  margin: 0;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--r-btn);
+  overflow: hidden;
+  background: var(--color-cream-alt);
+}
+
+.mcard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mcard__media--icon {
+  aspect-ratio: 3 / 2;
+  background: var(--color-ink);
+  padding: var(--sp-4);
+}
+
+.mcard__media--icon img {
+  object-fit: contain;
+}
+
+.mcard__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-body);
+  line-height: 1.3;
+}
+
+.mcard__text {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-taupe);
+}
+
+.mcard__gift {
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: var(--text-sm);
+  color: var(--color-orange-deep);
+}
+
+.mcard__gift s {
+  margin-right: var(--sp-2);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-taupe);
+}
+
+/* ---- 10 шагов ---- */
+.steps {
+  margin-top: var(--sp-16);
+}
+
+.steps__title {
+  max-width: 24ch;
+}
+
+.steps__list {
+  counter-reset: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-4);
+  list-style: none;
+  margin: var(--sp-8) 0 0;
+  padding: 0;
+}
+
+.steps__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--r-card);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.steps__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-yellow);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-sm);
+}
+
+/* ---- наставники ---- */
+.mentors__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-6) var(--sp-5);
+  list-style: none;
+  margin: var(--sp-12) 0 0;
+  padding: 0;
+}
+
+.mentor__photo {
+  margin: 0 0 var(--sp-3);
+  aspect-ratio: 1;
+  background: var(--color-ink-soft);
+}
+
+.mentor__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.mentor__name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.mentor__lead {
+  margin-top: var(--sp-1);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--color-taupe);
+}
+
+.mentor__more {
+  margin-top: var(--sp-3);
+  font-size: var(--text-sm);
+}
+
+.mentor__more summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-orange-deep);
+  list-style: none;
+}
+
+.mentor__more summary::-webkit-details-marker { display: none; }
+
+.mentor__more summary::after {
+  content: " ↓";
+}
+
+.mentor__more[open] summary::after {
+  content: " ↑";
+}
+
+.mentor__facts {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.45;
+  color: var(--color-taupe);
+}
+
+.mentor__facts li + li {
+  margin-top: var(--sp-2);
+}
+
+/* ---- девять задач ---- */
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+  list-style: none;
+  margin: var(--sp-12) 0 0;
+  padding: 0;
+}
+
+.task {
+  position: relative;
+  padding: var(--sp-6) var(--sp-5) var(--sp-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-card);
+  background: var(--color-paper);
+}
+
+.task__n {
+  position: absolute;
+  top: calc(-1 * var(--sp-4));
+  left: var(--sp-5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--sp-2);
+  border-radius: var(--r-pill);
+  background: var(--color-ink);
+  color: var(--color-yellow);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-caption);
+}
+
+.task__list {
+  margin: 0;
+  padding: 0 0 0 1.1em;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.task__list li + li {
+  margin-top: var(--sp-2);
+}
+
+/* ---- обложки ---- */
+.mentoring-covers__title {
+  max-width: 30ch;
+}
+
+.mentoring-covers__grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: var(--sp-3);
+  list-style: none;
+  margin: var(--sp-10) 0 0;
+  padding: 0;
+}
+
+.mentoring-covers__grid li {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--r-btn);
+  overflow: hidden;
+  background: var(--color-line);
+  box-shadow: var(--shadow-soft);
+}
+
+.mentoring-covers__grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- форма заявки ---- */
+.mentoring-form__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--sp-12);
+  align-items: start;
+}
+
+.mentoring-form__text h2 {
+  max-width: 22ch;
+}
+
+.mentoring-form__mentors {
+  display: flex;
+  list-style: none;
+  margin: var(--sp-8) 0 0;
+  padding: 0;
+}
+
+.mentoring-form__mentors li {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-cream);
+  background: var(--color-line);
+}
+
+.mentoring-form__mentors li + li {
+  margin-left: -14px;
+}
+
+.mentoring-form__mentors img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mform {
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-card);
+}
+
+.mform__field {
+  display: grid;
+  gap: var(--sp-1);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.mform__field input,
+.mform__field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--sp-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-btn);
+  background: var(--color-cream);
+  font: inherit;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.mform__field input:focus,
+.mform__field select:focus {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 1px;
+}
+
+.mform__submit {
+  margin-top: var(--sp-2);
+}
+
+.mform__consent {
+  font-size: var(--text-caption);
+  line-height: 1.4;
+  color: var(--color-taupe);
+}
+
+.mform__done h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: lowercase;
+}
+
+.mform__done p {
+  margin-top: var(--sp-3);
+  color: var(--color-taupe);
+}
+
+/* ---- адаптив ---- */
+@media (max-width: 1100px) {
+  .mentors__grid { grid-template-columns: repeat(3, 1fr); }
+  .mentoring-covers__grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .mcards--4 { grid-template-columns: repeat(2, 1fr); }
+  .mentoring__photos { grid-template-columns: repeat(2, 1fr); }
+  .steps__list { grid-template-columns: repeat(2, 1fr); }
+  .tasks { grid-template-columns: 1fr; }
+  .mentoring-form__grid { grid-template-columns: 1fr; gap: var(--sp-8); }
+}
+
+@media (max-width: 560px) {
+  .mcards--4 { grid-template-columns: 1fr; }
+  .mentors__grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5) var(--sp-3); }
+  .mentoring-covers__grid { grid-template-columns: repeat(3, 1fr); }
+  .steps__list { grid-template-columns: 1fr; }
+  .mform { padding: var(--sp-5); }
+}

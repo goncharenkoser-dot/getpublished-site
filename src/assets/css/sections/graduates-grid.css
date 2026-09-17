@@ -1,0 +1,48 @@
+/* Выпускники с книгами ровной сеткой на тёмном фоне (страница кейсов) */
+.graduates-grid__title {
+  max-width: 22ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.graduates-grid__lede {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.graduates-grid__list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--sp-4);
+  list-style: none;
+  margin: var(--sp-12) 0 0;
+  padding: 0;
+}
+
+.graduates-grid__item {
+  aspect-ratio: 1;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--color-ink-soft);
+  transition: transform .3s var(--ease);
+}
+
+.graduates-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (hover: hover) {
+  .graduates-grid__item:hover { transform: scale(1.05); }
+}
+
+@media (max-width: 900px) {
+  .graduates-grid__list { grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); }
+}
+
+@media (max-width: 560px) {
+  .graduates-grid__list { grid-template-columns: repeat(3, 1fr); gap: var(--sp-2); }
+  .graduates-grid__item { border-radius: var(--r-btn); }
+}

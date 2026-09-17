@@ -1,0 +1,18 @@
+{# «Наш алгоритм проверен на десятках выпускников» — с getpublish-pb.ru/mentoring.
+   Те же 34 фото, что в облаке на главной, но ровной сеткой на тёмном фоне.
+   Порядок повторяет страницу-источник: graduates.grid в src/_data/graduates.json. #}
+<section class="section section--night graduates-grid">
+  <div class="container">
+    <h2 class="graduates-grid__title">Наш алгоритм проверен на десятках выпускников</h2>
+    <p class="lede graduates-grid__lede">Ниже малая их часть. Отправим ещё больше кейсов по запросу.</p>
+
+    <ul class="graduates-grid__list">
+      {% for file in graduates.grid %}
+      <li class="graduates-grid__item">
+        <img src="/assets/img/graduates/{{ file }}"
+             alt="Выпускник школы со своей книгой" width="320" height="320" loading="lazy">
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

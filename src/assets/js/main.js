@@ -53,6 +53,35 @@ if (modal) {
   });
 }
 
+// Форма заявки на наставничество (страница программ): валидация и подтверждение.
+// TODO: отправка в CRM/рассылку — адрес приёма заявок ждём от заказчика.
+const mentoringForm = document.querySelector("[data-mentoring-form]");
+
+if (mentoringForm) {
+  const submit = mentoringForm.querySelector("[data-mentoring-submit]");
+
+  submit.addEventListener("click", () => {
+    if (!mentoringForm.reportValidity()) return;
+
+    const name = mentoringForm.elements.name.value.trim();
+    const mentor = mentoringForm.elements.mentor.value;
+
+    const done = document.createElement("div");
+    done.className = "mform__done";
+
+    const heading = document.createElement("h3");
+    heading.textContent = "заявка принята";
+
+    const text = document.createElement("p");
+    text.textContent = mentor
+      ? `Спасибо, ${name}! Консультант свяжется с вами и согласует время диагностики с наставником ${mentor}.`
+      : `Спасибо, ${name}! Консультант свяжется с вами, подберёт наставника и согласует время диагностики.`;
+
+    done.append(heading, text);
+    mentoringForm.replaceChildren(done);
+  });
+}
+
 // Первый экран «Вселенная»: при скролле поле орбит разлетается и гаснет,
 // а бегущие строки достраивают вторую половину дорожки для бесшовной петли
 const universe = document.querySelector("[data-universe]");

@@ -11,7 +11,7 @@
           <img src="{{ person.photo }}" alt="{{ person.name }}" loading="lazy">
         </figure>
         <h3>{{ person.name }}</h3>
-        <p class="member__role">{{ person.role }}</p>
+        {% if person.role %}<p class="member__role">{{ person.role }}</p>{% endif %}
         <ul class="member__facts">
           {% for fact in person.facts %}
           <li>{{ fact }}</li>

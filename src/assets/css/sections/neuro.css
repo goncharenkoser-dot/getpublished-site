@@ -1,0 +1,152 @@
+/* «Нейросети для чайников» на странице программ: текст слева, портрет справа,
+   ниже — автор курса с тремя фактами-карточками и цитатой. */
+.neuro__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--sp-12);
+  align-items: end;
+}
+
+.neuro__text h2 {
+  max-width: 14ch;
+}
+
+.neuro__gains {
+  margin: var(--sp-6) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.neuro__gains li {
+  padding: var(--sp-4) var(--sp-5);
+  border-left: 4px solid var(--color-orange);
+  background: var(--color-cream-alt);
+  border-radius: 0 var(--r-btn) var(--r-btn) 0;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.neuro__text h3 {
+  margin-top: var(--sp-10);
+}
+
+.neuro__text h3 + p,
+.neuro__text p + p {
+  margin-top: var(--sp-3);
+  color: var(--color-taupe);
+}
+
+.neuro__acts {
+  margin-top: var(--sp-8);
+}
+
+.neuro__photo {
+  margin: 0;
+  padding: var(--sp-6) var(--sp-6) 0;
+  border-radius: var(--r-card);
+  background: var(--gradient-warm);
+  overflow: hidden;
+}
+
+.neuro__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* ---- автор курса ---- */
+.neuro__author {
+  margin-top: var(--sp-16);
+  padding-top: var(--sp-12);
+  border-top: 1px solid var(--color-line);
+}
+
+.neuro__author-title {
+  max-width: 30ch;
+}
+
+.neuro__facts {
+  margin: var(--sp-8) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4) var(--sp-8);
+}
+
+.neuro__facts li {
+  padding-left: var(--sp-4);
+  border-left: 2px solid var(--color-orange);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-taupe);
+}
+
+.neuro__facts b {
+  color: var(--color-ink);
+}
+
+.neuro__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+  list-style: none;
+  margin: var(--sp-12) 0 0;
+  padding: 0;
+}
+
+.neuro__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-card);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-taupe);
+}
+
+.neuro__stat b {
+  color: var(--color-orange-deep);
+}
+
+.neuro__stat-media {
+  margin: 0;
+  aspect-ratio: 5 / 3;
+  border-radius: var(--r-btn);
+  overflow: hidden;
+  background: var(--color-cream-alt);
+}
+
+.neuro__stat-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.neuro__quote {
+  max-width: 44rem;
+  margin: var(--sp-12) auto 0;
+  text-align: center;
+  font-size: var(--text-lead);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-orange-deep);
+}
+
+.neuro__quote::before { content: "«"; }
+.neuro__quote::after { content: "»"; }
+
+@media (max-width: 900px) {
+  .neuro__grid { grid-template-columns: 1fr; gap: var(--sp-8); }
+  .neuro__photo { max-width: 360px; }
+  .neuro__facts { grid-template-columns: 1fr; }
+  .neuro__stats { grid-template-columns: 1fr; }
+}

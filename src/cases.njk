@@ -4,6 +4,7 @@ title: Кейсы
 permalink: /cases/
 sectionStyles:
   - /assets/css/sections/listing.css
+  - /assets/css/sections/graduates-grid.css
 ---
 <section class="listing">
   <div class="container">
@@ -34,15 +35,4 @@ sectionStyles:
   </div>
 </section>
 
-<section class="section section--quiet books">
-  <div class="container">
-    <h2>книги выпускников школы</h2>
-    <ul class="books__grid">
-      {% for n in range(1, 26) %}
-      <li class="frame">
-        <img src="/assets/img/books/kniga-{{ n }}.jpg" alt="Книга выпускника школы" width="220" height="294" loading="lazy">
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
+{% include "sections/graduates-grid.njk" %}
