@@ -1,0 +1,179 @@
+{
+  "artboard": {
+    "width": 1200,
+    "height": 898,
+    "size": 140
+  },
+  "items": [
+    {
+      "file": "g-02.jpg",
+      "top": 8,
+      "left": 237
+    },
+    {
+      "file": "g-04.jpg",
+      "top": 8,
+      "left": 537
+    },
+    {
+      "file": "g-18.jpg",
+      "top": 8,
+      "left": 837
+    },
+    {
+      "file": "g-01.jpg",
+      "top": 83,
+      "left": 87
+    },
+    {
+      "file": "g-03.jpg",
+      "top": 83,
+      "left": 387
+    },
+    {
+      "file": "g-17.jpg",
+      "top": 83,
+      "left": 687
+    },
+    {
+      "file": "g-19.jpg",
+      "top": 83,
+      "left": 987
+    },
+    {
+      "file": "g-06.jpg",
+      "top": 158,
+      "left": 237
+    },
+    {
+      "file": "g-08.jpg",
+      "top": 158,
+      "left": 537
+    },
+    {
+      "file": "g-22.jpg",
+      "top": 158,
+      "left": 837
+    },
+    {
+      "file": "g-05.jpg",
+      "top": 233,
+      "left": 87
+    },
+    {
+      "file": "g-07.jpg",
+      "top": 233,
+      "left": 387
+    },
+    {
+      "file": "g-21.jpg",
+      "top": 233,
+      "left": 687
+    },
+    {
+      "file": "g-23.jpg",
+      "top": 233,
+      "left": 987
+    },
+    {
+      "file": "g-10.jpg",
+      "top": 308,
+      "left": 237
+    },
+    {
+      "file": "g-12.jpg",
+      "top": 308,
+      "left": 537
+    },
+    {
+      "file": "g-26.jpg",
+      "top": 308,
+      "left": 837
+    },
+    {
+      "file": "g-09.jpg",
+      "top": 383,
+      "left": 87
+    },
+    {
+      "file": "g-11.jpg",
+      "top": 383,
+      "left": 387
+    },
+    {
+      "file": "g-25.jpg",
+      "top": 383,
+      "left": 687
+    },
+    {
+      "file": "g-27.jpg",
+      "top": 383,
+      "left": 987
+    },
+    {
+      "file": "g-14.jpg",
+      "top": 458,
+      "left": 237
+    },
+    {
+      "file": "g-16.jpg",
+      "top": 458,
+      "left": 537
+    },
+    {
+      "file": "g-30.jpg",
+      "top": 458,
+      "left": 837
+    },
+    {
+      "file": "g-13.jpg",
+      "top": 533,
+      "left": 87
+    },
+    {
+      "file": "g-15.jpg",
+      "top": 533,
+      "left": 387
+    },
+    {
+      "file": "g-29.jpg",
+      "top": 533,
+      "left": 687
+    },
+    {
+      "file": "g-31.jpg",
+      "top": 533,
+      "left": 987
+    },
+    {
+      "file": "g-33.jpg",
+      "top": 608,
+      "left": 237
+    },
+    {
+      "file": "g-34.jpg",
+      "top": 608,
+      "left": 537
+    },
+    {
+      "file": "g-32.jpg",
+      "top": 608,
+      "left": 837
+    },
+    {
+      "file": "g-28.jpg",
+      "top": 683,
+      "left": 387
+    },
+    {
+      "file": "g-24.jpg",
+      "top": 683,
+      "left": 687
+    },
+    {
+      "file": "g-20.jpg",
+      "top": 758,
+      "left": 537
+    }
+  ]
+}

@@ -1,31 +1,31 @@
-/* Выпускники с книгами: облако круглых фото. Нечётные кружки чуть
-   опущены — ряд читается волной, а не таблицей. */
+/* Выпускники с книгами: облако круглых фото в форме сердца.
+   На широких экранах каждый кружок стоит на своём месте из оригинального
+   блока (координаты в процентах от артборда 1200×898 приходят инлайном:
+   --gr-x, --gr-y, --gr-size). Уже 900px — обычное облако с волной. */
 .graduates__title {
   max-width: 20ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.graduates__lede {
+  margin-inline: auto;
+  text-align: center;
 }
 
 .graduates__cloud {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--sp-5) var(--sp-4);
   list-style: none;
   margin: var(--sp-12) 0 0;
-  padding: 0 0 var(--sp-5);
+  padding: 0;
 }
 
 .graduates__item {
-  width: clamp(76px, 11vw, 136px);
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
   background: var(--color-line);
   box-shadow: var(--shadow-soft);
   transition: transform .3s var(--ease);
-}
-
-.graduates__item:nth-child(odd) {
-  transform: translateY(var(--sp-4));
 }
 
 .graduates__item img {
@@ -35,9 +35,44 @@
   display: block;
 }
 
-@media (hover: hover) {
-  .graduates__item:hover { transform: scale(1.08); z-index: 1; }
-  .graduates__item:nth-child(odd):hover { transform: translateY(var(--sp-4)) scale(1.08); }
+/* Сердце: позиционированный артборд с пропорциями оригинала */
+@media (min-width: 901px) {
+  .graduates__cloud {
+    position: relative;
+    aspect-ratio: var(--gr-ratio, 1200 / 898);
+    max-width: 1152px;
+    margin-inline: auto;
+  }
+
+  .graduates__item {
+    position: absolute;
+    left: var(--gr-x);
+    top: var(--gr-y);
+    width: var(--gr-size, 11.667%);
+  }
+}
+
+@media (min-width: 901px) and (hover: hover) {
+  .graduates__item:hover { transform: scale(1.1); z-index: 1; }
+}
+
+/* Узкие экраны: обычное облако, нечётные кружки чуть опущены — волна */
+@media (max-width: 900px) {
+  .graduates__cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-5) var(--sp-4);
+    padding-bottom: var(--sp-5);
+  }
+
+  .graduates__item {
+    width: clamp(76px, 11vw, 136px);
+  }
+
+  .graduates__item:nth-child(odd) {
+    transform: translateY(var(--sp-4));
+  }
 }
 
 @media (max-width: 560px) {
