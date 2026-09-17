@@ -2,7 +2,7 @@
 module.exports = [
   {
     name: "Ирина Гусинская",
-    photo: "/assets/img/team/irina-gusinskaya.jpg",
+    photo: "/assets/img/team/irina-gusinskaya-color.jpg",
     role: "Зам. главного редактора крупного издательства, книжный продюсер, сооснователь школы",
     facts: [
       "20+ лет в профессии, шесть редакций за плечами",
