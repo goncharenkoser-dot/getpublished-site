@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вы зарегистрированы</title>
+<meta name="robots" content="noindex">
+<!--
+  ПЕРЕНОС НА ТИЛЬДУ — страница «спасибо» после отправки формы регистрации.
+  Один блок: Zero Block или CR-обложка с картинкой слева и текстом справа (например, CR27), плюс две кнопки.
+  В настройках формы на лендинге: «После отправки» → «Перейти на страницу» → адрес этой страницы.
+  Картинка: img/author.jpg. Цвета и шрифты — как на лендинге: фон #0E0B09, текст #F5EFE6, приглушённый #CDBFA9, акцент #F2B15B, кнопка #F2B15B с текстом #1A1208.
+  Заменить перед публикацией: ссылки на чат в Telegram и MAX (кнопки ниже).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;7..72,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{--bg:#0E0B09;--panel:#1A1410;--line:#3A2E24;--ink:#F5EFE6;--muted:#CDBFA9;--accent:#F2B15B;--accent-ink:#1A1208}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100vh;background:radial-gradient(1000px 700px at 75% 20%,#4a2a10 0%,#22150c 45%,#0E0B09 100%);color:var(--ink);font:17px/1.55 "IBM Plex Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+  .card{max-width:960px;width:100%;display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center}
+  .photo{border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);aspect-ratio:3/4}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;display:block}
+  .cap{margin-top:12px;color:var(--muted);font-size:14px}
+  .cap b{color:var(--ink);font-weight:500}
+  .eyebrow{font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-size:13px}
+  h1{font-family:Literata,Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(32px,4.6vw,48px);line-height:1.1;margin-top:12px;text-wrap:balance}
+  p{margin-top:16px;color:var(--muted);max-width:36em}
+  p b{color:var(--ink);font-weight:500}
+  .chat{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+  .chat h2{font-family:Literata,Georgia,serif;font-weight:600;font-size:22px;line-height:1.25;text-wrap:balance}
+  .chat ul{list-style:none;margin:12px 0 0;display:grid;gap:8px;color:var(--muted);font-size:16px}
+  .chat li{padding-left:18px;position:relative}
+  .chat li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:16px;padding:14px 22px;border-radius:12px;text-decoration:none;transition:filter .12s ease}
+  .btn:hover{filter:brightness(1.06)} .btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .foot{margin-top:22px;color:var(--muted);font-size:14px}
+  @media (max-width:760px){
+    body{padding:24px 16px;align-items:flex-start}
+    .card{grid-template-columns:1fr;gap:22px}
+    .photo{width:min(100%,280px);aspect-ratio:3/4}
+    .btns .btn{width:100%}
+  }
+</style>
+</head>
+<body>
+<main class="card">
+  <div>
+    <div class="photo"><img src="img/author.jpg" alt="Георгий Чистов, писатель"></div>
+    <div class="cap"><b>Георгий Чистов</b>, автор дилогии «Парадокс Джона». Никаких продаж — только ИИ‑инструменты для писателей.</div>
+  </div>
+  <div>
+    <div class="eyebrow">Четверг 24 сентября · 19:00 мск · Zoom</div>
+    <h1>Спасибо, вы зарегистрированы!</h1>
+    <p>Ждём вас на эфире «Нейросети глазами писателя». <b>Ссылка на Zoom придёт в день эфира</b> — на почту и в чат, за час до начала.</p>
+    <div class="chat">
+      <h2>А пока — заходите в чат «Нейросреда»</h2>
+      <ul>
+        <li>Писательские ИИ‑лайфхаки и конкретные инструменты — не только на эфирах, но и в чате</li>
+        <li>Задайте свой вопрос Георгию — лучшие разберём в эфире. Стыдных вопросов нет</li>
+        <li>Живое общение писателей с писателями</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="#tg">Перейти в чат в Telegram</a>
+        <a class="btn alt" href="#max">Перейти в чат в MAX</a>
+      </div>
+    </div>
+    <div class="foot">GetPublishED · до встречи в четверг в 19:00 мск</div>
+  </div>
+</main>
+</body>
+</html>

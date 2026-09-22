@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Нейросети глазами писателя</title>
+<meta name="description" content="Прямой эфир с писателем Георгием Чистовым 24 сентября в 19:00 мск. Никаких продаж — только ИИ-инструменты для писателей. Регистрация бесплатная.">
+<!--
+  ПЕРЕНОС НА ТИЛЬДУ — карта блоков (каждая секция ниже помечена комментарием):
+  [T1] Шапка/обложка → Zero Block или CR-обложка (например, CR27): фото слева, заголовок и кнопка справа.
+  [T2] «Что будет на эфире» → блок «Преимущества» FT-серии (FT201/FT204): 3 карточки с заголовком и текстом.
+  [T3] Форма регистрации → блок «Форма» BF-серии (BF204 / BF502): поля Имя, Email, Телефон; приём в GetCourse или CRM через Tilda Forms.
+  [T4] «Кто ведёт» → блок «Команда/О спикере» (TM-серия или Zero Block).
+  [T5] Подвал → FT-серия (FT301).
+  Цвета: фон #0E0B09, панель #1A1410, текст #F5EFE6, приглушённый #CDBFA9, акцент #F2B15B, линия #3A2E24.
+  Шрифты: заголовки Literata (или PT Serif в Тильде), текст IBM Plex Sans (или Roboto/Inter). Кнопка: заливка #F2B15B, текст #1A1208.
+  Картинки лежат в папке img/: author.jpg, cover1.jpg, cover2.jpg, sergey.jpg — загрузить в Тильду отдельно.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,600;0,7..72,700;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{--bg:#0E0B09;--panel:#1A1410;--panel2:#221A14;--line:#3A2E24;--ink:#F5EFE6;--muted:#CDBFA9;--accent:#F2B15B;--accent-ink:#1A1208}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:17px/1.55 "IBM Plex Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%}
+  .wrap>*{min-width:0}
+  a{color:var(--accent)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-size:13px}
+  h1,h2{font-family:Literata,Georgia,"Times New Roman",serif;font-weight:700;line-height:1.08;text-wrap:balance}
+  h1{font-size:clamp(38px,5.6vw,64px);margin-top:14px;letter-spacing:-.01em}
+  h2{font-size:clamp(26px,3.2vw,36px);font-weight:600}
+  .lead{font-size:20px;color:var(--ink);margin-top:20px;max-width:34em}
+  .lead em{font-family:Literata,Georgia,serif;font-style:italic;color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:17px;padding:16px 28px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;transition:transform .12s ease,filter .12s ease}
+  .btn:hover{filter:brightness(1.06)} .btn:active{transform:translateY(1px)}
+  .btn:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  /* [T1] hero */
+  .hero{position:relative;overflow:hidden;background:radial-gradient(1100px 700px at 80% 30%,#4a2a10 0%,#22150c 45%,#0E0B09 100%)}
+  .hero .wrap{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:56px;align-items:center;padding-top:56px;padding-bottom:64px}
+  .photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);aspect-ratio:2/3}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;display:block}
+  .covers{position:absolute;right:-8px;bottom:-14px;display:flex;gap:6px}
+  .covers img{width:74px;border-radius:4px;box-shadow:0 12px 24px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.12)}
+  .covers img:first-child{transform:rotate(-7deg)} .covers img:last-child{transform:rotate(6deg)}
+  .facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;color:var(--muted);font-size:15px}
+  .nosale{font-family:Literata,Georgia,serif;font-weight:700;font-size:20px;line-height:1.3;color:var(--accent);margin-top:18px;text-wrap:balance}
+  .side{display:grid;gap:0}
+  .facts span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin:0 10px 2px 0}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;align-items:center}
+  .cta small{color:var(--muted);font-size:14px}
+  /* [T2] what */
+  .what{padding:64px 0}
+  .what h2{margin-bottom:8px}
+  .what .sub{color:var(--muted);max-width:40em}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+  .card .n{font-family:Literata,Georgia,serif;font-size:34px;color:var(--accent);line-height:1}
+  .card h3{font-family:Literata,Georgia,serif;font-size:22px;font-weight:600;margin:14px 0 10px;text-wrap:balance}
+  .card p{color:var(--muted);font-size:16px}
+  .card p b{color:var(--ink);font-weight:500}
+  /* [T3] form */
+  .reg{padding:8px 0 72px}
+  .reg .box{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:40px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  .reg h2{margin-bottom:12px}
+  .reg .box p{color:var(--muted)}
+  .reg ul{margin-top:18px;list-style:none;display:grid;gap:8px;color:var(--muted);font-size:15px}
+  .reg li::before{content:"—";color:var(--accent);margin-right:10px}
+  form{display:grid;gap:12px}
+  label{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  input{width:100%;background:#0E0B09;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font:inherit}
+  input::placeholder{color:#7d6f5f}
+  .field{display:grid;gap:6px}
+  .consent{font-size:13px;color:var(--muted);line-height:1.45}
+  .thanks{display:none;background:var(--panel);border:1px solid var(--accent);border-radius:14px;padding:22px;text-align:center}
+  .thanks b{display:block;font-family:Literata,Georgia,serif;font-size:22px;margin-bottom:6px}
+  /* [T4] host */
+  .host{padding:0 0 72px}
+  .host .box{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid var(--line);padding-top:48px}
+  .host blockquote{font-family:Literata,Georgia,serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink)}
+  .host blockquote footer{font-family:"IBM Plex Sans",Arial,sans-serif;font-style:normal;font-size:15px;color:var(--muted);margin-top:14px}
+  .host p{color:var(--muted);margin-top:10px}
+  .host p b{color:var(--ink);font-weight:500}
+  .host .pro{list-style:none;margin:16px 0 6px;display:grid;gap:10px;color:var(--muted);font-size:16px}
+  .host .pro li{padding-left:18px;position:relative}
+  .host .pro li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .host .pro b{color:var(--ink);font-weight:500}
+  .cohost{display:flex;align-items:center;gap:14px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+  .cohost p{margin:0}
+  .avatar{position:relative;width:84px;height:84px;border-radius:50%;overflow:hidden;flex:0 0 84px;background:var(--panel2);border:1px solid var(--line)}
+  .avatar img{position:absolute;max-width:none;width:260%;height:260%;left:-40%;top:-23%;object-fit:cover;display:block}
+  .avatar span{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-family:Literata,Georgia,serif;font-weight:600;color:var(--accent);font-size:20px}
+  .avatar.noimg span{display:flex}
+  /* [T5] footer */
+  .foot{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+  .foot b{color:var(--ink);font-weight:600;letter-spacing:.04em}
+  @media (max-width:860px){
+    body{font-size:16px}
+    .wrap{padding:0 18px}
+    .hero .wrap{grid-template-columns:1fr;gap:26px;padding-top:28px;padding-bottom:40px}
+    .side{justify-items:start}
+    .photo{width:min(100%,320px);aspect-ratio:3/4}
+    .covers img{width:64px}
+    .nosale{font-size:18px}
+    .lead{font-size:18px;margin-top:14px}
+    .facts{flex-direction:column;gap:8px}
+    .cta{margin-top:22px}
+    .cta .btn,form .btn{width:100%}
+    .what{padding:44px 0}
+    .cards{grid-template-columns:1fr;gap:12px}
+    .card{padding:22px 20px}
+    .reg{padding-bottom:48px}
+    .reg .box,.host .box{grid-template-columns:1fr;padding:24px 18px;gap:24px}
+    .host{padding-bottom:48px}
+    .host blockquote{font-size:19px}
+    input{font-size:16px;padding:14px}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- [T1] ШАПКА / ОБЛОЖКА -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="side">
+    <div class="photo">
+      <img src="img/author.jpg" alt="Георгий Чистов, писатель">
+      <div class="covers"><img src="img/cover1.jpg" alt="Обложка книги «Парадокс Джона. Кратчайший путь»"><img src="img/cover2.jpg" alt="Обложка книги «Парадокс Джона. Творец»"></div>
+    </div>
+    <p class="nosale">Никаких продаж — только ИИ‑инструменты для писателей.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Прямой эфир · четверг 24 сентября · 19:00 мск · бесплатно</div>
+      <h1>Нейросети глазами писателя</h1>
+      <p class="lead">Георгий Чистов, автор дилогии «Парадокс Джона», покажет на экране, как нейросеть работает на книгу, не написав в ней ни одной фразы.</p>
+      <div class="facts"><span>Эфир в Zoom</span><span>Вопросы можно задать заранее в чате ТГ/Макс — ссылка придёт после регистрации</span></div>
+      <div class="cta"><a class="btn" href="#reg">Зарегистрироваться на эфир</a><small>Ссылка для участия придёт за час до эфира</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- [T2] ЧТО БУДЕТ НА ЭФИРЕ -->
+<section class="what" id="what">
+  <div class="wrap">
+    <div class="eyebrow">Что будет на эфире</div>
+    <h2>Полтора часа без презентаций</h2>
+    <p class="sub">Вы давно просили рассказать, как нейросети используют писатели. Рассказывает и показывает писатель.</p>
+    <div class="cards">
+      <article class="card">
+        <div class="n">1</div>
+        <h3>Ответы на любые ваши вопросы</h3>
+        <p>Задайте вопрос заранее или прямо в эфире. <b>Стыдных вопросов нет:</b> «врёт», «всё забывает», «пишет без души», «какую выбрать», «тексты утекут» — разберём каждый.</p>
+      </article>
+      <article class="card">
+        <div class="n">2</div>
+        <h3>Только практика — в живом режиме</h3>
+        <p>На экране решаем <b>ваши писательские и не только задачи</b>: отредактировать, не трогая стиль; собрать структуру из разрозненных кусков; проверить факты; превратить надиктовку в текст; написать письмо издателю. Как руками — и как с помощником.</p>
+      </article>
+      <article class="card">
+        <div class="n">3</div>
+        <h3>Ламповый разговор писателя с писателями</h3>
+        <p>Не вебинар, а встреча в Zoom: <b>писатель говорит с писателями</b> о своём пути, ошибках и о том, что нейросеть делать не должна. Без продаж и без обещаний «книга за 30 дней».</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- [T3] ФОРМА РЕГИСТРАЦИИ -->
+<section class="reg" id="reg">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <div class="eyebrow">Регистрация</div>
+        <h2>Займите место в Zoom</h2>
+        <p>Эфир бесплатный. После регистрации на почту придёт приглашение в чат «Нейросреда» в Telegram и MAX — там вопросы Георгию, напоминания и запись. Ссылка для участия придёт за час до эфира.</p>
+        <ul>
+          <li>Четверг 24 сентября, 19:00 по Москве</li>
+          <li>Zoom — вопрос можно задать голосом</li>
+        </ul>
+      </div>
+      <div>
+        <!-- На Тильде заменить на блок «Форма» (BF204/BF502): поля Имя, Email, Телефон; приёмник — GetCourse / CRM -->
+        <form id="regform" novalidate>
+          <div class="field"><label for="name">ФИО</label><input id="name" name="name" type="text" placeholder="Иванова Мария Петровна" required autocomplete="name"></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email"></div>
+          <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" placeholder="+7 900 000-00-00" required autocomplete="tel"></div>
+          <button class="btn" type="submit">Зарегистрироваться на эфир</button>
+          <p class="consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и даёте согласие на обработку персональных данных.</p>
+        </form>
+        <div class="thanks" id="thanks"><b>Вы зарегистрированы</b>Приглашение в чат «Нейросреда» придёт на почту, ссылка для участия — за час до эфира. До встречи в четверг в 19:00 мск.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [T4] КТО ВЕДЁТ -->
+<section class="host" id="host">
+  <div class="wrap">
+    <div class="box">
+      <blockquote>«Я не айтишник. Инженер по образованию, потом кормил людей — кейтеринг, потом онлайн‑школа. Первую книгу издавал три месяца, с корректором за 45 тысяч. Вторую выпустил за месяц — вместе с переводом и трейлером. И нейросеть не написала в моих книгах ни одной фразы».<footer>Георгий Чистов, автор дилогии «Парадокс Джона»</footer></blockquote>
+      <div>
+        <div class="eyebrow">Кто ведёт</div>
+        <p><b>Георгий Чистов</b> — писатель, автор дилогии «Парадокс Джона» («Кратчайший путь», «Творец»). Сейчас в Тампе: издаёт книги на английском и показывает продюсерам сценарий по ним.</p>
+        <ul class="pro">
+          <li><b>Делает ИИ‑помощников на заказ</b> — 14 работают у клиентов: AI‑куратор онлайн‑школы, координатор федерального проекта для аудитории 55+, переводчик, исследователь, квалификатор заявок.</li>
+          <li><b>Сайт своей книги с оплатой</b> собрал словами, без кода, за два дня; <b>приложение для онлайн‑школы на 774 участницы</b> — за 31 день, не открыв учебник по программированию.</li>
+          <li><b>Обе книги перевёл на английский за неделю</b> по своим правилам; после живого корректора нейросеть нашла в первой книге ещё больше тысячи ошибок.</li>
+          <li><b>Работает с Claude, Codex и Gemini каждый день</b> — на книгу, документы, поездки и бизнес клиентов. Первого помощника собрал в конце 2025‑го.</li>
+        </ul>
+        <div class="cohost">
+          <div class="avatar"><img src="img/sergey.jpg" alt="Сергей Гончаренко" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>СГ</span></div>
+          <p><b>Сергей Гончаренко</b>, сооснователь и директор GetPublishED.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [T5] ПОДВАЛ -->
+<footer class="foot">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center"><b>GetPublishED</b><span>Прямой эфир «Нейросети глазами писателя» · 24 сентября 2026, 19:00 мск</span><a href="#top">Наверх</a></div>
+</footer>
+
+<script>
+  // Демо-обработчик: на Тильде форма отправляется её же блоком. Здесь — проверка полей и экран «спасибо».
+  document.getElementById('regform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = this, ok = true;
+    ['name','email','phone'].forEach(function (id) {
+      var el = f.querySelector('#' + id); var v = el.value.trim();
+      var valid = id === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) : id === 'phone' ? v.replace(/\D/g,'').length >= 10 : v.length >= 3;
+      el.style.borderColor = valid ? '' : '#E1836F'; if (!valid) ok = false;
+    });
+    if (!ok) return;
+    // Временная форма: заявка пока не сохраняется. После подключения формы GetCourse этот скрипт удаляется.
+    location.href = 'thanks.html';
+  });
+</script>
+</body>
+</html>
