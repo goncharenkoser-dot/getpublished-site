@@ -73,6 +73,9 @@
   input{width:100%;background:#0E0B09;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:14px 16px;font:inherit}
   input::placeholder{color:#7d6f5f}
   .field{display:grid;gap:6px}
+  .gc-embed{min-height:220px}
+  .gc-embed input{background:#0E0B09 !important;border:1px solid var(--line) !important;color:var(--ink) !important;border-radius:10px !important}
+  .gc-embed button,.gc-embed .btn{background:var(--accent) !important;color:var(--accent-ink) !important;border:0 !important;border-radius:12px !important;font-weight:600 !important}
   .consent{font-size:13px;color:var(--muted);line-height:1.45}
   .thanks{display:none;background:var(--panel);border:1px solid var(--accent);border-radius:14px;padding:22px;text-align:center}
   .thanks b{display:block;font-family:Literata,Georgia,serif;font-size:22px;margin-bottom:6px}
@@ -182,15 +185,11 @@
         </ul>
       </div>
       <div>
-        <!-- На Тильде заменить на блок «Форма» (BF204/BF502): поля Имя, Email, Телефон; приёмник — GetCourse / CRM -->
-        <form id="regform" novalidate>
-          <div class="field"><label for="name">ФИО</label><input id="name" name="name" type="text" placeholder="Иванова Мария Петровна" required autocomplete="name"></div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email"></div>
-          <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" placeholder="+7 900 000-00-00" required autocomplete="tel"></div>
-          <button class="btn" type="submit">Зарегистрироваться на эфир</button>
-          <p class="consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и даёте согласие на обработку персональных данных.</p>
-        </form>
-        <div class="thanks" id="thanks"><b>Вы зарегистрированы</b>Приглашение в чат «Нейросреда» придёт на почту, ссылка для участия — за час до эфира. До встречи в четверг в 19:00 мск.</div>
+        <!-- Форма GetCourse (виджет 1659472): заявки попадают в аккаунт getpublish.getcourse.ru. Переход на страницу «спасибо» настраивается в самом виджете. -->
+        <div class="gc-embed">
+          <script id="1c95618a5fbf8ec95d83ba9d694987e177956c15" src="https://getpublish.getcourse.ru/pl/lite/widget/script?id=1659472"></script>
+        </div>
+        <p class="consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и даёте согласие на обработку персональных данных.</p>
       </div>
     </div>
   </div>
@@ -224,20 +223,6 @@
   <div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center"><b>GetPublishED</b><span>Прямой эфир «Нейросети глазами писателя» · 24 сентября 2026, 19:00 мск</span><a href="#top">Наверх</a></div>
 </footer>
 
-<script>
-  // Демо-обработчик: на Тильде форма отправляется её же блоком. Здесь — проверка полей и экран «спасибо».
-  document.getElementById('regform').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var f = this, ok = true;
-    ['name','email','phone'].forEach(function (id) {
-      var el = f.querySelector('#' + id); var v = el.value.trim();
-      var valid = id === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) : id === 'phone' ? v.replace(/\D/g,'').length >= 10 : v.length >= 3;
-      el.style.borderColor = valid ? '' : '#E1836F'; if (!valid) ok = false;
-    });
-    if (!ok) return;
-    // Временная форма: заявка пока не сохраняется. После подключения формы GetCourse этот скрипт удаляется.
-    location.href = 'thanks.html';
-  });
-</script>
+
 </body>
 </html>
