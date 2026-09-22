@@ -17,9 +17,10 @@
 <style>
   :root{--bg:#0E0B09;--panel:#1A1410;--line:#3A2E24;--ink:#F5EFE6;--muted:#CDBFA9;--accent:#F2B15B;--accent-ink:#1A1208}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{min-height:100vh;background:radial-gradient(1000px 700px at 75% 20%,#4a2a10 0%,#22150c 45%,#0E0B09 100%);color:var(--ink);font:17px/1.55 "IBM Plex Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;padding:40px 20px}
-  .card{max-width:960px;width:100%;display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center}
-  .photo{border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);aspect-ratio:3/4}
+  /* mobile first: базовые стили — для телефона, десктоп в @media (min-width:761px) */
+  body{min-height:100vh;background:radial-gradient(1000px 700px at 75% 20%,#4a2a10 0%,#22150c 45%,#0E0B09 100%);color:var(--ink);font:16px/1.55 "IBM Plex Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px))}
+  .card{max-width:960px;width:100%;display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+  .photo{width:min(100%,280px);border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);aspect-ratio:3/4}
   .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;display:block}
   .cap{margin-top:12px;color:var(--muted);font-size:14px}
   .cap b{color:var(--ink);font-weight:500}
@@ -33,16 +34,16 @@
   .chat li{padding-left:18px;position:relative}
   .chat li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
   .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:16px;padding:14px 22px;border-radius:12px;text-decoration:none;transition:filter .12s ease}
+  .btn{display:inline-flex;width:100%;align-items:center;justify-content:center;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:16px;padding:14px 22px;border-radius:12px;text-decoration:none;transition:filter .12s ease}
   .btn:hover{filter:brightness(1.06)} .btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
   .btn[hidden]{display:none !important}
   .foot{margin-top:22px;color:var(--muted);font-size:14px}
-  @media (max-width:760px){
-    body{padding:24px 16px;align-items:flex-start}
-    .card{grid-template-columns:1fr;gap:22px}
-    .photo{width:min(100%,280px);aspect-ratio:3/4}
-    .btns .btn{width:100%}
+  @media (min-width:761px){
+    body{font-size:17px;align-items:center;padding:40px 20px}
+    .card{grid-template-columns:300px 1fr;gap:44px}
+    .photo{width:auto}
+    .btn{width:auto}
   }
 </style>
 </head>
